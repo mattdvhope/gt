@@ -70,6 +70,7 @@ export default class Banner extends Component {
                   className="fab fa-line"
                   href={data.line}
                   target="_blank"
+                  style={{ fontSize: `200%` }}
                   rel="line app"
                 ></a>
               </li>
