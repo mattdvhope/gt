@@ -3337,7 +3337,8 @@
         },
         "file": {
           "en-US": {
-            "url": "//images.ctfassets.net/4bwt4pzmqo4p/7yHuAa09NVOcZ25POk7cbM/bc1930c39aba010b01a493082ba0bc99/rohitgupta-white.png",
+            // "url": "//images.ctfassets.net/4bwt4pzmqo4p/7yHuAa09NVOcZ25POk7cbM/bc1930c39aba010b01a493082ba0bc99/rohitgupta-white.png",
+            "url": "/birds-white.png",
             "details": {
               "size": 1741,
               "image": {
