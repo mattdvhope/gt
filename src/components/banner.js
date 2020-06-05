@@ -4,6 +4,9 @@ import Img from "gatsby-image";
 export default class Banner extends Component {
   render() {
     const { data } = this.props;
+
+    console.log(data.line)
+
     return (
       <div className="banner">
         <Img
@@ -30,7 +33,7 @@ export default class Banner extends Component {
                   rel="noopener noreferrer"
                 ></a>
               </li>
-              <li>
+          {/* <li>
                 <a
                   className="fab fa-twitter"
                   href={data.twitter}
@@ -56,10 +59,18 @@ export default class Banner extends Component {
               </li>
               <li>
                 <a
-                  className="fab fa-github"
+                  className="fab fa-line"
                   href={data.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                ></a>
+              </li>  */}
+              <li>
+                <a
+                  className="fab fa-line"
+                  href={data.line}
+                  target="_blank"
+                  rel="line app"
                 ></a>
               </li>
             </ul>

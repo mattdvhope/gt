@@ -96,6 +96,7 @@ export const pageQuery = graphql`
       instagram
       linkdin
       twitter
+      line
       location
       description {
         childMarkdownRemark {
