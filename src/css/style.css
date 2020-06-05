@@ -43,7 +43,7 @@ body{margin:0;background:#fafafe}
 .about-details .details li{display:flex;align-items:center;margin-bottom:10px}
 .about-details .details li p{margin:0}
 .about-details .details li strong{width:160px}
-.about-details .socials ul{margin:0;padding:0;list-style:none;display:flex}
+.about-details .socials ul{margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;width:85px;padding:0;list-style:none;display:flex}
 .about-details .socials ul li{margin-right:10px}
 .about-details .socials ul li a{text-decoration:none;width:40px;height:40px;display:flex;justify-content:center;align-items:center;border:2px solid #333;color:#333;position:relative;overflow:hidden}
 .about-details .socials ul li a:before{position:relative;z-index:1}

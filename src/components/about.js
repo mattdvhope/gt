@@ -16,7 +16,7 @@ const Header = ({ data }) => (
           <div className="about-details">
             <span className="name">เราเป็น "{data.name}"</span>
             <h2 className="sub-position">
-              I'm a Professional {data.designation}.
+              {data.designation}
             </h2>
             <div
               dangerouslySetInnerHTML={{
@@ -24,7 +24,7 @@ const Header = ({ data }) => (
               }}
             />
             <ul className="details">
-              <li>
+          {/* <li>
                 <strong>Full Name</strong>
                 <p>{data.name}</p>
               </li>
@@ -41,7 +41,7 @@ const Header = ({ data }) => (
                 <p>
                   <a href={`mailto:${data.gmail}`}>{data.gmail}</a>
                 </p>
-              </li>
+              </li>  */}
             </ul>
             <div className="socials">
               <ul>
@@ -53,7 +53,7 @@ const Header = ({ data }) => (
                     rel="noopener noreferrer"
                   ></a>
                 </li>
-                <li>
+            {/* <li>
                   <a
                     className="fab fa-twitter"
                     href={data.twitter}
@@ -83,6 +83,14 @@ const Header = ({ data }) => (
                     href={data.github}
                     target="_blank"
                     rel="noopener noreferrer"
+                  ></a>
+                </li>  */}
+                <li>
+                  <a
+                    className="fab fa-line"
+                    href={data.line}
+                    target="_blank"
+                    rel="line app"
                   ></a>
                 </li>
               </ul>
