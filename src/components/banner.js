@@ -14,11 +14,11 @@ export default class Banner extends Component {
         <div className="container">
           <div className="banner-details">
             <h1>สายสัมพันธ์ ความสุข</h1> {/* <h1>I'm {data.designation}.</h1> */} 
-            <span>ด้วยความรัก...</span>
+            <span style={{ fontSize: `200%` }}>ด้วยความรัก...</span>
             <br/>
             <ul className="sub-data">
               {data.bannerList.map((item, index) => {
-                return <li key={index}>{item}</li>;
+                return <li key={index} style={{ fontSize: `190%` }}>{item}</li>;
               })}
             </ul>
             <ul className="social">
