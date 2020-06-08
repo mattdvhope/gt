@@ -40,7 +40,7 @@ const Layout = ({ children, header }) => (
           dangerouslySetInnerHTML={{ __html: `
             window.fbAsyncInit = function() {
               FB.init({
-                appId      : '2631589053776780',
+                appId      : '1153251771692328',
                 xfbml      : true,
                 version    : 'v7.0'
               });
