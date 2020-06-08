@@ -20,13 +20,10 @@ const Header = ({ data }) => (
             </h2>
 
             <div
-              className="fb-login-button"
-              data-size="large"
-              data-button-type="continue_with"
-              data-layout="default"
-              data-auto-logout-link="true"
-              data-use-continue-as="false"
-              data-width=""
+              class="fb-like"
+              data-share="true"
+              data-width="450"
+              data-show-faces="true"
             />
 
             <div
