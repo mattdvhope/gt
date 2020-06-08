@@ -20,7 +20,7 @@ const Header = ({ data }) => (
             </h2>
 
             <div
-              class="fb-like"
+              className="fb-like"
               data-share="true"
               data-width="450"
               data-show-faces="true"
