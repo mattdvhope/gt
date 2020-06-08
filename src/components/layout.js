@@ -55,6 +55,12 @@ const Layout = ({ children, header }) => (
              }(document, 'script', 'facebook-jssdk'));
           `}}
         />
+        <div id="fb-root"></div>
+        <script async defer
+          crossOrigin="anonymous"
+          src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=961866087597091&autoLogAppEvents=1"
+        />
+
 
         <Header
           data={data.contentfulSiteInformation}
