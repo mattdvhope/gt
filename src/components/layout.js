@@ -58,7 +58,7 @@ const Layout = ({ children, header }) => (
         <div id="fb-root"></div>
         <script async defer
           crossOrigin="anonymous"
-          src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=961866087597091&autoLogAppEvents=1"
+          src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v7.0&appId=961866087597091&autoLogAppEvents=1"
         />
 
 

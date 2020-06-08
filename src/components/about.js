@@ -25,11 +25,9 @@ const Header = ({ data }) => (
               data-button-type="continue_with"
               data-layout="default"
               data-auto-logout-link="false"
-              data-use-continue-as="true"
+              data-use-continue-as="false"
               data-width=""
             />
-
-            <h1>HELLO!!!!!</h1>
 
             <div
               dangerouslySetInnerHTML={{
