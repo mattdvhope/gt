@@ -2,9 +2,10 @@ import React from "react"
 import { Helmet } from 'react-helmet'
 
 export default () => (
-	
 	<Helmet>
 
+		{/* FB SDK */}
+		
   	<script
       dangerouslySetInnerHTML={{ __html: `
         window.fbAsyncInit = function() {
@@ -27,11 +28,6 @@ export default () => (
 			   console.log("loading SDK!!!!!!!!!!!!!!!!!!!!")
 
        `}}
-    />
-    <div id="fb-root"></div>
-    <script async defer
-      crossOrigin="anonymous"
-      src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v7.0&appId=2631589053776780&autoLogAppEvents=1"
     />
 
   </Helmet>
