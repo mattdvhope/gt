@@ -36,24 +36,25 @@ const Layout = ({ children, header }) => (
           dangerouslySetInnerHTML={{ __html: `
             window.fbAsyncInit = function() {
               FB.init({
-                appId            : '1153251771692328',
-                autoLogAppEvents : true,
-                xfbml            : true,
-                version          : 'v7.0'
+                appId      : '1153251771692328',
+                xfbml      : true,
+                version    : 'v7.0'
               });
+              FB.AppEvents.logPageView();
             };
+
+            (function(d, s, id){
+               var js, fjs = d.getElementsByTagName(s)[0];
+               if (d.getElementById(id)) {return;}
+               js = d.createElement(s); js.id = id;
+               js.src = "https://connect.facebook.net/th_TH/sdk.js";
+               fjs.parentNode.insertBefore(js, fjs);
+             }(document, 'script', 'facebook-jssdk'));
 
              console.log("loading SDK!!!!!!!!!!!!!!!!!!!!")
 
            `}}
         />
-
-        
-        <script async defer src="https://connect.facebook.net/th_TH/sdk.js"></script>
-
-
-
-
         <Header
           data={data.contentfulSiteInformation}
           siteTitle={data.contentfulSiteInformation.siteName}
