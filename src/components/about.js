@@ -1,7 +1,8 @@
 import React from "react";
 import Img from "gatsby-image";
+import { FacebookProvider, Like } from 'react-facebook';
 
-const Header = ({ data }) => (
+export default ({ data }) => (
   <div className="about section" id="About">
     <div className="container">
       <div className="about-main row">
@@ -19,13 +20,11 @@ const Header = ({ data }) => (
               {data.designation}
             </h2>
 
-            <div
-              className="fb-like"
-              data-share="true"
-              data-width="450"
-              data-show-faces="true">
-            </div>
+            <FacebookProvider appId="1153251771692328">
+              <Like href="http://www.facebook.com/สายสัมพันธ์-106619367753772" colorScheme="dark" showFaces share />
+            </FacebookProvider>
 
+            <br/>
             <div
               dangerouslySetInnerHTML={{
                 __html: data.description.childMarkdownRemark.html
@@ -110,5 +109,3 @@ const Header = ({ data }) => (
     </div>
   </div>
 );
-
-export default Header;
