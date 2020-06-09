@@ -11,7 +11,7 @@ import Share from "../components/share";
 export default class blogPost extends Component {
   render() {
     const data = this.props.data.contentfulBlogs;
-    const disqusShortname = "RohitGupta";
+    const disqusShortname = "สายสัมพันธ์";
     const disqusConfig = {
       identifier: data.id,
       title: data.title
@@ -33,7 +33,7 @@ export default class blogPost extends Component {
         <SEO
           title={data.title}
           keywords={[
-            `Rohit Gupta`,
+            `สายสัมพันธ์ ความสุข`,
             `Frontend Developer`,
             `Developer`,
             `${data.title}`
