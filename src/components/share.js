@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import {
   FacebookShareButton,
-  TwitterShareButton,
   LineShareButton,
   FacebookIcon,
   LineIcon
@@ -17,6 +16,7 @@ const Share = ({ socialConfig }) => {
         className="button is-outlined is-rounded facebook"
       >
         <FacebookIcon size={35} round={true} />
+        <span className="text" style={{ fontSize: `130%` }}> เฟซบุ๊ก</span>
       </FacebookShareButton>
       <LineShareButton
         url={socialConfig.config.url}
@@ -24,7 +24,7 @@ const Share = ({ socialConfig }) => {
         title={socialConfig.config.title}
       >
         <LineIcon size={35} round={true} />
-        
+        <span className="text" style={{ fontSize: `130%` }}> ไลน์</span>
       </LineShareButton>
     </div>
   );
