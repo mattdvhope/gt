@@ -22,7 +22,7 @@ export default ({ data }) => (
             </h2>
 
             <FacebookProvider appId="1153251771692328">
-              <Like href="http://www.facebook.com/สายสัมพันธ์-106619367753772" colorScheme="dark" showFaces />
+              <Like href="https://www.facebook.com/pg/relationshipsbkk/" colorScheme="dark" showFaces share />
             </FacebookProvider>
 
             <br/>
