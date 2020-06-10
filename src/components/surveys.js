@@ -7,7 +7,7 @@ export default class Surveys extends Component {
   render() {
     const { data } = this.props;
     return (
-      <div className="blogs-section section" id="Blogs">
+      <div className="blogs-section section" id="Surveys">
         <div className="container">
           <div className="section-head">
             <h2>Surveys</h2>
