@@ -66,6 +66,16 @@ export default class Header extends Component {
                       );
                     })}
                   {data.menus
+                    .filter(item => item === "Surveys")
+                    .map(t => {
+                      return (
+                        <li>
+                          <Link to={`/#Surveys`}>Surveys</Link>
+                        </li>
+                      );
+                    })}
+
+                  {data.menus
                     .filter(item => item === "Blogs")
                     .map(t => {
                       return (
@@ -125,6 +135,15 @@ export default class Header extends Component {
                   <li>
                     <Link to="/#home">Home</Link>
                   </li>
+                  {data.menus
+                    .filter(item => item === "Surveys")
+                    .map(t => {
+                      return (
+                        <li>
+                          <Link to="/surveys">Surveys</Link>
+                        </li>
+                      );
+                    })}
                   {data.menus
                     .filter(item => item === "Blogs")
                     .map(t => {
