@@ -55,7 +55,7 @@ export default class blogPost extends Component {
             <div className="details">
               <h1 className="title">{data.title}</h1>
               <span className="date">
-                <i class="fas fa-calendar-alt"></i>{" "}
+                <i className="fas fa-calendar-alt"></i>{" "}
                 {moment(data.createdAt).format("LL")}
               </span>
               <div
@@ -85,7 +85,7 @@ export default class blogPost extends Component {
 }
 
 export const pageQuery = graphql`
-  query SinglePostQuery($slug: String!) {
+  query BlogPostQuery($slug: String!) {
     contentfulBlogs(slug: { eq: $slug }) {
       id
       title
