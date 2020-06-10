@@ -1,6 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import { FacebookProvider, Like } from 'react-facebook';
+import Share from "../components/share";
 
 export default ({ data }) => (
   <div className="about section" id="About">
@@ -21,7 +22,7 @@ export default ({ data }) => (
             </h2>
 
             <FacebookProvider appId="1153251771692328">
-              <Like href="http://www.facebook.com/สายสัมพันธ์-106619367753772" colorScheme="dark" showFaces share />
+              <Like href="http://www.facebook.com/สายสัมพันธ์-106619367753772" colorScheme="dark" showFaces />
             </FacebookProvider>
 
             <br/>
