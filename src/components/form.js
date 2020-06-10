@@ -28,20 +28,24 @@ console.log("questions: ", this.props.questions);
 
 		return (
 
-			<form onSubmit={this.handleSubmit} >
-				{questions.map((item) => {
-					return (
-						<div >
-						  <h3>
-						    {item.question}
-						    <FormChoices choices={item.questionChoices} />
-						  </h3>
-						</div>
-					);
-				})}
-				<br/>
-			  <button type="submit" className="btn btn-success">Submit</button>
-			</form>
+			<div class="container-fluid">
+				<form onSubmit={this.handleSubmit} >
+					{questions.map((item) => {
+						return (
+							<div >
+							  <h3>
+							    {item.question}
+							    <br/>
+							    <FormChoices choices={item.questionChoices} />
+							  </h3>
+							  <br/>
+							</div>
+						);
+					})}
+					<br/>
+				  <button type="submit" className="btn btn-success">Submit</button>
+				</form>
+			</div>
 
 		)
 
