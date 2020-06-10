@@ -7,6 +7,7 @@ import { DiscussionEmbed } from "disqus-react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Share from "../components/share";
+import Form from "../components/form";
 
 export default class surveyPost extends Component {
   render() {
@@ -64,6 +65,8 @@ export default class surveyPost extends Component {
                 }}
               />
             </div>
+            <Form/>
+            <br/>
             <Share
               socialConfig={{
                 ...socialConfigss.site.siteMetadata.twiteerhandletitle,
