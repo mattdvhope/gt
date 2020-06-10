@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby";
-
+import FormChoices from "./formChoices";
 
 export default class surveyPost extends Component {
 	constructor(props) {
@@ -23,35 +23,23 @@ export default class surveyPost extends Component {
 
   render() {
 
+console.log("questions: ", this.props.questions);
+		const questions =  this.props.questions; // array
+
 		return (
 
 			<form onSubmit={this.handleSubmit} >
-
-				<div class="form-check">
-				  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"/>
-				  <label class="form-check-label" for="exampleRadios1">
-				    First default radio
-				  </label>
-				</div>
-				<div class="form-check">
-				  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"/>
-				  <label class="form-check-label" for="exampleRadios2">
-				    Second default radio
-				  </label>
-				</div>
-				<div class="form-check">
-				  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3"/>
-				  <label class="form-check-label" for="exampleRadios3">
-				    Third default radio
-				  </label>
-				</div>
-				<div class="form-check disabled">
-				  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4"/>
-				  <label class="form-check-label" for="exampleRadios4">
-				    Fourth default radio
-				  </label>
-				</div>
-
+				{questions.map((item) => {
+					return (
+						<div >
+						  <h3>
+						    {item.question}
+						    <FormChoices choices={item.questionChoices} />
+						  </h3>
+						</div>
+					);
+				})}
+				<br/>
 			  <button type="submit" className="btn btn-success">Submit</button>
 			</form>
 
@@ -60,3 +48,24 @@ export default class surveyPost extends Component {
 	}
 
 }
+
+export const FormQuery = graphql`
+  query FormQuery {
+    contentfulPhotos {
+      photos {
+        file {
+          url
+        }
+        fluid(maxWidth: 600) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+  }
+`;

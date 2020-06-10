@@ -45,7 +45,7 @@ export default class surveyPost extends Component {
             {data.image ? (
               <Img
                 className="feature-img"
-                fixed={data.image.fluid}
+                fluid={data.image.fluid}
                 objectFit="cover"
                 objectPosition="50% 50%"
               />
@@ -65,7 +65,8 @@ export default class surveyPost extends Component {
                 }}
               />
             </div>
-            <Form/>
+            <Form questions={data.questions} />
+            <br/>
             <br/>
             <Share
               socialConfig={{
@@ -107,6 +108,13 @@ export const pageQuery = graphql`
       description {
         childMarkdownRemark {
           html
+        }
+      }
+      questions {
+        question
+        questionChoices {
+          id
+          choice
         }
       }
       createdAt
