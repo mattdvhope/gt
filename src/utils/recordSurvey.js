@@ -1,13 +1,6 @@
 import axios from 'axios'
 
 export async function persistQuestions(questions, selected) {
-  
-  
-
-  console.log(questions)
-  console.log(selected)
-	
-https://nameless-coast-54274.herokuapp.com
 
   axios.post(`https://nameless-coast-54274.herokuapp.com/questions`, {
   // axios.post(`http://localhost:3000/questions`, {
