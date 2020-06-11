@@ -1,42 +1,60 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby";
 import FormChoices from "./formChoices";
+import { preventTooManyChoices } from "../utils/handleQuestionChoices"
+import { updatedQuestions } from "../utils/handleQuestionChoices"
 
-export default class surveyPost extends Component {
+export default class Form extends Component {
 	constructor(props) {
     super(props);
     this.state = {
-      window: undefined,
-      
+      questions: this.props.questions,
+      question: undefined,
+      one_selected: undefined,
+      selected_in_question: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 	handleChange = e => {
-		
-    this.setState({[e.target.name]: e.target.value});
+    let question = JSON.parse(e.target.name)
+    const one_selected = JSON.parse(e.target.value)
+		const selected_in_question = this.state.selected_in_question
+		question = preventTooManyChoices(selected_in_question, one_selected, question)
+    this.setState({
+      questions: updatedQuestions(this.state.questions, question),
+    	question: question,
+    	one_selected: one_selected,
+    	selected_in_question: selected_in_question
+    });
   }
 
 	handleSubmit(e) {
     e.preventDefault();
-    console.log("in handleSubmit")
+		console.log(this.state.questions)
+		
+
+
+		// alert("Thank you")
   }
 
   render() {
-
-console.log("questions:  ", this.props.questions);
-		const questions =  this.props.questions; // array
-
+console.log(this.state.questions)
+		const questions =  this.state.questions; // array
 		return (
-			<div class="container-fluid">
+			<div className="container-fluid">
 				<form onSubmit={this.handleSubmit} >
 					{questions.map((item) => {
 						return (
-							<div >
+							<div key={item.id}>
 							  <h3>
 							    {item.question}
 							    <br/>
-							    <FormChoices choices={item.questionChoices} quest_id={item.id} />
+							    <FormChoices
+							    	choices={item.questionChoices}
+							    	question={JSON.stringify(item)}
+							    	handleChange={this.handleChange}
+							    />
 							  </h3>
 							  <br/>
 							</div>

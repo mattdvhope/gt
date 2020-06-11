@@ -8,6 +8,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Share from "../components/share";
 import Form from "../components/form";
+import { rubyQuestions } from "../utils/rubyStyleObjs"
 
 export default class surveyPost extends Component {
   render() {
@@ -65,7 +66,7 @@ export default class surveyPost extends Component {
                 }}
               />
             </div>
-            <Form questions={data.questions} />
+            <Form questions={rubyQuestions(data.questions)} />
             <br/>
             <br/>
             <Share
