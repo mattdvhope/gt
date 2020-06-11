@@ -13,6 +13,7 @@ export default class surveyPost extends Component {
   }
 
 	handleChange = e => {
+		
     this.setState({[e.target.name]: e.target.value});
   }
 
@@ -23,11 +24,10 @@ export default class surveyPost extends Component {
 
   render() {
 
-console.log("questions: ", this.props.questions);
+console.log("questions:  ", this.props.questions);
 		const questions =  this.props.questions; // array
 
 		return (
-
 			<div class="container-fluid">
 				<form onSubmit={this.handleSubmit} >
 					{questions.map((item) => {
@@ -36,7 +36,7 @@ console.log("questions: ", this.props.questions);
 							  <h3>
 							    {item.question}
 							    <br/>
-							    <FormChoices choices={item.questionChoices} />
+							    <FormChoices choices={item.questionChoices} quest_id={item.id} />
 							  </h3>
 							  <br/>
 							</div>
@@ -46,11 +46,8 @@ console.log("questions: ", this.props.questions);
 				  <button type="submit" className="btn btn-success">Submit</button>
 				</form>
 			</div>
-
 		)
-
 	}
-
 }
 
 export const FormQuery = graphql`

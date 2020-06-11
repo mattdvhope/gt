@@ -111,6 +111,7 @@ export const pageQuery = graphql`
         }
       }
       questions {
+        id
         question
         questionChoices {
           id
