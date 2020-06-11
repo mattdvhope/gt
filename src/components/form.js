@@ -2,7 +2,8 @@ import React, { Component } from "react"
 import { graphql } from "gatsby";
 import FormChoices from "./formChoices";
 import { preventTooManyChoices } from "../utils/handleQuestionChoices"
-import { updatedQuestions } from "../utils/handleQuestionChoices"
+import { updatedQuestions, final_selections_of_choices } from "../utils/handleQuestionChoices"
+import { persistQuestions } from "../utils/recordSurvey"
 
 export default class Form extends Component {
 	constructor(props) {
@@ -21,19 +22,21 @@ export default class Form extends Component {
     const one_selected = JSON.parse(e.target.value)
 		const selected_in_question = this.state.selected_in_question
 		question = preventTooManyChoices(selected_in_question, one_selected, question)
+    const updated = updatedQuestions(this.state.questions, question)
+
     this.setState({
-      questions: updatedQuestions(this.state.questions, question),
+      questions: updated,
     	question: question,
     	one_selected: one_selected,
-    	selected_in_question: selected_in_question
+    	selected_in_question: selected_in_question,
     });
   }
 
 	handleSubmit(e) {
     e.preventDefault();
-		console.log(this.state.questions)
-		
 
+    const selected = final_selections_of_choices(this.state.questions)
+		persistQuestions(this.state.questions, selected)
 
 		// alert("Thank you")
   }
