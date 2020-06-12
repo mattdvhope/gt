@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
+import { Link } from "gatsby";
 import Img from "gatsby-image";
 
 export default class Banner extends Component {
