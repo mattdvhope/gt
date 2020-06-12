@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 
@@ -9,7 +9,26 @@ export default class Banner extends Component {
     console.log(data.line)
     // console.log(window.screen.width)
   
-    if (window) { const wind = window }
+
+    // Declares a variable to get and set the width of the screen
+    const [count, setCount] = React.useState(0);
+    const [width, setWidth] = React.useState(window.innerWidth);
+
+    React.useEffect(() => {
+      const handleResize = () => {
+        setWidth(window.innerWidth);
+        setCount(0);
+      };
+
+      window.addEventListener('resize', handleResize);
+      
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    });
+  
+
+
 
     return (
       <div className="banner">
@@ -20,14 +39,14 @@ export default class Banner extends Component {
         />
         <div className="container">
           <div className="banner-details">
-            <span style={{ fontSize: `${wind.screen.width > 600 ? 6 : 10}vw` }}>
+            <span style={{ fontSize: `${10}vw` }}>
               สายสัมพันธ์ ความสุข
             </span> {/* <h1>I'm {data.designation}.</h1> */} 
-            <span style={{ fontSize: `${wind.screen.width > 600 ? 6 : 9}vw` }}>
+            <span style={{ fontSize: `${9}vw` }}>
               ด้วยความรัก...
             </span>
             <span style={{
-              fontSize: `${wind.screen.width > 600 ? 4 : 7.5}vw`,
+              fontSize: `${window.screen.width > 600 ? 4 : 7.5}vw`,
               marginLeft: `auto`,
               marginRight: `auto`,
               width: `70%`,
