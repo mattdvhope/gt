@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import Img from "gatsby-image";
 import moment from "moment";
 import { DiscussionEmbed } from "disqus-react";
@@ -59,16 +59,9 @@ export default class surveyPost extends Component {
     } else {
       this.setState({ person: getUser() })
     }
-
   }
 
-
   render() {
-
-    console.log(this.state.id_token)
-    console.log(this.state.person)
-
-
     const data = this.props.data.contentfulSurveys;
     const disqusShortname = "สายสัมพันธ์";
     const disqusConfig = {
@@ -87,7 +80,7 @@ export default class surveyPost extends Component {
       slug: data.slug
     };
 
-    return (
+    const survey_post_page = (
       <Layout>
         <SEO
           title={data.title}
@@ -143,6 +136,14 @@ export default class surveyPost extends Component {
         </div>
       </Layout>
     );
+
+    // if (isLoggedIn()) {
+      return survey_post_page;
+    // } else {
+    //   navigate(`/`)
+    //   alert("คุณยังไม่ได้เข้าสู่ระบบ!");
+    //   return null
+    // }
   }
 }
 
