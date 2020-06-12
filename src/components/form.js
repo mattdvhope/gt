@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { navigate } from "gatsby";
 import { graphql } from "gatsby";
 import FormChoices from "./formChoices";
 import { preventTooManyChoices } from "../utils/handleQuestionChoices"
@@ -37,8 +38,10 @@ export default class Form extends Component {
 
     const selected = final_selections_of_choices(this.state.questions)
 		persistQuestions(this.state.questions, selected) // in Rails API
-
 		alert("Thank you")
+
+    navigate(`/#About`)
+
   }
 
   render() {
