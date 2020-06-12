@@ -1,6 +1,7 @@
 // This is URL provided by LINE Platform for logging into this app via LINE.
 export const lineLoginURL = () => {
-  return `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1654318519&redirect_uri=${process.env.GATSBY_API_URL}&state=${makeState(10)}&scope=profile%20openid&max_age=360000&ui_locales=th&bot_prompt=aggressive`
+  // return `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1654318519&redirect_uri=${process.env.GATSBY_API_URL}&state=${makeState(10)}&scope=profile%20openid&max_age=360000&ui_locales=th&bot_prompt=aggressive`
+  return `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1654318519&redirect_uri=https%3A%2F%2Fnameless-coast-54274.herokuapp.com%2Fsurvey-1%2F&state=${makeState(10)}&scope=profile%20openid&max_age=360000&ui_locales=th&bot_prompt=aggressive`
 }
 
 const makeState = (length) => {
