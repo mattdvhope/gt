@@ -30,10 +30,10 @@ export default class Banner extends Component {
             />
             <div className="container">
               <div className="banner-details">
-                <span style={{ fontSize: `${window.screen.width > 600 ? 5 : 10}vw` }}>
+                <span style={{ fontSize: `${window.screen.width > 600 ? 8 : 10}vw` }}>
                   สายสัมพันธ์ ความสุข
                 </span> {/* <h1>I'm {data.designation}.</h1> */} 
-                <span style={{ fontSize: `${window.screen.width > 600 ? 4 : 9}vw` }}>
+                <span style={{ fontSize: `${window.screen.width > 600 ? 7 : 9}vw` }}>
                   ด้วยความรัก...
                 </span>
                 <span style={{
