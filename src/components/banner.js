@@ -6,7 +6,8 @@ export default class Banner extends Component {
   render() {
     const { data } = this.props;
 
-    console.log(data.line)
+    const [count, setCount] = React.useState(0);
+    const [width, setWidth] = React.useState(600);
 
     return (
       <div className="banner">
