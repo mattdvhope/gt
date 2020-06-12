@@ -12,20 +12,21 @@ export default class Banner extends Component {
 
     // Declares a variable to get and set the width of the screen
     const [count, setCount] = React.useState(0);
-    const [width, setWidth] = React.useState(window.innerWidth);
+    const [width, setWidth] = React.useState(600);
+    // const [width, setWidth] = React.useState(window.innerWidth);
 
-    React.useEffect(() => {
-      const handleResize = () => {
-        setWidth(window.innerWidth);
-        setCount(0);
-      };
+    // React.useEffect(() => {
+    //   const handleResize = () => {
+    //     setWidth(window.innerWidth);
+    //     setCount(0);
+    //   };
 
-      window.addEventListener('resize', handleResize);
+    //   window.addEventListener('resize', handleResize);
       
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    });
+    //   return () => {
+    //     window.removeEventListener('resize', handleResize);
+    //   };
+    // });
   
 
 
@@ -46,7 +47,8 @@ export default class Banner extends Component {
               ด้วยความรัก...
             </span>
             <span style={{
-              fontSize: `${window.screen.width > 600 ? 4 : 7.5}vw`,
+              fontSize: `${7.5}vw`,
+              // fontSize: `${window.screen.width > 600 ? 4 : 7.5}vw`,
               marginLeft: `auto`,
               marginRight: `auto`,
               width: `70%`,
