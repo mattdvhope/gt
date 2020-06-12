@@ -1,4 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
+
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 
@@ -6,8 +7,8 @@ export default class Banner extends Component {
   render() {
     const { data } = this.props;
 
-    const [count, setCount] = useState(0);
-    const [width, setWidth] = useState(600);
+    // const [count, setCount] = useState(0);
+    // const [width, setWidth] = useState(600);
 
     return (
       <div className="banner">
