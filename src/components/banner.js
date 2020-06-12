@@ -7,7 +7,8 @@ export default class Banner extends Component {
     const { data } = this.props;
 
     console.log(data.line)
-
+    console.log(window.screen.width)
+  
     return (
       <div className="banner">
         <Img
@@ -17,10 +18,14 @@ export default class Banner extends Component {
         />
         <div className="container">
           <div className="banner-details">
-            <span style={{ fontSize: `10vw` }}>สายสัมพันธ์ ความสุข</span> {/* <h1>I'm {data.designation}.</h1> */} 
-            <span style={{ fontSize: `10vw` }}>ด้วยความรัก...</span>
+            <span style={{ fontSize: `${window.screen.width > 600 ? 6 : 10}vw` }}>
+              สายสัมพันธ์ ความสุข
+            </span> {/* <h1>I'm {data.designation}.</h1> */} 
+            <span style={{ fontSize: `${window.screen.width > 600 ? 6 : 9}vw` }}>
+              ด้วยความรัก...
+            </span>
             <span style={{
-              fontSize: `7vw`,
+              fontSize: `${window.screen.width > 600 ? 4 : 7.5}vw`,
               marginLeft: `auto`,
               marginRight: `auto`,
               width: `70%`,
