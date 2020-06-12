@@ -1,5 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
-import { Link } from "gatsby";
+import React, { Component } from "react";
 import Img from "gatsby-image";
 
 export default class Banner extends Component {
@@ -7,29 +6,6 @@ export default class Banner extends Component {
     const { data } = this.props;
 
     console.log(data.line)
-    // console.log(window.screen.width)
-  
-
-    // Declares a variable to get and set the width of the screen
-    const [count, setCount] = React.useState(0);
-    const [width, setWidth] = React.useState(600);
-    // const [width, setWidth] = React.useState(window.innerWidth);
-
-    // React.useEffect(() => {
-    //   const handleResize = () => {
-    //     setWidth(window.innerWidth);
-    //     setCount(0);
-    //   };
-
-    //   window.addEventListener('resize', handleResize);
-      
-    //   return () => {
-    //     window.removeEventListener('resize', handleResize);
-    //   };
-    // });
-  
-
-
 
     return (
       <div className="banner">
@@ -40,27 +16,14 @@ export default class Banner extends Component {
         />
         <div className="container">
           <div className="banner-details">
-            <span style={{ fontSize: `${10}vw` }}>
-              สายสัมพันธ์ ความสุข
-            </span> {/* <h1>I'm {data.designation}.</h1> */} 
-            <span style={{ fontSize: `${9}vw` }}>
-              ด้วยความรัก...
-            </span>
-            <span style={{
-              fontSize: `${7.5}vw`,
-              // fontSize: `${window.screen.width > 600 ? 4 : 7.5}vw`,
-              marginLeft: `auto`,
-              marginRight: `auto`,
-              width: `70%`,
-            }}><Link to="" style={{ color: `#DAC899` }}>
-              คลิกที่นี่เพื่อแบ่งปันความคิดเห็นของท่านเกี่ยวกับความสัมพันธ์ในกรุงเทพค่ะ 😊
-            </Link></span>
+            <h1>สายสัมพันธ์ ความสุข</h1> {/* <h1>I'm {data.designation}.</h1> */} 
+            <span style={{ fontSize: `200%` }}>ด้วยความรัก...</span>
             <br/>
-        {/* <ul className="sub-data">
+            <ul className="sub-data">
               {data.bannerList.map((item, index) => {
                 return <li key={index} style={{ fontSize: `190%` }}>{item}</li>;
               })}
-            </ul> */}    
+            </ul>
             <ul className="social">
               <li>
                 <a
