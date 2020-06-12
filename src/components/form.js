@@ -36,9 +36,9 @@ export default class Form extends Component {
     e.preventDefault();
 
     const selected = final_selections_of_choices(this.state.questions)
-		persistQuestions(this.state.questions, selected)
+		persistQuestions(this.state.questions, selected) // in Rails API
 
-		// alert("Thank you")
+		alert("Thank you")
   }
 
   render() {
