@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import FormChoices from "./formChoices";
 import { preventTooManyChoices } from "../utils/handleQuestionChoices"
 import { updatedQuestions, final_selections_of_choices } from "../utils/handleQuestionChoices"
-import { persistQuestions } from "../utils/recordSurvey"
+import { persistQuestions } from "../utils/railsVisits"
 
 export default class Form extends Component {
 	constructor(props) {

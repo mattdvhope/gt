@@ -1,7 +1,9 @@
-import React, { Component, useState, useEffect } from "react";
-
+import React, { Component } from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
+import { isLoggedIn } from "../utils/auth"
+import { linkVisit } from "../utils/railsVisits"
+import { lineLoginURL } from "../utils/linePlatform"
 
 export default class Banner extends Component {
 
@@ -14,7 +16,34 @@ export default class Banner extends Component {
 
   componentDidMount() {
     this.setState({ window: window })
+
+    console.log(isLoggedIn() )
   }
+
+  Linkage( ) {
+    return isLoggedIn() ? this.loggedInLink() : this.loggedOutLink()
+  }
+
+  loggedOutLink() {
+    return (
+      <a
+        href={lineLoginURL()}
+        onClick={e => linkVisit()}
+        style={{ color: `#DAC899` }} 
+      >
+        คลิกที่นี่เพื่อแบ่งปันความคิดเห็นของท่านเกี่ยวกับความสัมพันธ์ในกรุงเทพค่ะ 😊
+      </a>
+    )
+  }
+
+  loggedInLink() {
+    return (
+      <Link to={`survey-1`} style={{ color: `#DAC899` }} onClick={e => linkVisit()} >
+        คลิกที่นี่เพื่อแบ่งปันความคิดเห็นของท่านเกี่ยวกับความสัมพันธ์ในกรุงเทพค่ะ 😊
+      </Link>
+    )
+  }
+  
 
   render() {
     const { data } = this.props;
@@ -41,9 +70,9 @@ export default class Banner extends Component {
                   marginLeft: `auto`,
                   marginRight: `auto`,
                   width: `70%`,
-                }}><Link to="" style={{ color: `#DAC899` }}>
-                  คลิกที่นี่เพื่อแบ่งปันความคิดเห็นของท่านเกี่ยวกับความสัมพันธ์ในกรุงเทพค่ะ 😊
-                </Link></span>
+                }}>
+                  {this.Linkage()}
+                </span>
                 <br/>
             {/* <ul className="sub-data">
                   {data.bannerList.map((item, index) => {

@@ -1,5 +1,14 @@
 import axios from 'axios'
 
+export const linkVisit = () => {
+	console.log("in linkVisit");
+  // const user_data = JSON.parse(sessionStorage.getItem("user_data"));
+  // let visits = user_data.user.visits
+  // persistQuestions(user_data.user.name, user_data.user.picture)
+  // console.log(visits + 1)
+}
+
+
 export async function persistQuestions(questions, selected) {
 
 	
