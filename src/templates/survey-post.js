@@ -142,7 +142,7 @@ export default class surveyPost extends Component {
     // } else {
     //   navigate(`/`)
     //   alert("คุณยังไม่ได้เข้าสู่ระบบ!");
-    //   return null
+    //   return null 
     // }
   }
 }
