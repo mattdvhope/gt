@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import Helmet from "react-helmet";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -16,6 +17,9 @@ import Photos from "../components/photos";
 
 const IndexPage = ({ data }) => (
   <Layout header="home">
+    <Helmet title={siteTitle}>
+      <meta property="og:image" content="https://relate.s3-ap-southeast-1.amazonaws.com/sheep-flock-mountain.gif" />
+    </Helmet>
     <SEO
       title={data.contentfulAboutMe.designation}
       keywords={[`Rohit Gupta`, `Frontend Developer`, `Developer`]}
