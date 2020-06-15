@@ -17,8 +17,11 @@ import Photos from "../components/photos";
 
 const IndexPage = ({ data }) => (
   <Layout header="home">
-    <Helmet title={siteTitle}>
+    <Helmet title={data.contentfulSiteInformation.siteName}>
+      <meta property="og:title" content={data.contentfulSiteInformation.siteName} />
+      <meta property="og:description" content="เราอยู่ที่นี่เพื่อช่วยให้ผู้คนเติบโตขึ้นในความสัมพันธ์ที่ดีต่อสุขภาพ" />
       <meta property="og:image" content="https://relate.s3-ap-southeast-1.amazonaws.com/sheep-flock-mountain.gif" />
+      <meta property="og:url" content="https://www.สายสัมพันธ์.com/"/>
     </Helmet>
     <SEO
       title={data.contentfulAboutMe.designation}
@@ -245,6 +248,7 @@ export const pageQuery = graphql`
       }
     }
     contentfulSiteInformation {
+      siteName
       menus
     }
   }
