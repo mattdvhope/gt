@@ -1,6 +1,5 @@
 import React from "react";
 import Img from "gatsby-image";
-import { FacebookProvider, Like } from 'react-facebook';
 import Share from "../components/share";
 
 export default ({ data }) => (
@@ -20,11 +19,6 @@ export default ({ data }) => (
             <h2 className="sub-position">
               {data.designation}
             </h2>
-
-            <FacebookProvider appId="1153251771692328">
-              <Like href="https://www.facebook.com/pg/relationshipsbkk/" colorScheme="dark" showFaces share />
-            </FacebookProvider>
-
             <br/>
             <div
               dangerouslySetInnerHTML={{
