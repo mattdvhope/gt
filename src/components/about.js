@@ -9,7 +9,7 @@ export default ({ data }) => (
       <div className="about-main row">
         <div className="left col-md-5 col-lg-4 mb-3">
           <Img
-            fixed={data.photo.fluid}
+            fluid={data.photo.fluid}
             objectFit="cover"
             objectPosition="top center"
           />
