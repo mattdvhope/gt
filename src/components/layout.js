@@ -33,7 +33,14 @@ const Layout = ({ children, header }) => (
     
     render={data => (
       <>
-        <HelmetLocale />
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v7.0&appId=1153251771692328&autoLogAppEvents=1" nonce="RrYu13nF"></script>
+
+
+
+
+
         <Header
           data={data.contentfulSiteInformation}
           siteTitle={data.contentfulSiteInformation.siteName}
