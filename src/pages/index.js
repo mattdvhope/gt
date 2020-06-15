@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Helmet from "react-helmet";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -17,12 +16,6 @@ import Photos from "../components/photos";
 
 const IndexPage = ({ data }) => (
   <Layout header="home">
-    <Helmet title={data.contentfulSiteInformation.siteName}>
-      <meta property="og:title" content={data.contentfulSiteInformation.siteName} />
-      <meta property="og:description" content="เราอยู่ที่นี่เพื่อช่วยให้ผู้คนเติบโตขึ้นในความสัมพันธ์ที่ดีต่อสุขภาพ" />
-      <meta property="og:image" content="https://relate.s3-ap-southeast-1.amazonaws.com/sheep-flock-mountain.gif" />
-      <meta property="og:url" content="https://www.สายสัมพันธ์.com/"/>
-    </Helmet>
     <SEO
       title={data.contentfulAboutMe.designation}
       keywords={[`ความเชื่อ`, `ความหวัง`, `ความรัก`]}
