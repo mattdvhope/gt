@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => (
     </Helmet>
     <SEO
       title={data.contentfulAboutMe.designation}
-      keywords={[`Rohit Gupta`, `Frontend Developer`, `Developer`]}
+      keywords={[`ความเชื่อ`, `ความหวัง`, `ความรัก`]}
     />
     <Banner data={data.contentfulAboutMe}></Banner>
 
