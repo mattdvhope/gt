@@ -5475,6 +5475,11 @@ faye-websocket@~0.11.0, faye-websocket@~0.11.1:
   dependencies:
     websocket-driver ">=0.5.1"
 
+fb-sdk-wrapper@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/fb-sdk-wrapper/-/fb-sdk-wrapper-1.0.5.tgz#fe15de9d71421f59d1d7bb04fe0d98cc0d7dfdeb"
+  integrity sha512-5USj1wTeulXqMcTBR+L14HY8g4n7nK4iHTkE2xe7mG/bYLC0e7qLWy1zOuD7adG/nkuBbt0VigPgPZFL9C7V/A==
+
 fd-slicer@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/fd-slicer/-/fd-slicer-1.1.0.tgz#25c7c89cb1f9077f8891bbe61d8f390eae256f1e"
@@ -5824,6 +5829,11 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
+
+fs@^0.0.1-security:
+  version "0.0.1-security"
+  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
+  integrity sha1-invTcYa23d84E/I4WLV+yq9eQdQ=
 
 fsevents@^1.2.7:
   version "1.2.13"
