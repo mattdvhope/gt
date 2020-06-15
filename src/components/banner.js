@@ -16,8 +16,6 @@ export default class Banner extends Component {
 
   componentDidMount() {
     this.setState({ window: window })
-
-    console.log(isLoggedIn() )
   }
 
   Linkage( ) {
