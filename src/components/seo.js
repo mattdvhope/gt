@@ -34,6 +34,10 @@ function SEO({ description, lang, meta, keywords, title, data }) {
                 content: `https://relate.s3-ap-southeast-1.amazonaws.com/sheep-flock-mountain.gif`
               },
               {
+                property: `og:url`,
+                content: `https://www.สายสัมพันธ์.com/`
+              },
+              {
                 property: `og:type`,
                 content: `website`
               },
