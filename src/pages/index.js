@@ -32,51 +32,51 @@ const IndexPage = ({ data }) => (
     {data.contentfulSiteInformation.menus
       .filter(item => item === "About")
       .map(t => {
-        return <About data={data.contentfulAboutMe}></About>;
+        return <About data={data.contentfulAboutMe} key={t}></About>;
       })}
 
     {data.contentfulSiteInformation.menus
       .filter(item => item === "Service")
       .map(t => {
-        return <Service data={data.allContentfulService}></Service>;
+        return <Service data={data.allContentfulService} key={t}></Service>;
       })}
 
     {data.contentfulSiteInformation.menus
       .filter(item => item === "Surveys")
       .map(t => {
-        return <Surveys data={data.allContentfulSurveys}></Surveys>;
+        return <Surveys data={data.allContentfulSurveys} key={t}></Surveys>;
       })}
 
     {data.contentfulSiteInformation.menus
       .filter(item => item === "Blogs")
       .map(t => {
-        return <Blogs data={data.allContentfulBlogs}></Blogs>;
+        return <Blogs data={data.allContentfulBlogs} key={t}></Blogs>;
       })}
 
     {data.contentfulSiteInformation.menus
       .filter(item => item === "Work")
       .map(t => {
-        return <Work data={data.allContentfulWorks}></Work>;
+        return <Work data={data.allContentfulWorks} key={t}></Work>;
       })}
 
     {data.contentfulSiteInformation.menus
       .filter(item => item === "Testimonials")
       .map(t => {
         return (
-          <Testimonial data={data.allContentfulTestimonials}></Testimonial>
+          <Testimonial data={data.allContentfulTestimonials} key={t}></Testimonial>
         );
       })}
 
     {data.contentfulSiteInformation.menus
       .filter(item => item === "Photos")
       .map(t => {
-        return <Photos data={data.contentfulPhotos}></Photos>;
+        return <Photos data={data.contentfulPhotos} key={t}></Photos>;
       })}
 
     {data.contentfulSiteInformation.menus
       .filter(item => item === "Contact")
       .map(t => {
-        return <Contact data={data.contentfulAboutMe.gmail}></Contact>;
+        return <Contact data={data.contentfulAboutMe.gmail} key={t}></Contact>;
       })}
   </Layout>
 );
