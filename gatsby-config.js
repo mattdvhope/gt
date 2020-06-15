@@ -52,7 +52,7 @@ module.exports = {
 
         // Include debug version of sdk
         // Defaults to false meaning the library will load sdk.js
-        debug: true,
+        debug: false,
 
         // Select your language.
         language: `th_TH`,
