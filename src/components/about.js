@@ -21,7 +21,7 @@ export default ({ data }) => (
             </h2>
 
             <div 
-              class="fb-login-button"
+              className="fb-login-button"
               data-size="large"
               data-button-type="continue_with"
               data-layout="rounded"
