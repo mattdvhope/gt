@@ -30,6 +30,10 @@ function SEO({ description, lang, meta, keywords, title, data }) {
                 content: data.contentfulSiteInformation.siteDescription
               },
               {
+                property: `og:image`,
+                content: `https://relate.s3-ap-southeast-1.amazonaws.com/sheep-flock-mountain.gif`
+              },
+              {
                 property: `og:type`,
                 content: `website`
               },
