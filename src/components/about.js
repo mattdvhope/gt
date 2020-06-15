@@ -26,7 +26,7 @@ export default ({ data }) => (
               data-button-type="continue_with"
               data-layout="rounded"
               data-auto-logout-link="true"
-              data-use-continue-as="false"
+              data-use-continue-as="true"
               data-width="">
             </div>
 
