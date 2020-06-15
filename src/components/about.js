@@ -20,15 +20,15 @@ export default ({ data }) => (
               {data.designation}
             </h2>
 
-            <div
-              className="fb-login-button"
+            <div 
+              class="fb-login-button"
               data-size="large"
               data-button-type="continue_with"
               data-layout="rounded"
               data-auto-logout-link="true"
-              data-use-continue-as="true"
-              data-width=""
-            ></div>
+              data-use-continue-as="false"
+              data-width="">
+            </div>
 
             <br/>
             <br/>
