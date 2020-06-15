@@ -44,7 +44,7 @@ module.exports = {
         xfbml: true,
 
         // Determines whether a cookie is created for the session or not.
-        cookie: true,
+        cookie: false,
 
         // Include Facebook analytics in development.
         // Defaults to false meaning the library will only be loaded in production.
