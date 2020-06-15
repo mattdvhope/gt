@@ -1,10 +1,8 @@
 import React from "react"
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet';
 
 export default () => (
-	
-	<Helmet>
-
+  <Helmet>
   	<script
 		  dangerouslySetInnerHTML={{ __html: `
 
@@ -59,15 +57,8 @@ export default () => (
 			        'Thanks for logging in, ' + response.name + '!';
 			    });
 			  }
-
-
-
-
 		  `}}
 		/>
-
-
-
   </Helmet>
-
 )
+
