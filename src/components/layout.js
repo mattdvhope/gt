@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import "bootstrap/dist/css/bootstrap.css";
 
+import HelmetLocale from './HelmetLocale'
 import Header from "./header";
 import Footer from "./footer";
 
@@ -14,41 +15,40 @@ if (typeof window !== "undefined") {
 }
 
 const Layout = ({ children, header }) => (
-  <>
-    <StaticQuery
-      query={graphql`
-        query SiteTitleQuery {
-          contentfulSiteInformation {
-            siteName
-            siteDescription
-            logo {
-              file {
-                url
-              }
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        contentfulSiteInformation {
+          siteName
+          siteDescription
+          logo {
+            file {
+              url
             }
-            menus
           }
+          menus
         }
-      `}
-      
-      render={data => (
-        <>
-          <Header
-            data={data.contentfulSiteInformation}
-            siteTitle={data.contentfulSiteInformation.siteName}
-            header={header}
-          />
-          <div>
-            <main id="home">{children}</main>
-          </div>
-          <Footer siteName={data.contentfulSiteInformation.siteName} />
-          <script>
-            alert("Hello");
-          </script>
-        </>
-      )}
-    />
-  </>
+      }
+    `}
+    
+    render={data => (
+      <>
+        <HelmetLocale />
+        <Header
+          data={data.contentfulSiteInformation}
+          siteTitle={data.contentfulSiteInformation.siteName}
+          header={header}
+        />
+        <div>
+          <main id="home">{children}</main>
+        </div>
+        <Footer siteName={data.contentfulSiteInformation.siteName} />
+        <script>
+          alert("Hello");
+        </script>
+      </>
+    )}
+  />
 );
 
 Layout.propTypes = {
