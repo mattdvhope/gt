@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import "bootstrap/dist/css/bootstrap.css";
 
+import HelmetLocale from './HelmetLocale'
 import Header from "./header";
 import Footer from "./footer";
 
@@ -32,6 +33,7 @@ const Layout = ({ children, header }) => (
     
     render={data => (
       <>
+        <HelmetLocale />
         <Header
           data={data.contentfulSiteInformation}
           siteTitle={data.contentfulSiteInformation.siteName}
