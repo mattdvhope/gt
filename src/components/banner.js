@@ -4,7 +4,7 @@ import Img from "gatsby-image";
 import { isLoggedIn } from "../utils/auth"
 import { linkVisit } from "../utils/railsVisits"
 import { lineLoginURL } from "../utils/linePlatform"
-import { fbLoginURL } from "../utils/FBPlatform"
+import { fbLoginURL } from "../utils/FBplatform"
 
 export default class Banner extends Component {
 
