@@ -26,18 +26,18 @@ export async function getPerson(json) {
 }
 
 export const validateIdToken = (json) => {
-  let base64Url = json.id_token.split('.')[1]; // json.id_token you get
-  let base64 = base64Url.replace('-', '+').replace('_', '/');
+  const base64Url = json.id_token.split('.')[1]; // json.id_token you get
+  const base64 = base64Url.replace('-', '+').replace('_', '/');
   return JSON.parse(Buffer.from(base64, 'base64').toString('binary'));
 }
 
 export const checkValidation = (surveyPost, json, person, decodedData) => {
-  if (JSON.stringify(person) === JSON.stringify(decodedData)) {
+  if (JSON.stringify(person) === JSON.stringify(decodedData) + 1) {
     handleLogin(person)
     addVisit(person.name, person.picture) // Save new user in Rails
     surveyPost.setState({ person: person, id_token: json.id_token });
   } else {
-    logout(() => navigate(`/`))
-		alert("การตรวจสอบล้มเหลว เข้าระบบไม่ได้ค่ะ")
+  	window.location.replace(`/`);
+  	// FIX THIS (the loggedOutLink() in 'banner.js', etc) to not go to survey page at all!!
   }
 }
