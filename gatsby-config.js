@@ -31,8 +31,6 @@ module.exports = {
         accessToken
       }
     },
-
-
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-remark`,
