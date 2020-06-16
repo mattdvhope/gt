@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Header from "./header";
 import Footer from "./footer";
 // import { FBsdk } from "../utils/FBsdk";
-import * as Facebook from 'fb-sdk-wrapper';
+// import * as Facebook from 'fb-sdk-wrapper';
 
 import "../css/style.css";
 import "../css/font-awesome.css";
@@ -16,32 +16,6 @@ if (typeof window !== "undefined") {
 }
 
 const Layout = ({ children, header }) => {
-
-  Facebook.load()
-    .then(() => {
-      Facebook.init({
-        appId: `1153251771692328`,
-        status     : true,
-        xfbml      : true,
-        version    : `v2.7`
-      });
-    })
-    .then((response) => {
-      console.log(response)
-    })
-
-  // // Get current state
-  // Facebook.getLoginStatus()
-  //   .then((response) => {
-  //     if (response.status === 'connected') {
-  //       console.log("response: ", response)
-  //     } else {
-  //       console.log("other_response: ", response)
-  //     }
-  //   });
-
-
-
   return (
     <StaticQuery
       query={graphql`

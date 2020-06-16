@@ -4,6 +4,7 @@ import Img from "gatsby-image";
 import { isLoggedIn } from "../utils/auth"
 import { linkVisit } from "../utils/railsVisits"
 import { lineLoginURL } from "../utils/linePlatform"
+import { fbLoginURL } from "../utils/FBPlatform"
 
 export default class Banner extends Component {
 
@@ -25,7 +26,8 @@ export default class Banner extends Component {
   loggedOutLink() {
     return (
       <a
-        href={lineLoginURL()}
+        // href={lineLoginURL()}
+        href={fbLoginURL()}
         onClick={e => linkVisit()}
         style={{ color: `#DAC899` }} 
       >
