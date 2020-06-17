@@ -1,5 +1,4 @@
 import { navigate } from "gatsby"
-import { logout } from "./auth"
 import { logout, handleLogin } from "./auth"
 import { addVisit } from "./railsVisits"
 
