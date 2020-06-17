@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { graphql, Link } from "gatsby";
 import SurveyPostPage from "./SurveyPostPage"
 import { isLoggedIn, getUser } from "../utils/auth"
-import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
+// import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
+import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/FBLoginValidations"
 
 export default class surveyPost extends Component {
   constructor(props) {
