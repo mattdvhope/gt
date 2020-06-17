@@ -10,13 +10,13 @@ export async function getIdToken(code) {
   const params = `client_id=1153251771692328&redirect_uri=${process.env.GATSBY_API_URL}&client_secret=8eef4a89221d26750c5309ab244dfe6f&code=${code}`;
   const response = await fetch(`https://graph.facebook.com/v7.0/oauth/access_token`, {
     method: 'GET',
-    headers: {'Content-Type':'application/x-www-form-urlencoded'},
+    headers: {'Content-Type':'application/json'},
     body: params
   })
   // 'json' contains the various tokens provided by 'api.line.me/oauth2...'
-  const json = await response.json();
+  // const json = await response.json();
 
-  console.log("json:", json)
+  console.log("respons:", respons)
   return json;
 }
 
