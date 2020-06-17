@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
-import moment from "moment";
-
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import Share from "../components/share";
-import Form from "../components/form";
-import { rubyQuestions } from "../utils/rubyStyleObjs"
+import SurveyPostPage from "./SurveyPostPage"
 import { isLoggedIn, getUser } from "../utils/auth"
 import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
 
@@ -24,8 +17,6 @@ export default class surveyPost extends Component {
     const url_with_code = window.location.search.match(/(code=)(.*)(?=&state)/)
     const code = url_with_code ? url_with_code[2] : null
     const surveyPost = this;
-
-console.log(isLoggedIn())
 
     if (!isLoggedIn() && code) {
       // conduct LINE Login validations
@@ -57,61 +48,8 @@ console.log(isLoggedIn())
       slug: data.slug
     };
 
-    const survey_post_page = (
-      <Layout>
-        <SEO
-          title={data.title}
-          keywords={[
-            `สายสัมพันธ์ ความสุข`,
-            `Frontend Developer`,
-            `Developer`,
-            `${data.title}`
-          ]}
-        />
-        <div className="site-container blog-post">
-          <div className="container">
-            {data.image ? (
-              <Img
-                className="feature-img"
-                fluid={data.image.fluid}
-                objectFit="cover"
-                objectPosition="50% 50%"
-              />
-            ) : (
-              <div className="no-image"></div>
-            )}
-
-            <div className="details">
-              <h1 className="title">{data.title}</h1>
-              <span className="date">
-                <i className="fas fa-calendar-alt"></i>{" "}
-                {moment(data.createdAt).format("LL")}
-              </span>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: data.description.childMarkdownRemark.html
-                }}
-              />
-            </div>
-            <Form questions={rubyQuestions(data.questions)} />
-            <br/>
-            <br/>
-            <Share
-              socialConfig={{
-                ...socialConfigss.site.siteMetadata.twiteerhandletitle,
-                config: {
-                  url: `${siteurl}${socialConfigss.slug}`,
-                  title: `${socialConfigss.title}`
-                }
-              }}
-            />
-          </div>
-        </div>
-      </Layout>
-    ); // survey_post_page
-
     if (isLoggedIn()) {
-      return survey_post_page;
+      return <SurveyPostPage data={data} siteurl={siteurl} socialConfigss={socialConfigss}/>
     } else {
       return (<h5><br/>&nbsp;&nbsp;<Link to="/">คุณยังไม่ได้เข้าสู่ระบบค่ะ คลิกที่นี่เพื่อกลับไปที่หน้าแรกค่ะ</Link></h5>)
     }
