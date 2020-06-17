@@ -27,7 +27,7 @@ export default class surveyPost extends Component {
 
       const photo = await getUserPhoto(dataFromDebug.user_id, token)
       
-      console.log(dataFromDebug.user_id);
+      console.log(dataFromDebug.data.user_id);
 
       // const decodedData = validateIdToken(json)
       // checkValidation(surveyPost, json, person, decodedData)
