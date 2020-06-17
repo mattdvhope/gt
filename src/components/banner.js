@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
+
+import FacebookLogin from 'react-facebook-login';
+
 import Img from "gatsby-image";
 import { isLoggedIn } from "../utils/auth"
 import { linkVisit } from "../utils/railsVisits"
@@ -25,16 +28,24 @@ export default class Banner extends Component {
 
   loggedOutLink() {
     return (
-      <a
-        // href={lineLoginURL()}
-        href={fbLoginURL()}
-        onClick={e => linkVisit()}
-        style={{ color: `#DAC899`, cursor: `pointer` }} 
-      >
-        คลิกที่นี่เพื่อแบ่งปันความคิดเห็นของท่านเกี่ยวกับความสัมพันธ์ในกรุงเทพค่ะ 😊
-      </a>
+      <FacebookLogin
+        appId="1153251771692328"
+        autoLoad={true}
+        fields="name,email,picture"
+        onClick={console.log("clicked")}
+        // callback={responseFacebook}
+      />
+
     )
   }
+  //     <a
+  //       // href={lineLoginURL()}
+  //       href={fbLoginURL()}
+  //       onClick={e => linkVisit()}
+  //       style={{ color: `#DAC899`, cursor: `pointer` }} 
+  //     >
+  //       คลิกที่นี่เพื่อแบ่งปันความคิดเห็นของท่านเกี่ยวกับความสัมพันธ์ในกรุงเทพค่ะ 😊
+  //     </a>
 
   loggedInLink() {
     return (
