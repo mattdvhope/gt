@@ -33,7 +33,7 @@ export const validateIdToken = (json) => {
 export const checkValidation = (surveyPost, json, person, decodedData) => {
   if (JSON.stringify(person) === JSON.stringify(decodedData)) {
     handleLogin(person)
-    addVisit(person.name, person.picture) // Save new user in Rails
+    addVisit(person.name, person.picture) // Record page visit in Rails
     surveyPost.setState({ person: person, id_token: json.id_token });
   } else {
 		logout(() => navigate(`/`))
