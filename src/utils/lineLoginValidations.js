@@ -1,5 +1,5 @@
 import { navigate } from "gatsby"
-// import { logout } from "./auth"
+import { logout } from "./auth"
 import { logout, handleLogin } from "./auth"
 import { addVisit } from "./railsVisits"
 
@@ -37,6 +37,7 @@ export const checkValidation = (surveyPost, json, person, decodedData) => {
     addVisit(person.name, person.picture) // Save new user in Rails
     surveyPost.setState({ person: person, id_token: json.id_token });
   } else {
+		logout(() => navigate(`/`))
   	window.location.replace(`/`);
   	// FIX THIS (the loggedOutLink() in 'banner.js', etc) to not go to survey page AT ALL!! ...unless validated
   }
