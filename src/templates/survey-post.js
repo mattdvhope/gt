@@ -15,9 +15,12 @@ export default class surveyPost extends Component {
   }
 
   async componentDidMount() {
-    const url_with_code = window.location.search.match(/(code=)(.*)(?=&state)/)
+    // const url_with_code = window.location.search.match(/(code=)(.*)(?=&state)/)
+    const url_with_code = window.location.search.match(/(code=)(.*)/)
     const code = url_with_code ? url_with_code[2] : null
     const surveyPost = this;
+
+console.log(isLoggedIn())
 
     if (!isLoggedIn() && code) {
       // conduct LINE Login validations
