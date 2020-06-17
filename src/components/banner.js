@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
-
-import * as Facebook from 'fb-sdk-wrapper';
-
 import { isLoggedIn } from "../utils/auth"
 import { linkVisit } from "../utils/railsVisits"
 import { lineLoginURL } from "../utils/linePlatform"
@@ -18,31 +15,8 @@ export default class Banner extends Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.setState({ window: window })
-
-    const fb = await Facebook.load()
-      .then(() => {
-        Facebook.init({
-          appId: `1153251771692328`
-        });
-      })
-      .then(() => {
-        Facebook.getLoginStatus(function(response) {
-          if (response.status === 'connected') {
-            var uid = response.authResponse.userID;
-            var accessToken = response.authResponse.accessToken;
-            console.log(accessToken)
-          } else if (response.status === 'not_authorized') {
-            console.log("not_authorized")
-          } else {
-            console.log("not logged into fb")
-          }
-        });
-      })
-
-
-
   }
 
   Linkage( ) {
