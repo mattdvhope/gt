@@ -38,7 +38,6 @@ export const checkValidation = (surveyPost, json, person, decodedData) => {
     surveyPost.setState({ person: person, id_token: json.id_token });
   } else {
 		logout(() => navigate(`/`))
-  	window.location.replace(`/`);
   	// FIX THIS (the loggedOutLink() in 'banner.js', etc) to not go to survey page AT ALL!! ...unless validated
   }
 }
