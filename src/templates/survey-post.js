@@ -114,6 +114,7 @@ export default class surveyPost extends Component {
       </Layout>
     );
 
+    // FIX THIS: Don't allow person to type in URL and arrive at survey page if not logged in.
     // if (isLoggedIn()) {
       return survey_post_page;
     // } else {
