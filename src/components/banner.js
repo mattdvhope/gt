@@ -28,36 +28,16 @@ export default class Banner extends Component {
 
   loggedOutLink() {
     return (
-      <FacebookProvider appId="1153251771692328">
-        <LoginButton
-          scope="email"
-          onCompleted={this.handleResponse}
-          onError={this.handleError}
-        >
-          <span>Login via Facebook</span>
-        </LoginButton>
-      </FacebookProvider>
-
+      <a
+        // href={lineLoginURL()}
+        href={fbLoginURL()}
+        onClick={e => linkVisit()}
+        style={{ color: `#DAC899`, cursor: `pointer` }} 
+      >
+        คลิกที่นี่เพื่อแบ่งปันความคิดเห็นของท่านเกี่ยวกับความสัมพันธ์ในกรุงเทพค่ะ 😊
+      </a>
     )
   }
-
-  handleResponse() {
-    // this.state.window.location.replace(`${process.env.GATSBY_API_URL}`)
-    console.log("handling response")
-  }
-
-  handleError() {
-    console.log("handling error")
-  }
-  
-  //     <a
-  //       // href={lineLoginURL()}
-  //       href={fbLoginURL()}
-  //       onClick={e => linkVisit()}
-  //       style={{ color: `#DAC899`, cursor: `pointer` }} 
-  //     >
-  //       คลิกที่นี่เพื่อแบ่งปันความคิดเห็นของท่านเกี่ยวกับความสัมพันธ์ในกรุงเทพค่ะ 😊
-  //     </a>
 
   loggedInLink() {
     return (
