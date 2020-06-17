@@ -26,10 +26,10 @@ export default class Banner extends Component {
   loggedOutLink() {
     return (
       <a
-        href={lineLoginURL()}
-        // href={fbLoginURL()}
+        // href={lineLoginURL()}
+        href={fbLoginURL()}
         onClick={e => linkVisit()}
-        style={{ color: `#DAC899` }} 
+        style={{ color: `#DAC899`, cursor: `pointer` }} 
       >
         คลิกที่นี่เพื่อแบ่งปันความคิดเห็นของท่านเกี่ยวกับความสัมพันธ์ในกรุงเทพค่ะ 😊
       </a>
