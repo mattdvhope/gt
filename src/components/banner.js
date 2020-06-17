@@ -30,7 +30,7 @@ export default class Banner extends Component {
     return (
       <FacebookLogin
         appId="1153251771692328"
-        autoLoad={true}
+        autoLoad={false}
         fields="name,email,picture"
         onClick={console.log("clicked")}
         // callback={responseFacebook}
