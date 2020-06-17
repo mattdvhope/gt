@@ -118,6 +118,9 @@ console.log(isLoggedIn())
 
     // FIX THIS: Don't allow person to type in URL and arrive at survey page if not logged in.
     // if (isLoggedIn()) {
+
+      console.log(isLoggedIn())
+
       return survey_post_page;
     // } else {
     //   navigate(`/`)
