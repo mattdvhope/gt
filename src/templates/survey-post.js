@@ -25,7 +25,7 @@ export default class surveyPost extends Component {
       const dataFromDebug = await inspectAccessToken(token)
 
 
-      const photo = await getUserPhoto(dataFromDebug.user_id, token)
+      const photo = await getUserPhoto(dataFromDebug.data.user_id, token)
       
       console.log(dataFromDebug.data.user_id);
 
