@@ -23,7 +23,7 @@ export default class surveyPost extends Component {
       // conduct FB Login validations
       const token = await getAccessToken(code)
       const dataFromDebug = await inspectAccessToken(token)
-      const photo = await getUserPhoto(dataFromDebug.user_id)
+      const photo = await getUserPhoto(dataFromDebug.user_id, token)
       
       console.log(dataFromDebug);
 
