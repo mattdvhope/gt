@@ -42,7 +42,7 @@ export default class Banner extends Component {
   }
 
   handleResponse() {
-    this.state.window.location.replace(`${process.env.GATSBY_API_URL}`)
+    // this.state.window.location.replace(`${process.env.GATSBY_API_URL}`)
     console.log("handling response")
   }
 
