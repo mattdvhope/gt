@@ -14,11 +14,12 @@ export async function getIdToken(code) {
   // })
 
   const response = await fetch(`https://graph.facebook.com/v7.0/oauth/access_token?${params}`)
+  const json = await response.json();
 
   // 'json' contains the various tokens provided by 'api.line.me/oauth2...'
   // const json = await response.json();
 
-  console.log("response:", response)
+  console.log("json????:", json)
   // return json;
 }
 
