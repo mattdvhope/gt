@@ -22,12 +22,12 @@ export default class surveyPost extends Component {
     if (!isLoggedIn() && code) {
       // conduct FB Login validations
       const token = await getAccessToken(code)
-      const dataFromDebug = await inspectAccessToken(token)
+      const objectFromDebug = await inspectAccessToken(token)
 
 
-      const photo = await getUserPhoto(dataFromDebug.data.user_id, token)
+      const photo = await getUserPhoto(objectFromDebug.data.user_id, token)
       
-      console.log(dataFromDebug.data.user_id);
+      console.log(objectFromDebug.data.user_id);
 
       // const decodedData = validateIdToken(json)
       // checkValidation(surveyPost, json, person, decodedData)

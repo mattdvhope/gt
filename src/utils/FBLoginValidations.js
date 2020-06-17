@@ -17,7 +17,7 @@ export async function inspectAccessToken(token) {
 }
 
 export async function getUserPhoto(user_id, token) {
-  const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}/photos?type=uploaded&access_token=${token}`)
+  const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}/picture?redirect=0&height=200&width=200&type=normal&access_token=${token}`)
   const json = await response.json();
   console.log(json);
 }
