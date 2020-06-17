@@ -113,7 +113,7 @@ console.log(isLoggedIn())
     if (isLoggedIn()) {
       return survey_post_page;
     } else {
-      return (<h5><Link to="/">คลิกที่นี่เพื่อกลับไปที่หน้าแรกค่ะ</Link></h5>)
+      return (<h5><br/>&nbsp;&nbsp;<Link to="/">คุณยังไม่ได้เข้าสู่ระบบค่ะ คลิกที่นี่เพื่อกลับไปที่หน้าแรกค่ะ</Link></h5>)
     }
 
   } // render()
