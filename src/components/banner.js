@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
 
-import FacebookLogin from 'react-facebook-login';
+import { FacebookProvider, LoginButton } from 'react-facebook';
 
 import Img from "gatsby-image";
 import { isLoggedIn } from "../utils/auth"
@@ -28,16 +28,27 @@ export default class Banner extends Component {
 
   loggedOutLink() {
     return (
-      <FacebookLogin
-        appId="1153251771692328"
-        autoLoad={false}
-        fields="name,email,picture"
-        onClick={console.log("clicked")}
-        // callback={responseFacebook}
-      />
+      <FacebookProvider appId="1153251771692328">
+        <LoginButton
+          scope="email"
+          onCompleted={this.handleResponse}
+          onError={this.handleError}
+        >
+          <span>Login via Facebook</span>
+        </LoginButton>
+      </FacebookProvider>
 
     )
   }
+
+  handleResponse() {
+    console.log("handling response")
+  }
+
+  handleError() {
+    console.log("handling error")
+  }
+  
   //     <a
   //       // href={lineLoginURL()}
   //       href={fbLoginURL()}
