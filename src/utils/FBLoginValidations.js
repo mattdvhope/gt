@@ -10,7 +10,7 @@ export async function getAccessToken(code) {
 }
 
 export async function inspectAccessToken(token) {
-  const params = `input_token=${token}&access_token=5091c24ee671546a6c398c6c705838e4`;
+  const params = `input_token=${token}&access_token=${token}`;
   const response = await fetch(`https://graph.facebook.com/debug_token?${params}`)
   const json = await response.json();
   return json;
