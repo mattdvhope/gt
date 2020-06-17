@@ -11,13 +11,13 @@ export async function getAccessToken(code) {
 
 export async function inspectAccessToken(token) {
   const params = `input_token=${token}&access_token=${token}`;
-  const response = await fetch(`https://graph.facebook.com/debug_token?${params}`)
+  const response = await fetch(`https://graph.facebook.com/v7.0/debug_token?${params}`)
   const json = await response.json();
   return json;
 }
 
 export async function getUserPhoto(user_id) {
-  const response = await fetch(`https://graph.facebook.com/${user_id}/photos?type=uploaded`)
+  const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}/photos?type=uploaded`)
   const json = await response.json();
   console.log(json);
 }
