@@ -26,8 +26,8 @@ export default class Banner extends Component {
   loggedOutLink() {
     return (
       <a
-        // href={lineLoginURL()}
-        href={fbLoginURL()}
+        href={lineLoginURL()}
+        // href={fbLoginURL()}
         onClick={e => linkVisit()}
         style={{ color: `#DAC899` }} 
       >
