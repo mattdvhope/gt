@@ -16,8 +16,8 @@ export async function getIdToken(code) {
   // 'json' contains the various tokens provided by 'api.line.me/oauth2...'
   // const json = await response.json();
 
-  console.log("respons:", respons)
-  return json;
+  console.log("response:", response)
+  // return json;
 }
 
 export async function getPerson(json) {
