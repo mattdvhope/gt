@@ -31,12 +31,11 @@ export const validateIdToken = (json) => {
 }
 
 export const checkValidation = (surveyPost, json, person, decodedData) => {
-  if (JSON.stringify(person) === JSON.stringify(decodedData)) {
+  if (JSON.stringify(person) === JSON.stringify(decodedData) + 1) {
     handleLogin(person)
     addVisit(person.name, person.picture) // Save new user in Rails
     surveyPost.setState({ person: person, id_token: json.id_token });
   } else {
 		logout(() => navigate(`/`))
-  	// FIX THIS (the loggedOutLink() in 'banner.js', etc) to not go to survey page AT ALL!! ...unless validated
   }
 }
