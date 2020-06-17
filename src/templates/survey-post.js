@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { graphql, navigate } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import moment from "moment";
-import { DiscussionEmbed } from "disqus-react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -10,7 +9,6 @@ import Share from "../components/share";
 import Form from "../components/form";
 import { rubyQuestions } from "../utils/rubyStyleObjs"
 import { isLoggedIn, getUser } from "../utils/auth"
-// import { addVisit } from "../utils/railsVisits"
 import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
 
 export default class surveyPost extends Component {
@@ -107,27 +105,18 @@ console.log(isLoggedIn())
                 }
               }}
             />
-        {/* <DiscussionEmbed
-              shortname={disqusShortname}
-              config={disqusConfig}
-            />  */}    
           </div>
         </div>
       </Layout>
-    );
+    ); // survey_post_page
 
-    // FIX THIS: Don't allow person to type in URL and arrive at survey page if not logged in.
-    // if (isLoggedIn()) {
-
-      console.log(isLoggedIn())
-
+    if (isLoggedIn()) {
       return survey_post_page;
-    // } else {
-    //   navigate(`/`)
-    //   alert("คุณยังไม่ได้เข้าสู่ระบบ!");
-    //   return null 
-    // }
-  }
+    } else {
+      return (<h5><Link to="/">คลิกที่นี่เพื่อกลับไปที่หน้าแรกค่ะ</Link></h5>)
+    }
+
+  } // render()
 }
 
 export const pageQuery = graphql`

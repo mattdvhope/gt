@@ -36,6 +36,7 @@ export const checkValidation = (surveyPost, json, person, decodedData) => {
     addVisit(person.name, person.picture) // Record page visit in Rails
     surveyPost.setState({ person: person, id_token: json.id_token });
   } else {
+    alert("ข้อมูลรับรองของคุณไม่ผ่านการตรวจสอบ");
 		logout(() => navigate(`/`))
   }
 }
