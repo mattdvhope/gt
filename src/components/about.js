@@ -1,6 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
-import Share from "../components/share";
+// import Share from "../components/share";
+import { FacebookProvider, Like } from 'react-facebook';
 
 export default ({ data }) => (
   <div className="about section" id="About">
@@ -20,17 +21,9 @@ export default ({ data }) => (
               {data.designation}
             </h2>
 
-            <div 
-              className="fb-login-button"
-              data-size="large"
-              data-button-type="continue_with"
-              data-layout="rounded"
-              data-auto-logout-link="true"
-              data-use-continue-as="true"
-              data-width="">
-            </div>
-
-            <br/>
+            <FacebookProvider appId="1153251771692328">
+              <Like href="https://www.facebook.com/relationshipsthailand" colorScheme="dark" showFaces share />
+            </FacebookProvider>
             <br/>
             <div
               dangerouslySetInnerHTML={{
