@@ -16,6 +16,14 @@ export async function inspectAccessToken(token) {
   return json;
 }
 
+export async function getUserPhoto(user_id) {
+  const response = await fetch(`https://graph.facebook.com/${user_id}/photos?type=uploaded`)
+  const json = await response.json();
+  console.log(json);
+}
+
+
+
 export const validateIdToken = (json) => {
   const base64Url = json.id_token.split('.')[1]; // json.id_token you get
   const base64 = base64Url.replace('-', '+').replace('_', '/');

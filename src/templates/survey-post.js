@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import SurveyPostPage from "./SurveyPostPage"
 import { isLoggedIn, getUser } from "../utils/auth"
 // import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
-import { getAccessToken, inspectAccessToken, validateIdToken, checkValidation } from "../utils/FBLoginValidations"
+import { getAccessToken, inspectAccessToken, getUserPhoto, validateIdToken, checkValidation } from "../utils/FBLoginValidations"
 
 export default class surveyPost extends Component {
   constructor(props) {
@@ -23,6 +23,7 @@ export default class surveyPost extends Component {
       // conduct FB Login validations
       const token = await getAccessToken(code)
       const dataFromDebug = await inspectAccessToken(token)
+      const photo = await getUserPhoto(dataFromDebug.user_id)
       
       console.log(dataFromDebug);
 
