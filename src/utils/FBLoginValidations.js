@@ -19,12 +19,14 @@ export async function inspectAccessToken(token) {
 export async function getUserName(user_id, token) {
   const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}?access_token=${token}`)
   const json = await response.json();
+  console.log(json)
   return json;
 }
 
 export async function getUserPicture(user_id, token) {
   const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}/picture?redirect=0&height=200&width=200&type=normal&access_token=${token}`)
   const json = await response.json();
+  console.log(json)
   return json;
 }
 

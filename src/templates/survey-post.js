@@ -26,8 +26,8 @@ console.log("code", code)
       const objectFromDebug = await inspectAccessToken(token)
       const person_name = await getUserName(objectFromDebug.data.user_id, token)
       const picture = await getUserPicture(objectFromDebug.data.user_id, token)
-      console.log(person_name);
-      console.log(picture);
+      // console.log(person_name);
+      // console.log(picture);
     } else {
       this.setState({ person: getUser() })
     }
