@@ -7,7 +7,6 @@ import SEO from "../components/seo";
 import Share from "../components/share";
 import Form from "../components/form";
 import { rubyQuestions } from "../utils/rubyStyleObjs"
-import { FacebookProvider, Profile } from 'react-facebook';
 
 const SurveyPostPage = ({ data, siteurl, socialConfigss, fb_name, fb_picture }) => (
 	<Layout>
