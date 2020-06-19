@@ -18,6 +18,13 @@ export default class Banner extends Component {
 
   componentDidMount() {
     this.setState({ window: window })
+
+    // function isFacebookApp() {
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      alert(ua)
+      // return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+    // }
+
   }
 
   Linkage( ) {
@@ -28,8 +35,8 @@ export default class Banner extends Component {
   loggedOutLink() {
     return (
       <a
-        href={fbLoginURL()}
-        // href={lineLoginURL()}
+        // href={fbLoginURL()}
+        href={lineLoginURL()}
         onClick={e => linkVisit()}
         style={this.state.linkColor} 
       >
