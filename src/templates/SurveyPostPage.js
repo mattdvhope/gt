@@ -38,16 +38,6 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss }) => (
             <i className="fas fa-calendar-alt"></i>{" "}
             {moment(data.createdAt).format("LL")}
           </span>
-          <FacebookProvider appId="1153251771692328">
-            <Profile>
-              {({ loading, profile }) => (
-                <div>
-                  {profile.picture}
-                  {profile.name} 
-                </div>
-              )}
-            </Profile>
-          </FacebookProvider>
           <div
             dangerouslySetInnerHTML={{
               __html: data.description.childMarkdownRemark.html
