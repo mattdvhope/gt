@@ -28,8 +28,8 @@ export default class Banner extends Component {
   loggedOutLink() {
     return (
       <a
-        href={fbLoginURL()}
-        // href={lineLoginURL()}
+        // href={fbLoginURL()}
+        href={lineLoginURL()}
         onClick={e => linkVisit()}
         style={this.state.linkColor} 
       >
