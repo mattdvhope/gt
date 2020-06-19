@@ -25,8 +25,16 @@ export default class Banner extends Component {
 
       this.setState({ ua: ua })
 
+      // (ua.indexOf("FBAN") > -1) // fb
+      // (ua.indexOf("FBAV") > -1) // fb
+      // (ua.indexOf("Line") > -1) // LINE
+      // (ua.indexOf("FBDV") > -1) // fb messenger
+      // (ua.indexOf("FBMD") > -1) // fb messenger
+      // (ua.indexOf("FBSN") > -1) // fb messenger
+
       // return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
     // }
+
 
   }
 
@@ -78,7 +86,7 @@ export default class Banner extends Component {
                 <span style={{ fontSize: `${window.screen.width > 600 ? 8 : 10}vw` }}>
                   {data.name}
                 </span> {/* <h1>I'm {data.designation}.</h1> */} 
-                <span>
+                <span style={{ width: `40%`, fontSize: `110%` }}>
                   {this.state.ua}
                 </span>
                 <span style={{
