@@ -17,7 +17,7 @@ export async function inspectAccessToken(token) {
 }
 
 export async function getUserName(user_id, token) {
-  const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}/likes?access_token=${token}`)
+  const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}?access_token=${token}`)
   const json = await response.json();
   console.log(json);
 }
