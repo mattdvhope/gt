@@ -1,5 +1,6 @@
 import React from "react"
 import Img from "gatsby-image";
+import { FacebookProvider, Profile } from 'react-facebook';
 import moment from "moment";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -37,6 +38,16 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss }) => (
             <i className="fas fa-calendar-alt"></i>{" "}
             {moment(data.createdAt).format("LL")}
           </span>
+          <FacebookProvider appId="1153251771692328">
+            <Profile>
+              {({ loading, profile }) => (
+                <div>
+                  {profile.picture}
+                  {profile.name} 
+                </div>
+              )}
+            </Profile>
+          </FacebookProvider>
           <div
             dangerouslySetInnerHTML={{
               __html: data.description.childMarkdownRemark.html
