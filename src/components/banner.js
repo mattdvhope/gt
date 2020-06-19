@@ -13,6 +13,7 @@ export default class Banner extends Component {
     this.state = { 
       window: undefined,
       linkColor: { color: `#DAC899` },
+      ua: undefined,
     };
   }
 
@@ -21,7 +22,9 @@ export default class Banner extends Component {
 
     // function isFacebookApp() {
       var ua = navigator.userAgent || navigator.vendor || window.opera;
-      alert(ua)
+
+      this.setState({ ua: ua })
+
       // return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
     // }
 
@@ -75,6 +78,9 @@ export default class Banner extends Component {
                 <span style={{ fontSize: `${window.screen.width > 600 ? 8 : 10}vw` }}>
                   {data.name}
                 </span> {/* <h1>I'm {data.designation}.</h1> */} 
+                <span>
+                  {this.state.ua}
+                </span>
                 <span style={{
                   fontSize: `${window.screen.width > 600 ? 4 : 7.5}vw`,
                   marginLeft: `auto`,
