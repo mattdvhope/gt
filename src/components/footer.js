@@ -9,7 +9,7 @@ export default class footer extends Component {
 
     const privacy = (
       <span>
-        <a href="https://www.privacypolicies.com/privacy/view/eafea5993b7a8f48855e35cc251a9442"
+        <a href="https://www.privacypolicies.com/privacy/view/b06683b5030f4b73f98811015534ea5f"
            target="_blank"
            style={{ fontSize: `80%` }} >
           Privacy Policy
