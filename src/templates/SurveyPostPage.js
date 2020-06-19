@@ -7,8 +7,9 @@ import SEO from "../components/seo";
 import Share from "../components/share";
 import Form from "../components/form";
 import { rubyQuestions } from "../utils/rubyStyleObjs"
+import { FacebookProvider, Profile } from 'react-facebook';
 
-const SurveyPostPage = ({ data, siteurl, socialConfigss }) => (
+const SurveyPostPage = ({ data, siteurl, socialConfigss, fb_name, fb_picture }) => (
 	<Layout>
     <SEO
       title={data.title}
@@ -38,6 +39,18 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss }) => (
             <i className="fas fa-calendar-alt"></i>{" "}
             {moment(data.createdAt).format("LL")}
           </span>
+
+          <FacebookProvider appId="1153251771692328">
+            <Profile>
+              {({ loading, profile }) => (
+                <div>
+                  {fb_picture}
+                  {fb_name} 
+                </div>
+              )}
+            </Profile>
+            </FacebookProvider>
+
           <div
             dangerouslySetInnerHTML={{
               __html: data.description.childMarkdownRemark.html

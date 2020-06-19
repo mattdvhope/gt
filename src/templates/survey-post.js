@@ -11,6 +11,8 @@ export default class surveyPost extends Component {
     this.state = { 
       id_token: undefined,
       person: undefined,
+      fb_name: undefined,
+      fb_picture: undefined,
     };
   }
 
@@ -24,10 +26,9 @@ console.log("code", code)
     if (!isLoggedIn() && code) { // conduct FB Login validations
       const token = await getAccessToken(code)
       const objectFromDebug = await inspectAccessToken(token)
-      const person_name = await getUserName(objectFromDebug.data.user_id, token)
-      const picture = await getUserPicture(objectFromDebug.data.user_id, token)
-      console.log(person_name.name);
-      console.log(picture.data.url);
+      const fb_name = await getUserName(objectFromDebug.data.user_id, token)
+      const fb_picture = await getUserPicture(objectFromDebug.data.user_id, token)
+      this. setState({ fb_name: fb_name, fb_picture: fb_picture })
     } else {
       this.setState({ person: getUser() })
     }
@@ -63,7 +64,15 @@ console.log("code", code)
     };
 
     // if (isLoggedIn()) {
-      return <SurveyPostPage data={data} siteurl={siteurl} socialConfigss={socialConfigss}/>
+      return (
+        <SurveyPostPage
+          data={data}
+          siteurl={siteurl}
+          socialConfigss={socialConfigss}
+          fb_name={this.state.fb_name}
+          fb_picture={this.state.fb_picture}
+        />
+      )
     // } else {
     //   return (<h5><br/>&nbsp;&nbsp;<Link to="/">คุณยังไม่ได้เข้าสู่ระบบค่ะ คลิกที่นี่เพื่อกลับไปที่หน้าแรกค่ะ</Link></h5>)
     // }
