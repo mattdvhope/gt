@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { graphql, Link } from "gatsby";
 import SurveyPostPage from "./SurveyPostPage"
 import { isLoggedIn, getUser } from "../utils/auth"
-import { getAccessToken, inspectAccessToken, getUserProfile } from "../utils/FBLoginValidations"
+import { getAccessToken, inspectAccessToken, getUserName, getUserPicture } from "../utils/FBLoginValidations"
 // import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
 
 export default class surveyPost extends Component {
@@ -24,9 +24,10 @@ console.log("code", code)
     if (!isLoggedIn() && code) { // conduct FB Login validations
       const token = await getAccessToken(code)
       const objectFromDebug = await inspectAccessToken(token)
-      console.log(objectFromDebug);
-      const photo = await getUserProfile(objectFromDebug.data.user_id, token)
-      // console.log(objectFromDebug.data.user_id);
+      const person_name = await getUserName(objectFromDebug.data.user_id, token)
+      const picture = await getUserPicture(objectFromDebug.data.user_id, token)
+      console.log(person_name);
+      console.log(picture);
     } else {
       this.setState({ person: getUser() })
     }
