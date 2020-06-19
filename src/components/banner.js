@@ -13,29 +13,16 @@ export default class Banner extends Component {
     this.state = { 
       window: undefined,
       linkColor: { color: `#DAC899` },
-      ua: undefined,
+      FB_browser: false,
     };
   }
 
   componentDidMount() {
-    this.setState({ window: window })
-
-    // function isFacebookApp() {
-      var ua = navigator.userAgent || navigator.vendor || window.opera;
-
-      this.setState({ ua: ua })
-
-      // (ua.indexOf("FBAN") > -1) // fb
-      // (ua.indexOf("FBAV") > -1) // fb
-      // (ua.indexOf("Line") > -1) // LINE
-      // (ua.indexOf("FBDV") > -1) // fb messenger
-      // (ua.indexOf("FBMD") > -1) // fb messenger
-      // (ua.indexOf("FBSN") > -1) // fb messenger
-
-      // return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
-    // }
-
-
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const FB_browser = ua.indexOf("FB") > -1 ? true : false
+    this.setState({ FB_browser: FB_browser + "", window: window })
+    // (ua.indexOf("FB") > -1) // FB or FB-Messenger
+    // (ua.indexOf("Line") > -1) // LINE
   }
 
   Linkage( ) {
@@ -86,8 +73,8 @@ export default class Banner extends Component {
                 <span style={{ fontSize: `${window.screen.width > 600 ? 8 : 10}vw` }}>
                   {data.name}
                 </span> {/* <h1>I'm {data.designation}.</h1> */} 
-                <span style={{ width: `40%`, fontSize: `110%` }}>
-                  {this.state.ua}
+                <span style={{ width: `40%`}}>
+                  {this.state.FB_browser}
                 </span>
                 <span style={{
                   fontSize: `${window.screen.width > 600 ? 4 : 7.5}vw`,
