@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image";
-import { FacebookProvider, Profile } from 'react-facebook';
+import { FacebookProvider, Status } from 'react-facebook';
 import moment from "moment";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -40,15 +40,14 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, fb_name, fb_picture }) 
           </span>
 
           <FacebookProvider appId="1153251771692328">
-            <Profile>
-              {({ loading, profile }) => (
+            <Status>
+              {({ loading, status }) => (
                 <div>
-                  {fb_picture}
-                  {fb_name} 
+                  {...}
                 </div>
               )}
-            </Profile>
-            </FacebookProvider>
+            </Status>
+          </FacebookProvider>
 
           <div
             dangerouslySetInnerHTML={{
