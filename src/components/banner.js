@@ -20,21 +20,21 @@ export default class Banner extends Component {
   componentDidMount() {
     const ua = navigator.userAgent || navigator.vendor || window.opera;
     const FB_browser = ua.indexOf("FB") > -1 ? true : false
-    this.setState({ FB_browser: FB_browser + "", window: window })
-    // (ua.indexOf("FB") > -1) // FB or FB-Messenger
-    // (ua.indexOf("Line") > -1) // LINE
+    this.setState({ FB_browser: FB_browser, window: window })
   }
 
   Linkage( ) {
-    console.log(isLoggedIn())
-    return isLoggedIn() ? this.loggedInLink() : this.loggedOutLink()
+    // if (this.state.FB_browser) {
+      return this.FbLink();
+    // } else {
+    //   return this.GatsbyLink();
+    // }
   }
 
-  loggedOutLink() {
+  FbLink() {
     return (
       <a
-        // href={fbLoginURL()}
-        href={lineLoginURL()}
+        href={fbLoginURL()}
         onClick={e => linkVisit()}
         style={this.state.linkColor} 
       >
@@ -43,7 +43,7 @@ export default class Banner extends Component {
     )
   }
 
-  loggedInLink() {
+  GatsbyLink() {
     return (
       <Link 
         to={`survey-1`}
@@ -54,7 +54,6 @@ export default class Banner extends Component {
       </Link>
     )
   }
-  
 
   render() {
     const { data } = this.props;
@@ -73,9 +72,6 @@ export default class Banner extends Component {
                 <span style={{ fontSize: `${window.screen.width > 600 ? 8 : 10}vw` }}>
                   {data.name}
                 </span> {/* <h1>I'm {data.designation}.</h1> */} 
-                <span style={{ width: `40%`}}>
-                  {this.state.FB_browser}
-                </span>
                 <span style={{
                   fontSize: `${window.screen.width > 600 ? 4 : 7.5}vw`,
                   marginLeft: `auto`,
