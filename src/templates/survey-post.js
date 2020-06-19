@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { graphql, Link } from "gatsby";
 import SurveyPostPage from "./SurveyPostPage"
 import { isLoggedIn, getUser } from "../utils/auth"
+import { getAccessToken, inspectAccessToken, getUserPhoto } from "../utils/FBLoginValidations"
 // import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
-import { getAccessToken, inspectAccessToken, getUserPhoto, validateIdToken, checkValidation } from "../utils/FBLoginValidations"
 
 export default class surveyPost extends Component {
   constructor(props) {
@@ -19,27 +19,16 @@ export default class surveyPost extends Component {
     const code = url_with_code ? url_with_code[2] : null
     const surveyPost = this;
 
-    if (!isLoggedIn() && code) {
-      // conduct FB Login validations
+    if (!isLoggedIn() && code) { // conduct FB Login validations
       const token = await getAccessToken(code)
       const objectFromDebug = await inspectAccessToken(token)
-
-
       const photo = await getUserPhoto(objectFromDebug.data.user_id, token)
-      
       console.log(objectFromDebug.data.user_id);
-
-      // const decodedData = validateIdToken(json)
-      // checkValidation(surveyPost, json, person, decodedData)
     } else {
       this.setState({ person: getUser() })
     }
 
-
-
-
-    // if (!isLoggedIn() && code) {
-    //   // conduct LINE Login validations
+    // if (!isLoggedIn() && code) { // conduct LINE Login validations
     //   const json = await getIdToken(code)
     //   const person = await getPerson(json)
     //   const decodedData = validateIdToken(json)
@@ -47,6 +36,7 @@ export default class surveyPost extends Component {
     // } else {
     //   this.setState({ person: getUser() })
     // }
+
   }
 
   render() {
@@ -68,11 +58,11 @@ export default class surveyPost extends Component {
       slug: data.slug
     };
 
-    if (isLoggedIn()) {
+    // if (isLoggedIn()) {
       return <SurveyPostPage data={data} siteurl={siteurl} socialConfigss={socialConfigss}/>
-    } else {
-      return (<h5><br/>&nbsp;&nbsp;<Link to="/">คุณยังไม่ได้เข้าสู่ระบบค่ะ คลิกที่นี่เพื่อกลับไปที่หน้าแรกค่ะ</Link></h5>)
-    }
+    // } else {
+    //   return (<h5><br/>&nbsp;&nbsp;<Link to="/">คุณยังไม่ได้เข้าสู่ระบบค่ะ คลิกที่นี่เพื่อกลับไปที่หน้าแรกค่ะ</Link></h5>)
+    // }
 
   } // render()
 }

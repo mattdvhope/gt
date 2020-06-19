@@ -1,20 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
-
-import { FacebookProvider, LoginButton } from 'react-facebook';
-
 import Img from "gatsby-image";
 import { isLoggedIn } from "../utils/auth"
 import { linkVisit } from "../utils/railsVisits"
-import { lineLoginURL } from "../utils/linePlatform"
 import { fbLoginURL } from "../utils/FBplatform"
+import { lineLoginURL } from "../utils/linePlatform"
 
 export default class Banner extends Component {
 
   constructor(props) {
     super();
     this.state = { 
-      window: undefined
+      window: undefined,
+      linkColor: { color: `#DAC899` },
     };
   }
 
@@ -23,26 +21,31 @@ export default class Banner extends Component {
   }
 
   Linkage( ) {
+    console.log(isLoggedIn())
     return isLoggedIn() ? this.loggedInLink() : this.loggedOutLink()
   }
 
   loggedOutLink() {
     return (
       <a
-        // href={lineLoginURL()}
         href={fbLoginURL()}
+        // href={lineLoginURL()}
         onClick={e => linkVisit()}
-        style={{ color: `#DAC899`, cursor: `pointer` }} 
+        style={this.state.linkColor} 
       >
-        คลิกที่นี่เพื่อแบ่งปันความคิดเห็นของท่านเกี่ยวกับความสัมพันธ์ในกรุงเทพค่ะ 😊
+        {this.props.socialLinkStatement}
       </a>
     )
   }
 
   loggedInLink() {
     return (
-      <Link to={`survey-1`} style={{ color: `#DAC899` }} onClick={e => linkVisit()} >
-        คลิกที่นี่เพื่อแบ่งปันความคิดเห็นของท่านเกี่ยวกับความสัมพันธ์ในกรุงเทพค่ะ 😊
+      <Link 
+        to={`survey-1`}
+        style={this.state.linkColor}
+        onClick={e => linkVisit()}
+      >
+        {this.props.socialLinkStatement}
       </Link>
     )
   }
@@ -77,11 +80,6 @@ export default class Banner extends Component {
                   {this.Linkage()}
                 </span>
                 <br/>
-            {/* <ul className="sub-data">
-                  {data.bannerList.map((item, index) => {
-                    return <li key={index} style={{ fontSize: `190%` }}>{item}</li>;
-                  })}
-                </ul> */}    
                 <ul className="social">
                   <li>
                     <a
@@ -91,38 +89,6 @@ export default class Banner extends Component {
                       rel="noopener noreferrer"
                     ></a>
                   </li>
-              {/* <li>
-                    <a
-                      className="fab fa-twitter"
-                      href={data.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      className="fab fa-instagram"
-                      href={data.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      className="fab fa-linkedin-in"
-                      href={data.linkdin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      className="fab fa-line"
-                      href={data.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    ></a>
-                  </li>  */}
                   <li>
                     <a
                       className="fab fa-line"
@@ -140,7 +106,5 @@ export default class Banner extends Component {
     } else {
       return <span/>
     }
-
-
   }
 }

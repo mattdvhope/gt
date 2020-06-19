@@ -20,7 +20,7 @@ const IndexPage = ({ data }) => (
       title={data.contentfulAboutMe.designation}
       keywords={[`ความเชื่อ`, `ความหวัง`, `ความรัก`]}
     />
-    <Banner data={data.contentfulAboutMe}></Banner>
+    <Banner data={data.contentfulAboutMe} socialLinkStatement={data.contentfulSiteInformation.socialLinkStatement} ></Banner>
 
     {data.contentfulSiteInformation.menus
       .filter(item => item === "About")
@@ -242,6 +242,7 @@ export const pageQuery = graphql`
     }
     contentfulSiteInformation {
       siteName
+      socialLinkStatement
       menus
     }
   }
