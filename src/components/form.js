@@ -45,7 +45,6 @@ export default class Form extends Component {
   }
 
   render() {
-console.log(this.state.questions)
 		const questions =  this.state.questions; // array
 		return (
 			<div className="container-fluid">
