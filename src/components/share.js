@@ -10,7 +10,7 @@ import {
 const Share = ({ socialConfig }) => {
   return (
     <div className="post-social">
-      <h6 className="title is-6">Share:</h6>
+      <h3 className="title is-6">แชร์...</h3>
       <FacebookShareButton
         url={socialConfig.config.url}
         className="button is-outlined is-rounded facebook"
