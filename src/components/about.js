@@ -1,7 +1,5 @@
 import React from "react";
 import Img from "gatsby-image";
-// import Share from "../components/share";
-import { Like } from 'react-facebook';
 
 export default ({ data }) => (
   <div className="about section" id="About">
@@ -36,9 +34,6 @@ export default ({ data }) => (
                 __html: data.description.childMarkdownRemark.html
               }}
             />
-
-            <div className="fb-page" data-href="https://relationshipsthailand.org/" data-tabs="timeline, message" data-width="200" data-height="90" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
-
             <div className="socials">
               <ul>
                 <li>

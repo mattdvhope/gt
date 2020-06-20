@@ -1,5 +1,4 @@
 import React from "react";
-import { FacebookProvider } from 'react-facebook';
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import "bootstrap/dist/css/bootstrap.css";
@@ -33,7 +32,7 @@ const Layout = ({ children, header }) => {
       `}
       
       render={data => (
-        <FacebookProvider appId="1153251771692328">
+        <>
           <HelmetLocale/>
           <Header
             data={data.contentfulSiteInformation}
@@ -47,7 +46,7 @@ const Layout = ({ children, header }) => {
           <script>
             alert("Hello");
           </script>
-        </FacebookProvider>
+        </>
       )}
     />
   )

@@ -1,6 +1,5 @@
 import React from "react"
 import Img from "gatsby-image";
-import { Comments } from 'react-facebook';
 import moment from "moment";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
