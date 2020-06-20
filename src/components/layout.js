@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { FacebookProvider } from 'react-facebook';
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import "bootstrap/dist/css/bootstrap.css";
-
 import Header from "./header";
 import Footer from "./footer";
-// import { FBsdk } from "../utils/FBsdk";
-// import * as Facebook from 'fb-sdk-wrapper';
-
 import "../css/style.css";
 import "../css/font-awesome.css";
 
@@ -16,7 +12,15 @@ if (typeof window !== "undefined") {
   require("smooth-scroll")('a[href*="#"]');
 }
 
+
 const Layout = ({ children, header }) => {
+
+  
+
+  useEffect(() => {
+    console.log(window.innerWidth);
+  });
+
   return (
     <StaticQuery
       query={graphql`
