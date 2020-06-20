@@ -13,12 +13,11 @@ export async function inspectAccessToken(token) {
   const params = `input_token=${token}&access_token=${token}`;
   const response = await fetch(`https://graph.facebook.com/v7.0/debug_token?${params}`)
   const json = await response.json();
-  console.log("Debugged GRAPH response:", json)
   return json;
 }
 
 export async function getUserName(user_id, token) {
-  const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}?fields=hometown&access_token=${token}`)
+  const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}?fields=last_name&access_token=${token}`)
   const json = await response.json();
   console.log("User GRAPH response:", json)
   return json;
