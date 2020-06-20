@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image";
-import { FacebookProvider, Like, Comments } from 'react-facebook';
+import { Comments } from 'react-facebook';
 import moment from "moment";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -43,9 +43,7 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, fb_name, fb_picture }) 
               __html: data.description.childMarkdownRemark.html
             }}
           />
-          <FacebookProvider appId="1153251771692328">
-            <Comments href="https://www.facebook.com/relationshipsthailand" />
-          </FacebookProvider>
+          <Comments href="https://www.facebook.com/relationshipsthailand" />
         </div>
         <Form questions={rubyQuestions(data.questions)} />
         <br/>
