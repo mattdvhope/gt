@@ -66,7 +66,7 @@ export default class Form extends Component {
 						);
 					})}
 					<br/>
-				  <button type="submit" className="btn btn-success">Submit</button>
+				  <button type="submit" className="btn btn-success">"ส่ง"</button>
 				</form>
 			</div>
 		)
