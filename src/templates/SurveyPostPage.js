@@ -7,7 +7,7 @@ import Share from "../components/share";
 import Form from "../components/form";
 import { rubyQuestions } from "../utils/rubyStyleObjs"
 
-const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
+const SurveyPostPage = ({ data, siteurl, socialConfigss }) => (
 	<Layout>
     <SEO
       title={data.title}
