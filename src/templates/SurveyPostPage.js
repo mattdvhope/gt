@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image";
-import { Comments, EmbeddedPost } from 'react-facebook';
+import { Comments } from 'react-facebook';
 import moment from "moment";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -43,7 +43,16 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
               __html: data.description.childMarkdownRemark.html
             }}
           />
-          <EmbeddedPost href="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Frelationshipsthailand%2Fposts%2F119138423168533" />
+          <iframe
+            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Frelationshipsthailand%2Fposts%2F119138423168533&width=500"
+            width="500"
+            height="163"
+            style={{ border: `none`, overflow: `hidden` }}
+            scrolling="no"
+            frameborder="0"
+            allowTransparency="true"
+            allow="encrypted-media"
+          />
           <Comments href="https://www.facebook.com/relationshipsthailand" />
         </div>
         <Form questions={rubyQuestions(data.questions)} />
