@@ -6,6 +6,7 @@ import { preventTooManyChoices } from "../utils/handleQuestionChoices"
 import { updatedQuestions, final_selections_of_choices } from "../utils/handleQuestionChoices"
 // import { persistQuestions } from "../utils/railsVisits"
 import { persistUser } from "../utils/railsVisits"
+import axios from 'axios'
 
 export default class Form extends Component {
 	constructor(props) {
@@ -39,9 +40,20 @@ export default class Form extends Component {
   //   const selected = final_selections_of_choices(this.state.questions)
 		// persistQuestions(this.state.questions, selected) // in Rails API
 
-    persistUser(this.props.profile)
-		alert("ขอบคุณที่กรอกแบบฟอร์มสำรวจนี้ค่ะ")
-    navigate(`/#About`)
+    alert("button pressed")
+
+    const { id, name, picture } = this.props.profile;
+
+    axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
+      name: name, picture: picture.data.url, fb_id: id
+    })
+    .then(response => {
+      // console.log(response)
+      // return response.data.message;
+  		alert("ขอบคุณที่กรอกแบบฟอร์มสำรวจนี้ค่ะ")
+      navigate(`/#About`)
+    })
+
 
   }
 
