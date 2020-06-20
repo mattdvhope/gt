@@ -43,7 +43,7 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, fb_name, fb_picture }) 
               __html: data.description.childMarkdownRemark.html
             }}
           />
-          <FacebookProvider appId="1153251771692328">
+          <FacebookProvider appId="1153251771692328" wait >
             <Comments href="https://www.facebook.com/relationshipsthailand" />
           </FacebookProvider>
         </div>

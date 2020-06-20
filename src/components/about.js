@@ -20,8 +20,7 @@ export default ({ data }) => (
             <h2 className="sub-position">
               {data.designation}
             </h2>
-
-            <FacebookProvider appId="1153251771692328">
+            <FacebookProvider appId="1153251771692328" wait >
               <Like href="https://www.facebook.com/relationshipsthailand" colorScheme="dark" showFaces share />
             </FacebookProvider>
             <br/>
@@ -30,26 +29,6 @@ export default ({ data }) => (
                 __html: data.description.childMarkdownRemark.html
               }}
             />
-            <ul className="details">
-          {/* <li>
-                <strong>Full Name</strong>
-                <p>{data.name}</p>
-              </li>
-              <li>
-                <strong>Age</strong>
-                <p>{data.age} Years</p>
-              </li>
-              <li>
-                <strong>Location</strong>
-                <p>{data.location}</p>
-              </li>
-              <li>
-                <strong>Email</strong>
-                <p>
-                  <a href={`mailto:${data.gmail}`}>{data.gmail}</a>
-                </p>
-              </li>  */}
-            </ul>
             <div className="socials">
               <ul>
                 <li>
@@ -60,38 +39,6 @@ export default ({ data }) => (
                     rel="noopener noreferrer"
                   ></a>
                 </li>
-            {/* <li>
-                  <a
-                    className="fab fa-twitter"
-                    href={data.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    className="fab fa-instagram"
-                    href={data.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    className="fab fa-linkedin-in"
-                    href={data.linkdin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    className="fab fa-github"
-                    href={data.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  ></a>
-                </li>  */}
                 <li>
                   <a
                     className="fab fa-line"
