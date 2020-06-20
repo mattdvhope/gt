@@ -1,5 +1,23 @@
 import axios from 'axios'
 
+export const persistUser = (profile) => {
+  const { id, name, picture } = profile;
+  console.log(id)
+  console.log(name)
+  console.log(picture)
+}
+
+
+
+
+
+
+
+
+
+
+
+// FUNCTIONS (BELOW) FOR LATER!!!!!!
 export const linkVisit = () => {
 	console.log("in linkVisit");
   // const user_data = JSON.parse(sessionStorage.getItem("user_data"));
@@ -9,11 +27,9 @@ export const linkVisit = () => {
 }
 
 export async function addVisit(name, picture) {
-
 	console.log("in addVisit");
 	console.log(name);
 	console.log(picture);
-
   // const saved_person = await fetch(`https://graphql-rails-pg1.herokuapp.com/users`, {
   // // const saved_person = await fetch(`http://localhost:3000/users`, {
   //   method: 'POST',
@@ -24,14 +40,9 @@ export async function addVisit(name, picture) {
   // sessionStorage.setItem("user_data", JSON.stringify(saved_person_data))
 }
 
-
 export async function persistQuestions(questions, selected) {
-
-	
-
   // axios.post(`https://nameless-coast-54274.herokuapp.com/questions`, {
   axios.post(`http://localhost:3000/questions`, {
-    
     selected: selected
   })
   .then(response => {
@@ -45,7 +56,4 @@ export async function persistQuestions(questions, selected) {
   //     console.log("STILL ERRORS");
   //   }
   // });
-
-
-
 }

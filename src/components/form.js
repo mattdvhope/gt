@@ -5,6 +5,7 @@ import FormChoices from "./formChoices";
 import { preventTooManyChoices } from "../utils/handleQuestionChoices"
 import { updatedQuestions, final_selections_of_choices } from "../utils/handleQuestionChoices"
 // import { persistQuestions } from "../utils/railsVisits"
+import { persistUser } from "../utils/railsVisits"
 
 export default class Form extends Component {
 	constructor(props) {
@@ -40,7 +41,9 @@ export default class Form extends Component {
 		// alert("ขอบคุณที่กรอกแบบฟอร์มสำรวจนี้ค่ะ")
   //   navigate(`/#About`)
 
-    console.log(this.props.profile)
+    persistUser(this.props.profile)
+
+
 
 
   }
@@ -66,7 +69,6 @@ export default class Form extends Component {
 							</div>
 						);
 					})}
-					<br/>
 				  <button type="submit" className="btn btn-success">"ส่ง"</button>
 				</form>
 			</div>
