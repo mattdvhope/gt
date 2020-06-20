@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image";
-import { Comments } from 'react-facebook';
+import { Comments, Profile } from 'react-facebook';
 import moment from "moment";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -8,7 +8,7 @@ import Share from "../components/share";
 import Form from "../components/form";
 import { rubyQuestions } from "../utils/rubyStyleObjs"
 
-const SurveyPostPage = ({ data, siteurl, socialConfigss, fb_name, fb_picture }) => (
+const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
 	<Layout>
     <SEO
       title={data.title}
@@ -43,6 +43,16 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, fb_name, fb_picture }) 
               __html: data.description.childMarkdownRemark.html
             }}
           />
+
+          <Profile>
+            {({ loading, profile }) => (
+              <div>
+                {profile.picture}
+                {profile.name} 
+              </div>
+            )}
+          </Profile>
+
           <Comments href="https://www.facebook.com/relationshipsthailand" />
         </div>
         <Form questions={rubyQuestions(data.questions)} />

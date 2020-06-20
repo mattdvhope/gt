@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { graphql, Link } from "gatsby";
 import SurveyPostPage from "./SurveyPostPage"
 import { isLoggedIn, getUser } from "../utils/auth"
-import { getAccessToken, inspectAccessToken, getUserName, getUserPicture } from "../utils/FBLoginValidations"
+import { getAccessToken, inspectAccessToken, getUserProfile } from "../utils/FBLoginValidations"
 // import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
 
 export default class surveyPost extends Component {
@@ -11,8 +11,7 @@ export default class surveyPost extends Component {
     this.state = { 
       id_token: undefined,
       person: undefined,
-      fb_name: undefined,
-      fb_picture: undefined,
+      profile: undefined,
     };
   }
 
@@ -26,9 +25,8 @@ console.log("code", code)
     if (!isLoggedIn() && code) { // conduct FB Login validations
       const token = await getAccessToken(code)
       const objectFromDebug = await inspectAccessToken(token)
-      const fb_name = await getUserName(objectFromDebug.data.user_id, token)
-      const fb_picture = await getUserPicture(objectFromDebug.data.user_id, token)
-      this. setState({ fb_name: fb_name, fb_picture: fb_picture })
+      const profile = await getUserProfile(objectFromDebug.data.user_id, token)
+      this. setState({ profile: profile })
     } else {
       this.setState({ person: getUser() })
     }
@@ -69,8 +67,7 @@ console.log("code", code)
           data={data}
           siteurl={siteurl}
           socialConfigss={socialConfigss}
-          fb_name={this.state.fb_name}
-          fb_picture={this.state.fb_picture}
+          profile={this.state.profile}
         />
       )
     // } else {
