@@ -7,7 +7,7 @@ import { updatedQuestions, final_selections_of_choices } from "../utils/handleQu
 // import { persistQuestions } from "../utils/railsVisits"
 import { persistUser } from "../utils/railsVisits"
 import axios from 'axios'
-import "../css/spinner.css";
+// import "../css/spinner.css";
 
 export default class Form extends Component {
 	constructor(props) {
@@ -17,7 +17,7 @@ export default class Form extends Component {
       question: undefined,
       one_selected: undefined,
       selected_in_question: [],
-      waiting: false,
+      // waiting: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -37,35 +37,29 @@ export default class Form extends Component {
     });
   }
 
-  spinner() {
-    return (
-      <span>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <div className="loader" />
-        <br/>
-      </span>
-    )
-  }
+  // spinner() {
+  //   return (
+  //     <span>
+  //       <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  //       <div className="loader" />
+  //       <br/>
+  //     </span>
+  //   )
+  // }
 
 
 	handleSubmit(e) {
     e.preventDefault();
   //   const selected = final_selections_of_choices(this.state.questions)
 		// persistQuestions(this.state.questions, selected) // in Rails API
-    const _this = this;
-    this.setState({ waiting: true })
-
+    navigate(`/#About`)
     const { id, name, picture } = this.props.profile;
-    
     axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
       name: name, picture: picture.data.url, fb_id: id
     })
     .then(response => {
       console.log(response)
       // return response.data.message;
-      _this.setState({ waiting: false })
-  		alert("ขอบคุณที่กรอกแบบฟอร์มสำรวจนี้ค่ะ")
-      navigate(`/#About`)
     })
 
 
@@ -92,7 +86,7 @@ export default class Form extends Component {
 							</div>
 						);
 					})}
-          {this.state.waiting ? this.spinner() : null}
+          {/*this.state.waiting ? this.spinner() : null */}
 				  <button type="submit" className="btn btn-success">"ส่ง"</button>
 				</form>
 			</div>
