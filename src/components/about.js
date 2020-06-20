@@ -19,16 +19,18 @@ export default ({ data }) => (
               {data.designation}
             </h2>
             
-            <iframe
-              src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Frelationshipsthailand%2F&width=50&layout=button&action=like&size=large&share=true&height=65&appId"
-              width="200"
-              height="65"
+            <div
+              className="fb-like"
+              data-href="https://relationshipsthailand.org/"
+              data-width=""
+              data-layout="button"
+              data-action="like"
+              data-size="large"
+              data-share="true"
               style={{ border: `none`, overflow: `hidden`, height: `31px` }}
-              scrolling="no"
-              frameBorder="0"
-              allowtransparency="true"
-              allow="encrypted-media"
             />
+
+
             <div
               dangerouslySetInnerHTML={{
                 __html: data.description.childMarkdownRemark.html
