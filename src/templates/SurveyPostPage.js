@@ -53,7 +53,7 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
             allowTransparency="true"
             allow="encrypted-media"
           />
-          <Comments href="https://www.facebook.com/relationshipsthailand" />
+          <div class="fb-comments" data-href="https://relationshipsthailand.org/survey-1" data-numposts="2" data-width=""></div>
         </div>
         <Form questions={rubyQuestions(data.questions)} />
         <br/>
