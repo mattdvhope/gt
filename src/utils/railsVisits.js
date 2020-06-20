@@ -29,8 +29,8 @@ export async function persistQuestions(questions, selected) {
 
 	
 
-  axios.post(`https://nameless-coast-54274.herokuapp.com/questions`, {
-  // axios.post(`http://localhost:3000/questions`, {
+  // axios.post(`https://nameless-coast-54274.herokuapp.com/questions`, {
+  axios.post(`http://localhost:3000/questions`, {
     
     selected: selected
   })

@@ -25,8 +25,9 @@ console.log("code", code)
     if (!isLoggedIn() && code) { // conduct FB Login validations
       const token = await getAccessToken(code)
       const objectFromDebug = await inspectAccessToken(token)
-      const profile = await getUserProfile(objectFromDebug.data.user_id, token)
-      this. setState({ profile: profile })
+      const profile_of_person = await getUserProfile(objectFromDebug.data.user_id, token)
+      this. setState({ profile: profile_of_person })
+      
     } else {
       this.setState({ person: getUser() })
     }

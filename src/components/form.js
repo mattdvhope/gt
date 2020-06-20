@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import FormChoices from "./formChoices";
 import { preventTooManyChoices } from "../utils/handleQuestionChoices"
 import { updatedQuestions, final_selections_of_choices } from "../utils/handleQuestionChoices"
-import { persistQuestions } from "../utils/railsVisits"
+// import { persistQuestions } from "../utils/railsVisits"
 
 export default class Form extends Component {
 	constructor(props) {
@@ -35,12 +35,13 @@ export default class Form extends Component {
 
 	handleSubmit(e) {
     e.preventDefault();
+  //   const selected = final_selections_of_choices(this.state.questions)
+		// persistQuestions(this.state.questions, selected) // in Rails API
+		// alert("ขอบคุณที่กรอกแบบฟอร์มสำรวจนี้ค่ะ")
+  //   navigate(`/#About`)
 
-    const selected = final_selections_of_choices(this.state.questions)
-		persistQuestions(this.state.questions, selected) // in Rails API
-		alert("ขอบคุณที่กรอกแบบฟอร์มสำรวจนี้ค่ะ")
+    console.log(this.props.profile)
 
-    navigate(`/#About`)
 
   }
 

@@ -7,7 +7,7 @@ import Share from "../components/share";
 import Form from "../components/form";
 import { rubyQuestions } from "../utils/rubyStyleObjs"
 
-const SurveyPostPage = ({ data, siteurl, socialConfigss }) => (
+const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
 	<Layout>
     <SEO
       title={data.title}
@@ -56,7 +56,7 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss }) => (
 
           <hr/>
         </div>
-        <Form questions={rubyQuestions(data.questions)} />
+        <Form questions={rubyQuestions(data.questions)} profile={profile} />
         <br/>
         <div className="fb-comments" data-href="https://relationshipsthailand.org/survey-1" data-numposts="2" data-width=""></div>
         <br/>
