@@ -31,11 +31,11 @@ function SEO({ description, lang, meta, keywords, title, data }) {
               },
               {
                 property: `og:image`,
-                content: `https://relate.s3-ap-southeast-1.amazonaws.com/sheep-flock-mountain-512x512.jpg`
+                content: `https://relate.s3-ap-southeast-1.amazonaws.com/sheep-flock-mountain-fb.jpg`
               },
               {
                 property: `og:url`,
-                content: `https://www.xn--p3cbole1cb0dce80a.com/`
+                content: data.contentfulSiteInformation.siteUrl
               },
               {
                 property: `og:type`,
@@ -94,6 +94,7 @@ const detailsQuery = graphql`
   query DefaultSEOQuery {
     contentfulSiteInformation {
       siteName
+      siteUrl
       siteDescription
       twiteerHandle
     }
