@@ -20,7 +20,7 @@ export default ({ data }) => (
             <h2 className="sub-position">
               {data.designation}
             </h2>
-            <FacebookProvider appId="1153251771692328" wait >
+            <FacebookProvider appId="1153251771692328">
               <Like href="https://www.facebook.com/relationshipsthailand" colorScheme="dark" showFaces share />
             </FacebookProvider>
             <br/>
