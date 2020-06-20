@@ -52,7 +52,7 @@ export default class Form extends Component {
     e.preventDefault();
   //   const selected = final_selections_of_choices(this.state.questions)
 		// persistQuestions(this.state.questions, selected) // in Rails API
-
+    const _this = this;
     this.setState({ waiting: true })
 
     const { id, name, picture } = this.props.profile;
@@ -63,6 +63,7 @@ export default class Form extends Component {
     .then(response => {
       console.log(response)
       // return response.data.message;
+      _this.setState({ waiting: false })
   		alert("ขอบคุณที่กรอกแบบฟอร์มสำรวจนี้ค่ะ")
       navigate(`/#About`)
     })
