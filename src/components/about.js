@@ -27,8 +27,8 @@ export default ({ data }) => (
               height="65"
               style={{ border: `none`, overflow: `hidden`, height: `31px` }}
               scrolling="no"
-              frameborder="0"
-              allowTransparency="true"
+              frameBorder="0"
+              allowtransparency="true"
               allow="encrypted-media"
             />
             <div
@@ -36,6 +36,9 @@ export default ({ data }) => (
                 __html: data.description.childMarkdownRemark.html
               }}
             />
+
+            <div className="fb-page" data-href="https://relationshipsthailand.org/" data-tabs="timeline, message" data-width="200" data-height="90" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+
             <div className="socials">
               <ul>
                 <li>
