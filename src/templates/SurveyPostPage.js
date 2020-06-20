@@ -43,16 +43,22 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
               __html: data.description.childMarkdownRemark.html
             }}
           />
-          <iframe
-            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Frelationshipsthailand%2Fposts%2F119138423168533&width=500"
-            width="500"
-            height="163"
-            style={{ border: `none`, overflow: `hidden` }}
-            scrolling="no"
-            frameborder="0"
-            allowTransparency="true"
-            allow="encrypted-media"
-          />
+          <div
+            className="fb-post"
+            data-href="https://www.facebook.com/relationshipsthailand/posts/119138423168533"
+            data-show-text="true"
+            data-width=""
+          >
+            <blockquote
+              cite="https://developers.facebook.com/relationshipsthailand/posts/119138423168533"
+              className="fb-xfbml-parse-ignore"
+            >
+              <p>Nice to Visit!</p>
+              Posted by <a href="https://www.facebook.com/relationshipsthailand/">สัมพันธภาพ</a> on&nbsp;<a href="https://developers.facebook.com/relationshipsthailand/posts/119138423168533">Friday, June 19, 2020</a>
+            </blockquote>
+          </div>
+          
+
           <div className="fb-comments" data-href="https://relationshipsthailand.org/survey-1" data-numposts="2" data-width=""></div>
         </div>
         <Form questions={rubyQuestions(data.questions)} />
