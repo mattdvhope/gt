@@ -38,7 +38,6 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, fb_name, fb_picture }) 
             <i className="fas fa-calendar-alt"></i>{" "}
             {moment(data.createdAt).format("LL")}
           </span>
-
           <FacebookProvider appId="1153251771692328">
             <Comments href="https://www.facebook.com/relationshipsthailand" />
           </FacebookProvider>
