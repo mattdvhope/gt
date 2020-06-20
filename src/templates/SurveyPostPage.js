@@ -43,6 +43,7 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
               __html: data.description.childMarkdownRemark.html
             }}
           />
+          <div className="fb-share-button" data-href="https://relationshipsthailand.org/survey-1/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frelationshipsthailand.org%2Fsurvey-1%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">แชร์</a></div>
           <div className="fb-comments" data-href="https://relationshipsthailand.org/survey-1" data-numposts="2" data-width=""></div>
         </div>
         <Form questions={rubyQuestions(data.questions)} />
