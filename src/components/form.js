@@ -17,7 +17,7 @@ export default class Form extends Component {
       question: undefined,
       one_selected: undefined,
       selected_in_question: [],
-      // waiting: false,
+      survey_done: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -37,22 +37,12 @@ export default class Form extends Component {
     });
   }
 
-  // spinner() {
-  //   return (
-  //     <span>
-  //       <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  //       <div className="loader" />
-  //       <br/>
-  //     </span>
-  //   )
-  // }
-
-
 	handleSubmit(e) {
     e.preventDefault();
   //   const selected = final_selections_of_choices(this.state.questions)
 		// persistQuestions(this.state.questions, selected) // in Rails API
-    navigate(`/#About`)
+    // navigate(`/#About`)
+    this.setState({ survey_done: true })
     const { id, name, picture } = this.props.profile;
     axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
       name: name, picture: picture.data.url, fb_id: id
@@ -67,30 +57,42 @@ export default class Form extends Component {
 
   render() {
 		const questions =  this.state.questions; // array
-		return (
-			<div className="container-fluid">
-				<form onSubmit={this.handleSubmit} >
-					{questions.map((item) => {
-						return (
-							<div key={item.id}>
-							  <h3>
-							    {item.question}
-							    <br/>
-							    <FormChoices
-							    	choices={item.questionChoices}
-							    	question={JSON.stringify(item)}
-							    	handleChange={this.handleChange}
-							    />
-							  </h3>
-							  <br/>
-							</div>
-						);
-					})}
-          {/*this.state.waiting ? this.spinner() : null */}
-				  <button type="submit" className="btn btn-success">"ส่ง"</button>
-				</form>
-			</div>
-		)
+    const survey_done = this.state.survey_done;
+
+    if (!survey_done) {
+  		return (
+  			<div className="container-fluid">
+  				<form onSubmit={this.handleSubmit} >
+  					{questions.map((item) => {
+  						return (
+  							<div key={item.id}>
+  							  <h3>
+  							    {item.question}
+  							    <br/>
+  							    <FormChoices
+  							    	choices={item.questionChoices}
+  							    	question={JSON.stringify(item)}
+  							    	handleChange={this.handleChange}
+  							    />
+  							  </h3>
+  							  <br/>
+  							</div>
+  						);
+  					})}
+  				  <button type="submit" className="btn btn-success">"ส่ง"</button>
+  				</form>
+  			</div>
+  		)
+    } else {
+      return (
+        <div className="container-fluid">
+          <h1>THANK YOU!!</h1>
+        </div>
+      )
+    }
+
+
+
 	}
 }
 

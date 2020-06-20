@@ -1,3 +1,15 @@
+/* A spinner method in a Component... */
+
+/* spinner() { */
+/*   return ( */
+/*     <span> */
+/*       <meta name="viewport" content="width=device-width, initial-scale=1"/> */
+/*       <div className="loader" /> */
+/*       <br/> */
+/*     </span> */
+/*   ) */
+/* } */
+
 .loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
