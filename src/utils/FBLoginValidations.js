@@ -17,7 +17,8 @@ export async function inspectAccessToken(token) {
 }
 
 export async function getUserName(user_id, token) {
-  const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}?fields=id,name,first_name,middle_name,last_name,name_format,picture,short_name,email&access_token=${token}`)
+  // const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}?fields=id,name,first_name,middle_name,last_name,name_format,picture,short_name,email&access_token=${token}`)
+  const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}?access_token=EAAQY4FowNSgBALV4ZCAcxDn6YjVJYVVbNdqYfw4u6dxBMK5A0yqI7YBpqVYtCpVaVikXAJnHNlssUz6vNJ1YQ7InosBPIruwigNpELkobaNDfhD5yhThnEburUIGuI57sUZAV4BwLY0FjGOA2Y4H1vKLVnRsIWxrE3kbGz09SvqKZA8ZBt6Dm1oJnnZBuNG9JHWGNEvPdaPXCEE3GUHhgydmluGa85g8MV3rFsgwmrgZDZD`)
   const json = await response.json();
   console.log("User GRAPH response:", json)
   return json;
