@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { FacebookProvider } from 'react-facebook';
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
@@ -14,13 +14,6 @@ if (typeof window !== "undefined") {
 
 
 const Layout = ({ children, header }) => {
-
-  
-
-  useEffect(() => {
-    console.log(window.innerWidth);
-  });
-
   return (
     <StaticQuery
       query={graphql`
