@@ -5,7 +5,6 @@ import { isLoggedIn } from "../utils/auth"
 import { linkVisit } from "../utils/railsVisits"
 import { fbLoginURL } from "../utils/FBplatform"
 import { lineLoginURL } from "../utils/linePlatform"
-import FbLoginButton from "./FbLoginButton"
 
 export default class Banner extends Component {
 
@@ -80,9 +79,6 @@ export default class Banner extends Component {
                   width: `70%`,
                 }}>
                   {this.Linkage()}
-                </span>
-                <span>
-                  <FbLoginButton/>
                 </span>
                 <br/>
                 <ul className="social">
