@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image";
-import { FacebookProvider, Like } from 'react-facebook';
+import { FacebookProvider, Like, Comments } from 'react-facebook';
 import moment from "moment";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -40,7 +40,7 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, fb_name, fb_picture }) 
           </span>
 
           <FacebookProvider appId="1153251771692328">
-            <Like href="https://www.facebook.com/relationshipsthailand" colorScheme="dark" showFaces share />
+            <Comments href="https://www.facebook.com/relationshipsthailand" />
           </FacebookProvider>
 
           <div
