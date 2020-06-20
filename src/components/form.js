@@ -38,13 +38,10 @@ export default class Form extends Component {
     e.preventDefault();
   //   const selected = final_selections_of_choices(this.state.questions)
 		// persistQuestions(this.state.questions, selected) // in Rails API
-		// alert("ขอบคุณที่กรอกแบบฟอร์มสำรวจนี้ค่ะ")
-  //   navigate(`/#About`)
 
     persistUser(this.props.profile)
-
-
-
+		alert("ขอบคุณที่กรอกแบบฟอร์มสำรวจนี้ค่ะ")
+    navigate(`/#About`)
 
   }
 
