@@ -16,20 +16,20 @@ export default class surveyPost extends Component {
   }
 
   async componentDidMount() {
-//     const url_with_code = window.location.search.match(/(code=)(.*)(?=&state)/)
-//     const code = url_with_code ? url_with_code[2] : null
-//     const surveyPost = this;
+    const url_with_code = window.location.search.match(/(code=)(.*)(?=&state)/)
+    const code = url_with_code ? url_with_code[2] : null
+    const surveyPost = this;
 
-// console.log("code", code)
+console.log("code", code)
 
-//     if (!isLoggedIn() && code) { // conduct FB Login validations
-//       const token = await getAccessToken(code)
-//       const objectFromDebug = await inspectAccessToken(token)
-//       const profile = await getUserProfile(objectFromDebug.data.user_id, token)
-//       this. setState({ profile: profile })
-//     } else {
-//       this.setState({ person: getUser() })
-//     }
+    if (!isLoggedIn() && code) { // conduct FB Login validations
+      const token = await getAccessToken(code)
+      const objectFromDebug = await inspectAccessToken(token)
+      const profile = await getUserProfile(objectFromDebug.data.user_id, token)
+      this. setState({ profile: profile })
+    } else {
+      this.setState({ person: getUser() })
+    }
 
     // if (!isLoggedIn() && code) { // conduct LINE Login validations
     //   const json = await getIdToken(code)
