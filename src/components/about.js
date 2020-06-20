@@ -25,7 +25,7 @@ export default ({ data }) => (
               src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Frelationshipsthailand%2F&width=50&layout=button&action=like&size=large&share=true&height=65&appId"
               width="200"
               height="65"
-              style={{ border: `none`, overflow: `hidden`, marginBottom: `-28px` }}
+              style={{ border: `none`, overflow: `hidden`, height: `31px` }}
               scrolling="no"
               frameborder="0"
               allowTransparency="true"
