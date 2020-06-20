@@ -20,8 +20,17 @@ export default ({ data }) => (
             <h2 className="sub-position">
               {data.designation}
             </h2>
-            <Like href="https://www.facebook.com/relationshipsthailand" colorScheme="dark" showFaces share />
-            <br/>
+            
+            <iframe
+              src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Frelationshipsthailand%2F&width=50&layout=button&action=like&size=large&share=true&height=65&appId"
+              width="200"
+              height="65"
+              style={{ border: `none`, overflow: `hidden`, marginBottom: `-28px` }}
+              scrolling="no"
+              frameborder="0"
+              allowTransparency="true"
+              allow="encrypted-media"
+            />
             <div
               dangerouslySetInnerHTML={{
                 __html: data.description.childMarkdownRemark.html
