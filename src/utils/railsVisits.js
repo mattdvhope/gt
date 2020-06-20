@@ -4,7 +4,10 @@ export const persistUser = (profile) => {
   const { id, name, picture } = profile;
   console.log(id)
   console.log(name)
-  console.log(picture)
+  console.log(picture.data.url)
+
+
+  
 }
 
 
