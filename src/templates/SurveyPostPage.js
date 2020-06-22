@@ -45,7 +45,7 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
           
           <div
             className="fb-like"
-            data-href="https://relationshipsthailand.org/survey-1/"
+            data-href="https://relationshipsthailand.org/"
             data-width=""
             data-layout="button"
             data-action="like"
