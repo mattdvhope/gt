@@ -17,7 +17,7 @@ export default class surveyPost extends Component {
   }
 
   async componentDidMount() {
-    if (!window.performance.navigation.TYPE_NAVIGATE) {
+    if (window.performance.navigation.TYPE_NAVIGATE) { // if someone didn't get to this page from the homepage link, then have it "click" (programmatically) the FB login link
       (window.location.replace(fbLoginURL()))
     }
 
