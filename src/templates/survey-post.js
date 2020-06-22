@@ -4,6 +4,7 @@ import SurveyPostPage from "./SurveyPostPage"
 import { isLoggedIn, getUser } from "../utils/auth"
 import { getAccessToken, inspectAccessToken, getUserProfile } from "../utils/FBLoginValidations"
 // import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
+import { fbLoginURL } from "../utils/FBplatform"
 
 export default class surveyPost extends Component {
   constructor(props) {
@@ -16,6 +17,10 @@ export default class surveyPost extends Component {
   }
 
   async componentDidMount() {
+    if (!window.performance.navigation.TYPE_NAVIGATE) {
+      (window.location.replace(fbLoginURL()))
+    }
+
     const url_with_code = window.location.search.match(/(code=)(.*)(?=&state)/)
     const code = url_with_code ? url_with_code[2] : null
     const surveyPost = this;
