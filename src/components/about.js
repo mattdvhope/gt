@@ -14,7 +14,6 @@ export default ({ data }) => (
         </div>
         <div className="left col-md-7 col-lg-8">
           <div className="about-details">
-            <span className="name">เราเป็น "{data.name}"</span>
             <h2 className="sub-position">
               {data.designation}
             </h2>
@@ -30,12 +29,13 @@ export default ({ data }) => (
               style={{ border: `none`, overflow: `hidden`, height: `31px` }}
             />
 
-
+            <hr/>
             <div
               dangerouslySetInnerHTML={{
                 __html: data.description.childMarkdownRemark.html
               }}
             />
+            <hr/>
             <div className="socials">
               <ul>
                 <li>
