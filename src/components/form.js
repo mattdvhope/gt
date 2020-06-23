@@ -67,7 +67,7 @@ export default class Form extends Component {
     this.setState({ survey_done: true })
 
     if (this.state.document) {
-      document.documentElement.scrollTop = 640
+      document.documentElement.scrollTop = 600
     }
 
     const { id, name, picture } = this.props.profile;
