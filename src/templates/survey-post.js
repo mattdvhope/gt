@@ -25,8 +25,6 @@ export default class surveyPost extends Component {
     const code = url_with_code ? url_with_code[2] : null
     const surveyPost = this;
 
-console.log("code", code)
-
     if (!isLoggedIn() && code) { // conduct FB Login validations
       const token = await getAccessToken(code)
       const objectFromDebug = await inspectAccessToken(token)
@@ -55,8 +53,6 @@ console.log("code", code)
       identifier: data.id,
       title: data.title
     };
-
-    console.log(data.createdAt)
 
     const siteurl = this.props.data.contentfulSiteInformation.siteUrl + "/";
     const twiteerhandle = this.props.data.contentfulSiteInformation
