@@ -18,8 +18,19 @@ export default class Form extends Component {
       one_selected: undefined,
       selected_in_question: [],
       survey_done: false,
+      document: undefined,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    
+    // const testDiv = document.getElementById("___gatsby");
+
+    // console.log("testDiv:", testDiv)
+    // console.log("testDiv.offsetTop;", testDiv.offsetTop)
+
+    this.setState({ document: document })
   }
 
 	handleChange = e => {
@@ -52,27 +63,28 @@ export default class Form extends Component {
   }
 
 	handleSubmit(e) {
-  //   e.preventDefault();
-  // //   const selected = final_selections_of_choices(this.state.questions)
-		// // persistQuestions(this.state.questions, selected) // in Rails API
-  //   // navigate(`/#About`)
-  //   this.setState({ survey_done: true })
-  //   const { id, name, picture } = this.props.profile;
-  //   axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
-  //     name: name, picture: picture.data.url, fb_id: id
-  //   })
-  //   .then(response => {
-  //     console.log(response)
-  //     // return response.data.message;
-  //   })
+    e.preventDefault();
+    this.setState({ survey_done: true })
 
-this.setState({ survey_done: true })
+    if (this.state.document) {
+      document.documentElement.scrollTop = 640
+    }
+
+    const { id, name, picture } = this.props.profile;
+    axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
+      name: name, picture: picture.data.url, fb_id: id
+    })
+    .then(response => {
+      console.log(response)
+      // return response.data.message;
+    })
   }
 
   render() {
 		const questions =  this.state.questions; // array
     const survey_done = this.state.survey_done;
     const youtubeUrl = this.youtubeEmbeddable("https://www.youtube.com/watch?v=UXc_Dvgipew")
+    
 
     console.log(this.props)
 
