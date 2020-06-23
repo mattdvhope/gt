@@ -37,27 +37,42 @@ export default class Form extends Component {
     });
   }
 
+  youtubeEmbeddable(youtubeUrl) {
+    const video_id = this.youtubeId(youtubeUrl);
+    return `https://www.youtube.com/embed/${video_id}?rel=0`
+  }
+
+  youtubeId(youtubeUrl) {
+    let video_id = youtubeUrl.split('v=')[1];
+    const ampersandPosition = video_id.indexOf('&');
+    if(ampersandPosition != -1) {
+      video_id = video_id.substring(0, ampersandPosition);
+    }
+    return video_id    
+  }
+
 	handleSubmit(e) {
-    e.preventDefault();
-  //   const selected = final_selections_of_choices(this.state.questions)
-		// persistQuestions(this.state.questions, selected) // in Rails API
-    // navigate(`/#About`)
-    this.setState({ survey_done: true })
-    const { id, name, picture } = this.props.profile;
-    axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
-      name: name, picture: picture.data.url, fb_id: id
-    })
-    .then(response => {
-      console.log(response)
-      // return response.data.message;
-    })
+  //   e.preventDefault();
+  // //   const selected = final_selections_of_choices(this.state.questions)
+		// // persistQuestions(this.state.questions, selected) // in Rails API
+  //   // navigate(`/#About`)
+  //   this.setState({ survey_done: true })
+  //   const { id, name, picture } = this.props.profile;
+  //   axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
+  //     name: name, picture: picture.data.url, fb_id: id
+  //   })
+  //   .then(response => {
+  //     console.log(response)
+  //     // return response.data.message;
+  //   })
 
-
+this.setState({ survey_done: true })
   }
 
   render() {
 		const questions =  this.state.questions; // array
     const survey_done = this.state.survey_done;
+    const youtubeUrl = this.youtubeEmbeddable("https://www.youtube.com/watch?v=UXc_Dvgipew")
 
     console.log(this.props)
 
@@ -91,7 +106,7 @@ export default class Form extends Component {
       return (
         <div className="container-fluid">
           <p style={{ fontSize: `125%` }} >{this.props.CTA}</p>
-          <YoutubeHolder/>
+          <YoutubeHolder youtubeUrl={youtubeUrl} />
         </div>
       )
     }
