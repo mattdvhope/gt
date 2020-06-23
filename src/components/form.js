@@ -1,13 +1,13 @@
 import React, { Component } from "react"
 import { navigate } from "gatsby";
 import { graphql } from "gatsby";
+import axios from 'axios'
 import FormChoices from "./formChoices";
 import { preventTooManyChoices } from "../utils/handleQuestionChoices"
 import { updatedQuestions, final_selections_of_choices } from "../utils/handleQuestionChoices"
 // import { persistQuestions } from "../utils/railsVisits"
 import { persistUser } from "../utils/railsVisits"
-import axios from 'axios'
-// import "../css/spinner.css";
+import YoutubeHolder from "./YoutubeHolder"
 
 export default class Form extends Component {
 	constructor(props) {
@@ -91,6 +91,7 @@ export default class Form extends Component {
       return (
         <div className="container-fluid">
           <p style={{ fontSize: `125%` }} >{this.props.CTA}</p>
+          <YoutubeHolder/>
         </div>
       )
     }
