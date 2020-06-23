@@ -113,6 +113,8 @@ export const pageQuery = graphql`
           choice
         }
       }
+      thankYouNote
+      furtherCta
       createdAt
     }
     contentfulSiteInformation {

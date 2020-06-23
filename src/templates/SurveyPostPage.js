@@ -56,7 +56,12 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
 
           <hr/>
         </div>
-        <Form questions={rubyQuestions(data.questions)} profile={profile} />
+        <Form
+          questions={rubyQuestions(data.questions)}
+          profile={profile}
+          thankYouNote={data.thankYouNote}
+          CTA={data.furtherCta}
+        />
         <br/>
         <div className="fb-comments" data-href="https://relationshipsthailand.org/survey-1" data-numposts="2" data-width=""></div>
         <br/>

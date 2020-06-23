@@ -59,6 +59,8 @@ export default class Form extends Component {
 		const questions =  this.state.questions; // array
     const survey_done = this.state.survey_done;
 
+    console.log(this.props)
+
     if (!survey_done) {
   		return (
   			<div className="container-fluid">
@@ -79,6 +81,8 @@ export default class Form extends Component {
   							</div>
   						);
   					})}
+            <p style={{ fontSize: `125%` }} >{this.props.thankYouNote}</p>
+            <br/>
   				  <button type="submit" className="btn btn-success">"ส่ง"</button>
   				</form>
   			</div>
@@ -86,7 +90,7 @@ export default class Form extends Component {
     } else {
       return (
         <div className="container-fluid">
-          <h1>THANK YOU!!</h1>
+          <p style={{ fontSize: `125%` }} >{this.props.CTA}</p>
         </div>
       )
     }
