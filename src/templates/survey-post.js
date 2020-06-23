@@ -56,6 +56,8 @@ console.log("code", code)
       title: data.title
     };
 
+    console.log(data.createdAt)
+
     const siteurl = this.props.data.contentfulSiteInformation.siteUrl + "/";
     const twiteerhandle = this.props.data.contentfulSiteInformation
       .twiteerHandle;
@@ -115,6 +117,11 @@ export const pageQuery = graphql`
       }
       thankYouNote
       furtherCta
+      belowCta
+      youtubeUrl
+      belowVideo {
+        belowVideo
+      }
       createdAt
     }
     contentfulSiteInformation {

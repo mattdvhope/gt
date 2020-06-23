@@ -1,6 +1,7 @@
 import React from "react"
 import Img from "gatsby-image";
 import moment from "moment";
+import 'moment/locale/th';
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Share from "../components/share";
@@ -33,9 +34,9 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
 
         <div className="details">
           <h1 className="title">{data.title}</h1>
-          <span className="date">
+          <span className="date" style={{ height: `1px` }}>
             <i className="fas fa-calendar-alt"></i>{" "}
-            {moment(data.createdAt).format("LL")}
+            {moment("2020-07-22T15:00:15.921Z").format("LL")}
           </span>
           <div
             dangerouslySetInnerHTML={{
@@ -60,7 +61,10 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
           questions={rubyQuestions(data.questions)}
           profile={profile}
           thankYouNote={data.thankYouNote}
-          CTA={data.furtherCta}
+          furtherCta={data.furtherCta}
+          belowCta={data.belowCta}
+          youtubeUrl={data.youtubeUrl}
+          belowVideo={data.belowVideo.belowVideo}
         />
         <br/>
         <div className="fb-comments" data-href="https://relationshipsthailand.org/survey-1" data-numposts="2" data-width=""></div>
