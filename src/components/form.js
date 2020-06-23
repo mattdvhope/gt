@@ -70,20 +70,20 @@ export default class Form extends Component {
       document.documentElement.scrollTop = 600
     }
 
-    const { id, name, picture } = this.props.profile;
-    axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
-      name: name, picture: picture.data.url, fb_id: id
-    })
-    .then(response => {
-      console.log(response)
-      // return response.data.message;
-    })
+    // const { id, name, picture } = this.props.profile;
+    // axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
+    //   name: name, picture: picture.data.url, fb_id: id
+    // })
+    // .then(response => {
+    //   console.log(response)
+    //   // return response.data.message;
+    // })
   }
 
   render() {
 		const questions =  this.state.questions; // array
     const survey_done = this.state.survey_done;
-    const youtubeUrl = this.youtubeEmbeddable("https://www.youtube.com/watch?v=UXc_Dvgipew")
+    const youtubeUrl = this.youtubeEmbeddable(this.props.youtubeUrl)
     
 
     console.log(this.props)
@@ -117,14 +117,13 @@ export default class Form extends Component {
     } else {
       return (
         <div className="container-fluid">
-          <p style={{ fontSize: `125%` }} >{this.props.CTA}</p>
-          <YoutubeHolder youtubeUrl={youtubeUrl} />
+          <h2 style={{ color: `#BF8F63` }}><i>{this.props.furtherCta}</i></h2>
+          <p style={{ fontSize: `125%` }} >{this.props.belowCta}</p>
+          <hr/>
+          <YoutubeHolder youtubeUrl={youtubeUrl} belowVideo={this.props.belowVideo}/>
         </div>
       )
     }
-
-
-
 	}
 }
 
