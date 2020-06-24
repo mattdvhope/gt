@@ -63,8 +63,6 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
           thankYouNote={data.thankYouNote}
           furtherCta={data.furtherCta}
           belowCta={data.belowCta}
-          youtubeUrl={data.youtubeUrl}
-          belowVideo={data.belowVideo.belowVideo}
         />
         <br/>
         <div className="fb-comments" data-href="https://relationshipsthailand.org/survey-1" data-numposts="2" data-width=""></div>

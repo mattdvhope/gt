@@ -114,10 +114,6 @@ export const pageQuery = graphql`
       thankYouNote
       furtherCta
       belowCta
-      youtubeUrl
-      belowVideo {
-        belowVideo
-      }
       createdAt
     }
     contentfulSiteInformation {

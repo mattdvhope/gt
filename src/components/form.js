@@ -48,20 +48,6 @@ export default class Form extends Component {
     });
   }
 
-  youtubeEmbeddable(youtubeUrl) {
-    const video_id = this.youtubeId(youtubeUrl);
-    return `https://www.youtube.com/embed/${video_id}?rel=0`
-  }
-
-  youtubeId(youtubeUrl) {
-    let video_id = youtubeUrl.split('v=')[1];
-    const ampersandPosition = video_id.indexOf('&');
-    if(ampersandPosition != -1) {
-      video_id = video_id.substring(0, ampersandPosition);
-    }
-    return video_id    
-  }
-
 	handleSubmit(e) {
     e.preventDefault();
     this.setState({ survey_done: true })
@@ -83,10 +69,6 @@ export default class Form extends Component {
   render() {
 		const questions =  this.state.questions; // array
     const survey_done = this.state.survey_done;
-    const youtubeUrl = this.youtubeEmbeddable(this.props.youtubeUrl)
-    
-
-    console.log(this.props)
 
     if (!survey_done) {
   		return (
@@ -120,7 +102,7 @@ export default class Form extends Component {
           <h2 style={{ color: `#BF8F63` }}><i>{this.props.furtherCta}</i></h2>
           <p style={{ fontSize: `125%` }} >{this.props.belowCta}</p>
           <hr/>
-          <YoutubeHolder youtubeUrl={youtubeUrl} belowVideo={this.props.belowVideo}/>
+          <YoutubeHolder/>
         </div>
       )
     }
