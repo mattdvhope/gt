@@ -4,8 +4,8 @@ import { youtubeEmbeddable } from "../utils/youtubeEmbeddable"
 import FormYoutubeSurvey from "./formYoutubeSurvey"
 
 const YoutubeHolder = () => {
-	const oldWords = "Click here to share your thoughts about this video."
-	const newWords = "Click here to hide questions."
+	const oldWords = "คลิกที่นี่เพื่อแบ่งปันความคิดของคุณเกี่ยวกับวิดีโอนี้"
+	const newWords = "คลิกที่นี่เพื่อซ่อนคำถาม"
 	const [buttonPressed, setButtonState] = useState(false);
 	const [belowVideoThere, setBelowVideo] = useState(true);
 
