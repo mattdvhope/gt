@@ -7,12 +7,14 @@ const FormYoutubeSurvey = () => {
 	const [submitted, setSubmittedState] = useState(false);
 
 	useEffect(() => {
-    document.documentElement.scrollTop = 900;
+    const posY = window.scrollY + document.getElementById("YoutubeHolder").getBoundingClientRect().top
+		if (submitted) {document.documentElement.scrollTop = posY}
   });
 
 	function handleSubmit(e) {
     e.preventDefault();
 		setSubmittedState(true)
+		document.getElementById("button-for-youtube-survey").remove();
 	}
 
 	function handleChange() {
@@ -57,7 +59,35 @@ const FormYoutubeSurvey = () => {
 				if (!submitted) {
 		      return youTubeSurveyForm;
 		    } else {
-		    	return (<h2><hr/>{data.contentfulSurveysWithinPage.comment.comment}</h2>)
+		    	return (
+		    		<div>
+		    			<hr/>
+		    			<div
+		    				className="fb-page"
+		    				data-href="https://www.facebook.com/pg/relationshipsthailand/"
+		    				data-tabs="timeline"
+		    				data-width="180"
+		    				data-height="70"
+		    				data-small-header="false"
+		    				data-adapt-container-width="true"
+		    				data-hide-cover="false"
+		    				data-show-facepile="true"
+		    			>
+		    				<blockquote
+		    					cite="https://www.facebook.com/pg/relationshipsthailand/"
+		    					className="fb-xfbml-parse-ignore"
+	    					>
+		    					<a href="https://www.facebook.com/pg/relationshipsthailand/">
+		    						สัมพันธภาพ
+		    					</a>
+	    					</blockquote>
+	    				</div>
+			    		<h2>
+			    			<hr/>
+			    			{data.contentfulSurveysWithinPage.comment.comment}
+			    		</h2>
+		    		</div>
+		    	)
 		    }
 
 	    }}

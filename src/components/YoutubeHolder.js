@@ -11,7 +11,6 @@ const YoutubeHolder = () => {
 
 	useEffect(() => {
     const posY = window.scrollY + document.getElementById("YoutubeHolder").getBoundingClientRect().top
-    const posY2 = window.scrollY + document.getElementById("FrameHolder").getBoundingClientRect().top
     document.documentElement.scrollTop = posY - 65;
   });
 
@@ -25,6 +24,7 @@ const YoutubeHolder = () => {
 	function ButtonTemplate(needToPressForSurvey, wordsType) {
 		return (
 		<button
+			id="button-for-youtube-survey"
 			type="button"
 			className="btn btn-outline-success"
 			style={{ color: `brown`, borderColor: `#BF8F63`, backgroundColor: `#fff` }}
@@ -44,11 +44,11 @@ const YoutubeHolder = () => {
 	function ElementBelowVideo(data) {
 		if (belowVideoThere) { 
 			return (
-		    <div>
-		    	<p style={{ fontSize: `110%` }}>
-						{data.contentfulSurveys.belowVideo.belowVideo}
-		    	</p>
-		    </div>)
+				<div
+          dangerouslySetInnerHTML={{
+            __html: data.contentfulSurveys.belowVideo.childMarkdownRemark.html
+          }}
+        />)
 		} else return null
 	}
 
@@ -80,9 +80,6 @@ const YoutubeHolder = () => {
 							{formYT}
 							<hr/>
 					    {ElementBelowVideo(data)}
-					    <div>
-					    	<a href="https://www.youtube.com/watch?v=VrTko_k-X2M">Link to the video, "The Gospel of John"</a>
-					    </div>
 					  </div>
 	        </div>
 	      );
@@ -100,7 +97,9 @@ const detailsQuery = graphql`
       belowCta
       youtubeUrl
       belowVideo {
-        belowVideo
+        childMarkdownRemark {
+	        html
+	      }
       }
     }
   }
