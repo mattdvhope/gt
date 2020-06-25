@@ -7,14 +7,12 @@ const YoutubeHolder = () => {
 	const oldWords = "Click here to share your thoughts about this video."
 	const newWords = "Click here to hide questions."
 	const [buttonPressed, setButtonState] = useState(false);
+	const [belowVideoThere, setBelowVideo] = useState(true);
 
 	useEffect(() => {
     const posY = window.scrollY + document.getElementById("YoutubeHolder").getBoundingClientRect().top
     const posY2 = window.scrollY + document.getElementById("FrameHolder").getBoundingClientRect().top
     document.documentElement.scrollTop = posY - 65;
-		if (buttonPressed) {
-	    document.documentElement.scrollTop = posY2 - 65;
-		}
   });
 
 	let buttonElement;
@@ -30,13 +28,29 @@ const YoutubeHolder = () => {
 			type="button"
 			className="btn btn-outline-success"
 			style={{ color: `brown`, borderColor: `#BF8F63`, backgroundColor: `#fff` }}
-			onClick={() => setButtonState(needToPressForSurvey)}
+			onClick={() => DealWithButtonPressing(needToPressForSurvey)}
 		>
 			{wordsType}
 		</button>
 	)}
 
+	function DealWithButtonPressing(needToPressForSurvey) {
+		setButtonState(needToPressForSurvey)
+		setBelowVideo(!needToPressForSurvey)
+	}
+
 	const formYT = buttonPressed ? <FormYoutubeSurvey/> : null;
+
+	function ElementBelowVideo(data) {
+		if (belowVideoThere) { 
+			return (
+		    <div>
+		    	<p style={{ fontSize: `110%` }}>
+						{data.contentfulSurveys.belowVideo.belowVideo}
+		    	</p>
+		    </div>)
+		} else return null
+	}
 
 	return (
 	  <StaticQuery
@@ -47,7 +61,7 @@ const YoutubeHolder = () => {
 	      return (
 	        <div id="YoutubeHolder" className="container-fluid">
 	          <h2 style={{ color: `#BF8F63` }}><i>{data.contentfulSurveys.furtherCta}</i></h2>
-	          <p style={{ fontSize: `125%` }} >{data.contentfulSurveys.belowCta}</p>
+	      {/* <p style={{ fontSize: `125%` }} >{data.contentfulSurveys.belowCta}</p>  */}
 	          <hr/>
 						<div>
 							<iframe // Youtube video 
@@ -65,11 +79,7 @@ const YoutubeHolder = () => {
 							{buttonElement}
 							{formYT}
 							<hr/>
-					    <div>
-					    	<p style={{ fontSize: `110%` }}>
-									{data.contentfulSurveys.belowVideo.belowVideo}
-					    	</p>
-					    </div>
+					    {ElementBelowVideo(data)}
 					    <div>
 					    	<a href="https://www.youtube.com/watch?v=VrTko_k-X2M">Link to the video, "The Gospel of John"</a>
 					    </div>
