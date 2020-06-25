@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { StaticQuery, graphql } from "gatsby";
 import FormChoices from "./formChoices";
+import LineIcon from "../images/LINE_APP.png"
 
 const FormYoutubeSurvey = () => {
 
@@ -62,28 +63,15 @@ const FormYoutubeSurvey = () => {
 		    	return (
 		    		<div>
 		    			<hr/>
-		    			<div
-		    				className="fb-page"
-		    				data-href="https://www.facebook.com/pg/relationshipsthailand/"
-		    				data-tabs="timeline"
-		    				data-width="180"
-		    				data-height="70"
-		    				data-small-header="false"
-		    				data-adapt-container-width="true"
-		    				data-hide-cover="false"
-		    				data-show-facepile="true"
-		    			>
-		    				<blockquote
-		    					cite="https://www.facebook.com/pg/relationshipsthailand/"
-		    					className="fb-xfbml-parse-ignore"
-	    					>
-		    					<a href="https://www.facebook.com/pg/relationshipsthailand/">
-		    						สัมพันธภาพ
-		    					</a>
-	    					</blockquote>
-	    				</div>
+		    			<div>
+		    				<a href="https://line.me/R/ti/p/%40000ombos" >
+									<img src={LineIcon} width="45px" alt="LINE"/>
+		    					<span style={{ fontSize: `26px`, color: `#BF8F63` }} >&nbsp;
+		    					เชิญเป็นเพื่อนไลน์ </span>
+		    				</a>
+		    			</div>
+		    			<hr/>
 			    		<h2>
-			    			<hr/>
 			    			{data.contentfulSurveysWithinPage.comment.comment}
 			    		</h2>
 		    		</div>
