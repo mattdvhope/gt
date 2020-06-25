@@ -52,10 +52,6 @@ export default class Form extends Component {
     e.preventDefault();
     this.setState({ survey_done: true })
 
-    if (this.state.document) {
-      document.documentElement.scrollTop = 600
-    }
-
     // const { id, name, picture } = this.props.profile;
     // axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
     //   name: name, picture: picture.data.url, fb_id: id
@@ -98,12 +94,7 @@ export default class Form extends Component {
   		)
     } else {
       return (
-        <div className="container-fluid">
-          <h2 style={{ color: `#BF8F63` }}><i>{this.props.furtherCta}</i></h2>
-          <p style={{ fontSize: `125%` }} >{this.props.belowCta}</p>
-          <hr/>
-          <YoutubeHolder/>
-        </div>
+        <YoutubeHolder/>
       )
     }
 	}
