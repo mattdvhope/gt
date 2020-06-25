@@ -12,7 +12,6 @@ const FormYoutubeSurvey = () => {
 
 	function handleSubmit(e) {
     e.preventDefault();
-		alert("ขอบคุณมากค่ะ")
 		setSubmittedState(true)
 	}
 
