@@ -17,6 +17,11 @@ export default class surveyPost extends Component {
   }
 
   async componentDidMount() {
+    console.log("performance.navigation.type", performance.navigation.type)
+    console.log(performance.navigation.type !== performance.navigation.TYPE_NAVIGATE)
+    console.log("isLoggedIn()...", isLoggedIn())
+
+
     if (performance.navigation.type !== performance.navigation.TYPE_NAVIGATE) { //  if someone didn't get to this page from the homepage link, then have it "click" (programmatically) the FB login link first before returning here in order to acquire a new 'code'
       (window.location.replace(fbLoginURL()))
     }

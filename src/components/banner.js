@@ -5,6 +5,7 @@ import { isLoggedIn } from "../utils/auth"
 import { linkVisit } from "../utils/railsVisits"
 import { fbLoginURL } from "../utils/FBplatform"
 import { lineLoginURL } from "../utils/linePlatform"
+import { FacebookBrowser } from "../utils/FacebookBrowser"
 
 export default class Banner extends Component {
 
@@ -18,17 +19,17 @@ export default class Banner extends Component {
   }
 
   componentDidMount() {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    const FB_browser = ua.indexOf("FB") > -1 ? true : false
-    this.setState({ FB_browser: FB_browser, window: window })
+    // const ua = navigator.userAgent || navigator.vendor || window.opera;
+    // const FB_browser = ua.indexOf("FB") > -1 ? true : false
+    this.setState({ FB_browser: FacebookBrowser(), window: window })
   }
 
   Linkage( ) {
-    // if (this.state.FB_browser) {
+    if (this.state.FB_browser) {
       return this.FbLink();
-    // } else {
-    //   return this.GatsbyLink();
-    // }
+    } else {
+      return this.GatsbyLink();
+    }
   }
 
   FbLink() {
