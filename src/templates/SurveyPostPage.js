@@ -58,6 +58,7 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
           <hr/>
         </div>
         <Form
+          survey_id={data.id}
           title={data.title}
           questions={rubyQuestions(data.questions)}
           profile={profile}
