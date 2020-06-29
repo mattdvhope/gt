@@ -51,7 +51,7 @@ export default class Form extends Component {
     console.log(this.state.final_selections_of_choices)
     console.log(getUser())
 
-    // axios.post(`http://localhost:3000/questions`, {
+    // axios.post(`http://localhost:3000/questions`, { 
     axios.post(`https://nameless-coast-54274.herokuapp.com/questions`, {
       questions: this.state.final_selections_of_choices,
       fb_id: getUser().id
