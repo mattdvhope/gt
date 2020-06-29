@@ -34,8 +34,8 @@ export default class Banner extends Component {
     return (
       <a
         href={fbLoginURL()}
-        onClick={e => linkVisit()}
         style={this.state.linkColor} 
+        // onClick={e => linkVisit()}
       >
         {this.props.socialLinkStatement}
       </a>
@@ -47,7 +47,7 @@ export default class Banner extends Component {
       <Link 
         to={`survey-1`}
         style={this.state.linkColor}
-        onClick={e => linkVisit()}
+        // onClick={e => linkVisit()}
       >
         {this.props.socialLinkStatement}
       </Link>
