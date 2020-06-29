@@ -14,18 +14,18 @@ export default class Banner extends Component {
     this.state = { 
       window: undefined,
       linkColor: { color: `#DAC899` },
-      FB_browser: false,
+      is_FB_browser: false,
     };
   }
 
   componentDidMount() {
     // const ua = navigator.userAgent || navigator.vendor || window.opera;
-    // const FB_browser = ua.indexOf("FB") > -1 ? true : false
-    this.setState({ FB_browser: FacebookBrowser(), window: window })
+    // const is_FB_browser = ua.indexOf("FB") > -1 ? true : false
+    this.setState({ is_FB_browser: FacebookBrowser(), window: window })
   }
 
   Linkage( ) {
-    if (this.state.FB_browser) {
+    if (this.state.is_FB_browser) {
       return this.FbLink();
     } else {
       return this.GatsbyLink();
