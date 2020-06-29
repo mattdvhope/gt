@@ -23,11 +23,11 @@ export default class Banner extends Component {
   }
 
   Linkage( ) {
-    if (this.state.is_FB_browser) {
+    // if (this.state.is_FB_browser) {
       return this.FbLink();
-    } else {
-      return this.GatsbyLink();
-    }
+    // } else {
+    //   return this.GatsbyLink();
+    // }
   }
 
   FbLink() {

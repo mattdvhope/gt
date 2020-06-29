@@ -6,6 +6,7 @@ import { getAccessToken, inspectAccessToken, getUserProfile } from "../utils/FBL
 // import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
 import { fbLoginURL } from "../utils/FBplatform"
 import { FacebookBrowser } from "../utils/FacebookBrowser"
+import { persistUser } from "../utils/railsVisits"
 
 export default class surveyPost extends Component {
   constructor(props) {
@@ -26,13 +27,12 @@ export default class surveyPost extends Component {
     const code = url_with_code ? url_with_code[2] : null
     const surveyPost = this;
 
-    // if (!isLoggedIn() && code) { // conduct FB Login validations
-    if (!isLoggedIn()) { // conduct FB Login validations
+    if (!isLoggedIn() && code) { // conduct FB Login validations
       const token = await getAccessToken(code)
       const objectFromDebug = await inspectAccessToken(token)
       const profile_of_person = await getUserProfile(objectFromDebug.data.user_id, token)
       handleLogin(profile_of_person)
-alert("isLoggedIn()...", isLoggedIn())
+      persistUser(profile_of_person)
       this. setState({ profile: profile_of_person })
       
     } else {
