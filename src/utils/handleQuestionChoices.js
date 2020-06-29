@@ -15,10 +15,13 @@ export const updatedQuestions = (questions, question) => {
 }
 
 export const final_selections_of_choices = (questions) => {
-  let final_answers = []      
-  questions.map((question) => {
-    const selected = question.selected;
-    final_answers.push(selected)
+  let final_answers = []
+  questions.map((question_through) => {
+    let selected = question_through.selected;
+    selected = selected ? selected.choice : undefined
+    let question = question_through.question
+    question = {question, selected}
+    final_answers.push(question)
   })
   return final_answers;
 }

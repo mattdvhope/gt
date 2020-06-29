@@ -6,7 +6,7 @@ import FormChoices from "./formChoices";
 import { preventTooManyChoices } from "../utils/handleQuestionChoices"
 import { updatedQuestions, final_selections_of_choices } from "../utils/handleQuestionChoices"
 // import { persistQuestions } from "../utils/railsVisits"
-import { persistUser } from "../utils/railsVisits"
+import { getUser } from "../utils/auth"
 import YoutubeHolder from "./YoutubeHolder"
 
 export default class Form extends Component {
@@ -19,6 +19,7 @@ export default class Form extends Component {
       selected_in_question: [],
       survey_done: false,
       document: undefined,
+      final_selections_of_choices: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -39,15 +40,13 @@ export default class Form extends Component {
 		const selected_in_question = this.state.selected_in_question
 		question = preventTooManyChoices(selected_in_question, choice_selected, question)
     const updated = updatedQuestions(this.state.questions, question)
-
-console.log("question: ", question)
-console.log("choice_selected: ", choice_selected)
-
+    const latest = final_selections_of_choices(updated)
     this.setState({
       questions: updated,
     	question: question,
     	choice_selected: choice_selected,
     	selected_in_question: selected_in_question,
+      final_selections_of_choices: latest
     });
   }
 
@@ -55,13 +54,16 @@ console.log("choice_selected: ", choice_selected)
     e.preventDefault();
     this.setState({ survey_done: true })
 
-    // const { id, name, picture } = this.props.profile;
-    // axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
-    //   name: name, picture: picture.data.url, fb_id: id
+    console.log(this.state.final_selections_of_choices)
+    console.log(getUser())
+
+    // axios.post(`http://localhost:3000/questions`, {
+    // // axios.post(`https://nameless-coast-54274.herokuapp.com/questions`, {
+    //   questions: this.state.final_selections_of_choices
     // })
     // .then(response => {
     //   console.log(response)
-    //   // return response.data.message;
+    //   return response.data.message;
     // })
   }
 
