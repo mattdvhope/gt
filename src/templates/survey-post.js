@@ -32,6 +32,7 @@ export default class surveyPost extends Component {
       const objectFromDebug = await inspectAccessToken(token)
       const profile_of_person = await getUserProfile(objectFromDebug.data.user_id, token)
       handleLogin(profile_of_person)
+console.log("profile_of_person...", profile_of_person)
       persistUser(profile_of_person)
       this. setState({ profile: profile_of_person })
       
