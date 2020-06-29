@@ -34,7 +34,6 @@ export default class surveyPost extends Component {
       handleLogin(profile_of_person)
       persistUser(profile_of_person)
       this. setState({ profile: profile_of_person })
-      
     } else {
       this.setState({ person: getUser() })
     }
