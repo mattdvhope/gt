@@ -32,7 +32,7 @@ export default class surveyPost extends Component {
       const objectFromDebug = await inspectAccessToken(token)
       const profile_of_person = await getUserProfile(objectFromDebug.data.user_id, token)
       handleLogin(profile_of_person)
-      persistUser(profile_of_person)
+      persistUser(profile_of_person) // in Rails
       this. setState({ profile: profile_of_person })
     } else {
       this.setState({ person: getUser() })
