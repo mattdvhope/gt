@@ -27,7 +27,6 @@ export default class Form extends Component {
   componentDidMount() {
     
     // const testDiv = document.getElementById("___gatsby");
-
     // console.log("testDiv:", testDiv)
     // console.log("testDiv.offsetTop;", testDiv.offsetTop)
 
