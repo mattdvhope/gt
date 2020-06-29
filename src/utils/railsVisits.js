@@ -2,11 +2,6 @@ import axios from 'axios'
 
 export const persistUser = (profile) => {
   const { id, name, picture } = profile;
-  console.log("fb_id??????..", id)
-  console.log(name)
-  console.log(picture.data.url)
-
-  // axios.post(`http://localhost:3000/users`, {
   axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
     name: name, picture: picture.data.url, fb_id: id
   })
@@ -14,7 +9,6 @@ export const persistUser = (profile) => {
     console.log(response)
     return response.data.message;
   })
-
 }
 
 
