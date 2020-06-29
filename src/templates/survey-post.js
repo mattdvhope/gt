@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { graphql, Link } from "gatsby";
 import SurveyPostPage from "./SurveyPostPage"
-import { isLoggedIn, getUser } from "../utils/auth"
+import { isLoggedIn, getUser, handleLogin } from "../utils/auth"
 import { getAccessToken, inspectAccessToken, getUserProfile } from "../utils/FBLoginValidations"
 // import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
 import { fbLoginURL } from "../utils/FBplatform"
@@ -18,11 +18,6 @@ export default class surveyPost extends Component {
   }
 
   async componentDidMount() {
-    console.log("performance.navigation.type", performance.navigation.type)
-    console.log(performance.navigation.type !== performance.navigation.TYPE_NAVIGATE)
-    console.log("isLoggedIn()...", isLoggedIn())
-
-
     if ((performance.navigation.type !== performance.navigation.TYPE_NAVIGATE) && FacebookBrowser()) { //  if someone didn't get to this page from the homepage link, then have it "click" (programmatically) the FB login link first before returning here in order to acquire a new 'code'
       (window.location.replace(fbLoginURL()))
     }
@@ -31,10 +26,13 @@ export default class surveyPost extends Component {
     const code = url_with_code ? url_with_code[2] : null
     const surveyPost = this;
 
-    if (!isLoggedIn() && code) { // conduct FB Login validations
+    // if (!isLoggedIn() && code) { // conduct FB Login validations
+    if (!isLoggedIn()) { // conduct FB Login validations
       const token = await getAccessToken(code)
       const objectFromDebug = await inspectAccessToken(token)
       const profile_of_person = await getUserProfile(objectFromDebug.data.user_id, token)
+      handleLogin(profile_of_person)
+alert("isLoggedIn()...", isLoggedIn())
       this. setState({ profile: profile_of_person })
       
     } else {
