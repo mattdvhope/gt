@@ -40,6 +40,9 @@ export default class Form extends Component {
 		question = preventTooManyChoices(selected_in_question, one_selected, question)
     const updated = updatedQuestions(this.state.questions, question)
 
+console.log("question: ", question)
+console.log("one_selected: ", one_selected)
+
     this.setState({
       questions: updated,
     	question: question,
