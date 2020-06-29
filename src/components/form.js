@@ -58,13 +58,13 @@ export default class Form extends Component {
     console.log(getUser())
 
     // axios.post(`http://localhost:3000/questions`, {
-    // // axios.post(`https://nameless-coast-54274.herokuapp.com/questions`, {
-    //   questions: this.state.final_selections_of_choices
-    // })
-    // .then(response => {
-    //   console.log(response)
-    //   return response.data.message;
-    // })
+    axios.post(`https://nameless-coast-54274.herokuapp.com/questions`, {
+      questions: this.state.final_selections_of_choices
+    })
+    .then(response => {
+      console.log(response)
+      return response.data.message;
+    })
   }
 
   render() {
