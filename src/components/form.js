@@ -15,7 +15,7 @@ export default class Form extends Component {
     this.state = {
       questions: this.props.questions,
       question: undefined,
-      one_selected: undefined,
+      choice_selected: undefined,
       selected_in_question: [],
       survey_done: false,
       document: undefined,
@@ -35,18 +35,18 @@ export default class Form extends Component {
 
 	handleChange = e => {
     let question = JSON.parse(e.target.name)
-    const one_selected = JSON.parse(e.target.value)
+    const choice_selected = JSON.parse(e.target.value)
 		const selected_in_question = this.state.selected_in_question
-		question = preventTooManyChoices(selected_in_question, one_selected, question)
+		question = preventTooManyChoices(selected_in_question, choice_selected, question)
     const updated = updatedQuestions(this.state.questions, question)
 
 console.log("question: ", question)
-console.log("one_selected: ", one_selected)
+console.log("choice_selected: ", choice_selected)
 
     this.setState({
       questions: updated,
     	question: question,
-    	one_selected: one_selected,
+    	choice_selected: choice_selected,
     	selected_in_question: selected_in_question,
     });
   }
