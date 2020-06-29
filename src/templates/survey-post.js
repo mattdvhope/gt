@@ -5,6 +5,7 @@ import { isLoggedIn, getUser } from "../utils/auth"
 import { getAccessToken, inspectAccessToken, getUserProfile } from "../utils/FBLoginValidations"
 // import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
 import { fbLoginURL } from "../utils/FBplatform"
+import { FacebookBrowser } from "../utils/FacebookBrowser"
 
 export default class surveyPost extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export default class surveyPost extends Component {
     console.log("isLoggedIn()...", isLoggedIn())
 
 
-    if (performance.navigation.type !== performance.navigation.TYPE_NAVIGATE) { //  if someone didn't get to this page from the homepage link, then have it "click" (programmatically) the FB login link first before returning here in order to acquire a new 'code'
+    if ((performance.navigation.type !== performance.navigation.TYPE_NAVIGATE) && FacebookBrowser()) { //  if someone didn't get to this page from the homepage link, then have it "click" (programmatically) the FB login link first before returning here in order to acquire a new 'code'
       (window.location.replace(fbLoginURL()))
     }
 
