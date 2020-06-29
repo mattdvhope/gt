@@ -19,8 +19,6 @@ export default class Banner extends Component {
   }
 
   componentDidMount() {
-    // const ua = navigator.userAgent || navigator.vendor || window.opera;
-    // const is_FB_browser = ua.indexOf("FB") > -1 ? true : false
     this.setState({ is_FB_browser: FacebookBrowser(), window: window })
   }
 
