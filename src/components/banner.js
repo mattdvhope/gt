@@ -27,7 +27,7 @@ export default class Banner extends Component {
       return this.FbLink();
     // } else {
     //   return this.GatsbyLink();
-    // }
+    // } 
   }
 
   FbLink() {
