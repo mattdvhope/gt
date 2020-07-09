@@ -57,6 +57,7 @@ export default class Banner extends Component {
     return (
       <a
         href={lineLoginURL()}
+        onClick={e => localStorage.setItem("loginLink", "LineLink")}
         style={this.state.linkColor} 
         // onClick={e => linkVisit()}
       >
@@ -84,7 +85,7 @@ export default class Banner extends Component {
         <a href={lineLoginURL()} onClick={e => localStorage.setItem("loginLink", "LineLink")}>
           <img src={LineIcon} style={{ width: `25%`, marginBottom: `7px` }} alt="LINE"/>
         </a>
-         &nbsp;|&nbsp; 
+         &nbsp;||&nbsp; 
         <a href={fbLoginURL()}>
           <img src={FacebookIcon} style={{ width: `25%`, marginBottom: `7px`, borderRadius: `100%` }} alt="FB"/>
         </a>
