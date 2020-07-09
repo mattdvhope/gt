@@ -3,9 +3,10 @@ import { graphql, Link } from "gatsby";
 import SurveyPostPage from "./SurveyPostPage"
 import { isLoggedIn, getUser, handleLogin } from "../utils/auth"
 import { getAccessToken, inspectAccessToken, getUserProfile } from "../utils/FBLoginValidations"
-// import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
+import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
 import { fbLoginURL } from "../utils/FBplatform"
-import { FacebookBrowser } from "../utils/BrowserTypes"
+import { lineLoginURL } from "../utils/linePlatform"
+import { FacebookBrowser, LineBrowser } from "../utils/BrowserTypes"
 import { persistUser } from "../utils/railsVisits"
 
 export default class surveyPost extends Component {
@@ -19,34 +20,29 @@ export default class surveyPost extends Component {
   }
 
   async componentDidMount() {
-    if ((performance.navigation.type !== performance.navigation.TYPE_NAVIGATE) && FacebookBrowser()) { //  if someone didn't get to this page from the homepage link, then have it "click" (programmatically) the FB login link first before returning here in order to acquire a new 'code'
-      (window.location.replace(fbLoginURL()))
-    }
-
     const url_with_code = window.location.search.match(/(code=)(.*)(?=&state)/)
     const code = url_with_code ? url_with_code[2] : null
     const surveyPost = this;
 
-    if (!isLoggedIn() && code) { // conduct FB Login validations
-      const token = await getAccessToken(code)
-      const objectFromDebug = await inspectAccessToken(token)
-      const profile_of_person = await getUserProfile(objectFromDebug.data.user_id, token)
-      handleLogin(profile_of_person)
-      persistUser(profile_of_person) // in Rails
-      this. setState({ profile: profile_of_person })
+    if (!isLoggedIn() && code) {
+      if (FacebookBrowser()) {
+        const token = await getAccessToken(code)  // conduct FB Login validations
+        const objectFromDebug = await inspectAccessToken(token)
+        const profile_of_person = await getUserProfile(objectFromDebug.data.user_id, token)
+        handleLogin(profile_of_person)
+        persistUser(profile_of_person) // in Rails
+        this. setState({ profile: profile_of_person })
+      } else {
+        const json = await getIdToken(code) // conduct LINE Login validations
+        const person = await getPerson(json)
+        const decodedData = validateIdToken(json)
+        checkValidation(surveyPost, json, person, decodedData)
+      }
+    } else if (!isLoggedIn()) {
+      window.location.replace(lineLoginURL())
     } else {
       this.setState({ person: getUser() })
     }
-
-    // if (!isLoggedIn() && code) { // conduct LINE Login validations
-    //   const json = await getIdToken(code)
-    //   const person = await getPerson(json)
-    //   const decodedData = validateIdToken(json)
-    //   checkValidation(surveyPost, json, person, decodedData)
-    // } else {
-    //   this.setState({ person: getUser() })
-    // }
-
   }
 
   render() {
@@ -68,7 +64,7 @@ export default class surveyPost extends Component {
       slug: data.slug
     };
 
-    // if (isLoggedIn()) {
+    if (isLoggedIn()) {
       return (
         <SurveyPostPage
           data={data}
@@ -77,9 +73,9 @@ export default class surveyPost extends Component {
           profile={this.state.profile}
         />
       )
-    // } else {
-    //   return (<h5><br/>&nbsp;&nbsp;<Link to="/">คุณยังไม่ได้เข้าสู่ระบบค่ะ คลิกที่นี่เพื่อกลับไปที่หน้าแรกค่ะ</Link></h5>)
-    // }
+    } else {
+      return <span/>
+    }
 
   } // render()
 }

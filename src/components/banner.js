@@ -16,6 +16,7 @@ export default class Banner extends Component {
       linkColor: { color: `#DAC899` },
       is_FB_browser: false,
       is_LINE_browser: false,
+      GatsbyLinkClicked: false,
     };
   }
 
@@ -29,6 +30,9 @@ export default class Banner extends Component {
     }
     else if (this.state.is_LINE_browser) {
       return this.LineLink();
+    } 
+    else if (this.state.GatsbyLinkClicked) {
+      return this.SocialLoginChoices();
     } 
     else {
       return this.GatsbyLink();
@@ -61,13 +65,25 @@ export default class Banner extends Component {
 
   GatsbyLink() {
     return (
-      <Link 
-        to={`survey-1`}
+      <a 
+        href={`#`}
+        onClick={e => this.setState({ GatsbyLinkClicked: true })}
         style={this.state.linkColor}
-        // onClick={e => linkVisit()}
       >
         {this.props.socialLinkStatement}
-      </Link>
+      </a>
+    )
+  }
+
+  SocialLoginChoices() {
+    return (
+      <div style={{ backgroundColor: `white` }}>
+        <h4>In order to participate in this survey, please Login with FB or LINE</h4>
+        <a href={lineLoginURL()}>LINE</a> | <a href={fbLoginURL()}>Facebook</a>
+        <h4>We suggest logging in with LINE because it reveals less of your personal information: only your Line profile photo and your Line nickname. We will not have access to any other information in your LINE account.  And, if you feel that you no longer want to participate, you can easily 'block' มิตรภาพเคียงข้างคุณ and you will no longer be connected with us.</h4>
+        <h4>The reason that we ask you to login with either Facebook or LINE is because we want to know who would be interested in learning more about how to grow in relationships.</h4>
+        <button onClick={e => this.setState({ GatsbyLinkClicked: false })} >Cancel</button>
+      </div>
     )
   }
 
