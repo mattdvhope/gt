@@ -5,7 +5,7 @@ import { isLoggedIn } from "../utils/auth"
 // import { linkVisit } from "../utils/railsVisits"
 import { fbLoginURL } from "../utils/FBplatform"
 import { lineLoginURL } from "../utils/linePlatform"
-import { FacebookBrowser } from "../utils/BrowserTypes"
+import { FacebookBrowser, LineBrowser } from "../utils/BrowserTypes"
 
 export default class Banner extends Component {
 
@@ -15,28 +15,42 @@ export default class Banner extends Component {
       window: undefined,
       linkColor: { color: `#DAC899` },
       is_FB_browser: false,
+      is_LINE_browser: false,
     };
   }
 
   componentDidMount() {
-    this.setState({ is_FB_browser: FacebookBrowser(), window: window })
-
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    alert(ua)
+    this.setState({ is_FB_browser: FacebookBrowser(), is_LINE_browser: LineBrowser(), window: window })
   }
 
   Linkage( ) {
-    // if (this.state.is_FB_browser) {
+    if (this.state.is_FB_browser) {
       return this.FbLink();
-    // } else {
-    //   return this.GatsbyLink();
-    // } 
+    }
+    else if (this.state.is_LINE_browser) {
+      return this.LineLink();
+    } 
+    else {
+      return this.GatsbyLink();
+    } 
   }
 
   FbLink() {
     return (
       <a
         href={fbLoginURL()}
+        style={this.state.linkColor} 
+        // onClick={e => linkVisit()}
+      >
+        {this.props.socialLinkStatement}
+      </a>
+    )
+  }
+
+  LineLink() {
+    return (
+      <a
+        href={lineLoginURL()}
         style={this.state.linkColor} 
         // onClick={e => linkVisit()}
       >
