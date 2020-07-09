@@ -6,7 +6,6 @@ import { getAccessToken, inspectAccessToken, getUserProfile } from "../utils/FBL
 import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
 import { fbLoginURL } from "../utils/FBplatform"
 import { lineLoginURL } from "../utils/linePlatform"
-import { FacebookBrowser, LineBrowser } from "../utils/BrowserTypes"
 import { persistUser } from "../utils/railsVisits"
 
 export default class surveyPost extends Component {
@@ -25,21 +24,21 @@ export default class surveyPost extends Component {
     const surveyPost = this;
 
     if (!isLoggedIn() && code) {
-      if (FacebookBrowser()) {
+      if (localStorage.getItem("loginLink") === "LineLink") {
+        const json = await getIdToken(code) // conduct LINE Login validations
+        const person = await getPerson(json)
+        const decodedData = validateIdToken(json)
+        checkValidation(surveyPost, json, person, decodedData)
+      } else {
         const token = await getAccessToken(code)  // conduct FB Login validations
         const objectFromDebug = await inspectAccessToken(token)
         const profile_of_person = await getUserProfile(objectFromDebug.data.user_id, token)
         handleLogin(profile_of_person)
         persistUser(profile_of_person) // in Rails
         this. setState({ profile: profile_of_person })
-      } else {
-        const json = await getIdToken(code) // conduct LINE Login validations
-        const person = await getPerson(json)
-        const decodedData = validateIdToken(json)
-        checkValidation(surveyPost, json, person, decodedData)
       }
     } else if (!isLoggedIn()) {
-      window.location.replace(lineLoginURL())
+      window.location.replace(lineLoginURL()) // LATER!!! ...make FB login capability here too....
     } else {
       this.setState({ person: getUser() })
     }

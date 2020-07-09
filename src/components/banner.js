@@ -81,7 +81,13 @@ export default class Banner extends Component {
     return (
       <div style={{ padding: `4%`, color: `#DAC899`, borderStyle: `ridge` }}>
         <h4>กรุณาเข้าสู่ระบบด้วยแอปพลิเคชันไลน์หรือเฟซบุ๊กเพื่อเข้าร่วมการสำรวจนี้นะค่ะ</h4>
-        <a href={lineLoginURL()}><img src={LineIcon} style={{ width: `25%`, marginBottom: `7px` }} alt="LINE"/></a> | <a href={fbLoginURL()}><img src={FacebookIcon} style={{ width: `25%`, marginBottom: `7px`, borderRadius: `100%` }} alt="FB"/></a>
+        <a href={lineLoginURL()} onClick={e => localStorage.setItem("loginLink", "LineLink")}>
+          <img src={LineIcon} style={{ width: `25%`, marginBottom: `7px` }} alt="LINE"/>
+        </a>
+         &nbsp;|&nbsp; 
+        <a href={fbLoginURL()}>
+          <img src={FacebookIcon} style={{ width: `25%`, marginBottom: `7px`, borderRadius: `100%` }} alt="FB"/>
+        </a>
         <h4>หากคุณรู้สึกว่าคุณไม่ต้องการมีส่วนร่วมอีกต่อไปคุณสามารถเลิกเป็นเพื่อนกับ "มิตรภาพข้างข้างคุณ" ได้อย่างง่ายดายและเราจะไม่ได้ติดต่อกับคุณอีกต่อไปนะค่ะ</h4>
         <button
           type="button"

@@ -10,6 +10,7 @@ const Logout = () => (
 	    onClick={event => {
 	      event.preventDefault()
 	      logout(() => navigate(`/`))
+        localStorage.setItem("loginLink", null)
 	    }}
 	  >
 	    ออกจากระบบ
