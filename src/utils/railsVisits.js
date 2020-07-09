@@ -1,9 +1,22 @@
 import axios from 'axios'
 
-export const persistUser = (profile) => {
+export const persistFbUser = (profile) => {
   const { id, name, picture } = profile;
   axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
-    name: name, picture: picture.data.url, fb_id: id
+    name: name, picture: picture.data.url, fb_id: id, line_id: null
+  })
+  .then(response => {
+    console.log(response)
+    return response.data.message;
+  })
+}
+
+export const persistLineUser = (profile) => {
+  const { sub, name, picture } = profile;
+
+  // axios.post(`http://localhost:3000/users`, { 
+  axios.post(`https://nameless-coast-54274.herokuapp.com/users`, {
+    name: name, picture: picture, fb_id: null, line_id: sub
   })
   .then(response => {
     console.log(response)

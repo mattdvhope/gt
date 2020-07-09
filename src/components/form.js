@@ -48,15 +48,15 @@ export default class Form extends Component {
     e.preventDefault();
     this.setState({ survey_done: true })
 
-    console.log(this.state.final_selections_of_choices)
-    console.log(getUser())
+    console.log("USER:", getUser())
 
     // axios.post(`http://localhost:3000/surveys`, { 
     axios.post(`https://nameless-coast-54274.herokuapp.com/surveys`, {
       contentful_id: this.props.survey_id,
       survey_title: this.props.title,
       questions: this.state.final_selections_of_choices,
-      fb_id: getUser().id
+      fb_id: getUser().id,
+      line_id: getUser().sub
     })
     .then(response => {
       console.log(response)
