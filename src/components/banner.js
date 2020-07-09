@@ -5,7 +5,7 @@ import { isLoggedIn } from "../utils/auth"
 // import { linkVisit } from "../utils/railsVisits"
 import { fbLoginURL } from "../utils/FBplatform"
 import { lineLoginURL } from "../utils/linePlatform"
-import { FacebookBrowser } from "../utils/FacebookBrowser"
+import { FacebookBrowser } from "../utils/BrowserTypes"
 
 export default class Banner extends Component {
 

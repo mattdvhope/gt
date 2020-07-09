@@ -5,7 +5,7 @@ import { isLoggedIn, getUser, handleLogin } from "../utils/auth"
 import { getAccessToken, inspectAccessToken, getUserProfile } from "../utils/FBLoginValidations"
 // import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
 import { fbLoginURL } from "../utils/FBplatform"
-import { FacebookBrowser } from "../utils/FacebookBrowser"
+import { FacebookBrowser } from "../utils/BrowserTypes"
 import { persistUser } from "../utils/railsVisits"
 
 export default class surveyPost extends Component {
