@@ -20,6 +20,9 @@ export default class Banner extends Component {
 
   componentDidMount() {
     this.setState({ is_FB_browser: FacebookBrowser(), window: window })
+
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    alert(ua)
   }
 
   Linkage( ) {
