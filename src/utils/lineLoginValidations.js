@@ -3,7 +3,7 @@ import { logout, handleLogin } from "./auth"
 import { addVisit } from "./railsVisits"
 
 export async function getIdToken(code) {
-	const params = `grant_type=authorization_code&code=${code}&redirect_uri=${process.env.GATSBY_API_URL}&client_id=1654368325&client_secret=26e02bf88250345262e5d0cf7aab03f8`;
+	const params = `grant_type=authorization_code&code=${code}&redirect_uri=${process.env.GATSBY_API_URL}&client_id=1654368325&client_secret=92bcf5c73c7371c8b0c3a80af4a7abf0`;
   const response = await fetch(`https://api.line.me/oauth2/v2.1/token`, {
     method: 'POST',
     headers: {'Content-Type':'application/x-www-form-urlencoded'},
