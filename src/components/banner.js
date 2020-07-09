@@ -6,6 +6,8 @@ import { isLoggedIn } from "../utils/auth"
 import { fbLoginURL } from "../utils/FBplatform"
 import { lineLoginURL } from "../utils/linePlatform"
 import { FacebookBrowser, LineBrowser } from "../utils/BrowserTypes"
+import LineIcon from "../images/LINE_APP.png"
+import FacebookIcon from "../images/FacebookIcon.jpg"
 
 export default class Banner extends Component {
 
@@ -77,12 +79,18 @@ export default class Banner extends Component {
 
   SocialLoginChoices() {
     return (
-      <div style={{ backgroundColor: `white` }}>
-        <h4>In order to participate in this survey, please Login with FB or LINE</h4>
-        <a href={lineLoginURL()}>LINE</a> | <a href={fbLoginURL()}>Facebook</a>
-        <h4>We suggest logging in with LINE because it reveals less of your personal information: only your Line profile photo and your Line nickname. We will not have access to any other information in your LINE account.  And, if you feel that you no longer want to participate, you can easily 'block' มิตรภาพเคียงข้างคุณ and you will no longer be connected with us.</h4>
-        <h4>The reason that we ask you to login with either Facebook or LINE is because we want to know who would be interested in learning more about how to grow in relationships.</h4>
-        <button onClick={e => this.setState({ GatsbyLinkClicked: false })} >Cancel</button>
+      <div style={{ padding: `4%`, color: `#DAC899`, borderStyle: `ridge` }}>
+        <h4>กรุณาเข้าสู่ระบบด้วยเฟซบุ๊กหรือแอปพลิเคชันไลน์เพื่อเข้าร่วมการสำรวจนี้นะค่ะ</h4>
+        <a href={lineLoginURL()}><img src={LineIcon} style={{ width: `25%`, marginBottom: `7px` }} alt="LINE"/></a> | <a href={fbLoginURL()}><img src={FacebookIcon} style={{ width: `25%`, marginBottom: `7px`, borderRadius: `100%` }} alt="FB"/></a>
+        <h4>หากคุณรู้สึกว่าคุณไม่ต้องการมีส่วนร่วมอีกต่อไปคุณสามารถเลิกเป็นเพื่อนกับ "มิตรภาพข้างข้างคุณ" ได้อย่างง่ายดายและเราจะไม่ได้ติดต่อกับคุณอีกต่อไปนะค่ะ</h4>
+        <button
+          type="button"
+          className="btn btn-outline-info"
+          onClick={e => this.setState({ GatsbyLinkClicked: false })}
+          style={{ marginLeft: `auto`, marginRight: `auto` }}
+        >
+          ยกเลิก
+        </button>
       </div>
     )
   }
@@ -116,19 +124,19 @@ export default class Banner extends Component {
                 <ul className="social">
                   <li>
                     <a
-                      className="fab fa-facebook-f"
-                      href={data.facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    ></a>
-                  </li>
-                  <li>
-                    <a
                       className="fab fa-line"
                       href={data.line}
                       target="_blank"
                       style={{ fontSize: `200%` }}
                       rel="line app"
+                    ></a>
+                  </li>
+                  <li>
+                    <a
+                      className="fab fa-facebook-f"
+                      href={data.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     ></a>
                   </li>
                 </ul>
