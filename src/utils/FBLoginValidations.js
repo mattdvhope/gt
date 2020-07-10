@@ -20,6 +20,7 @@ alert(JSON.stringify(json))
 }
 
 export async function getUserProfile(user_id, token) {
+alert(JSON.stringify(json))
   const response = await fetch(`https://graph.facebook.com/v7.0/${user_id}?fields=id,name,first_name,middle_name,last_name,name_format,picture,short_name,email&access_token=${token}`)
   const json = await response.json();
   return json;
