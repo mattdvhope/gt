@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { graphql, Link } from "gatsby";
 import SurveyPostPage from "./SurveyPostPage"
 import { isLoggedIn, getUser, handleLogin } from "../utils/auth"
-import { getAccessToken, inspectAccessToken, getUserProfile } from "../utils/FBLoginValidations"
+import { getClientAccessToken, getWebAccessToken, inspectAccessToken, getUserProfile } from "../utils/FBLoginValidations"
 import { getIdToken, getPerson, validateIdToken, checkValidation } from "../utils/lineLoginValidations"
 import { fbLoginURL } from "../utils/FBplatform"
 import { lineLoginURL } from "../utils/linePlatform"
@@ -31,8 +31,9 @@ export default class surveyPost extends Component {
         checkValidation(surveyPost, json, person, decodedData)
         persistLineUser(person) // in Rails
       } else { // FB Login validations
-        const token = await getAccessToken(code)
-        const objectFromDebug = await inspectAccessToken(token)
+        const clientToken = await getClientAccessToken(code)
+        const webToken = await getWebAccessToken()
+        const objectFromDebug = await inspectAccessToken(clientToken, webToken)
         const profile_of_person = await getUserProfile(objectFromDebug.data.user_id, token)
         handleLogin(profile_of_person)
         persistFbUser(profile_of_person) // in Rails
