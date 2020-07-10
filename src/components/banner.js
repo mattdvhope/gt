@@ -45,6 +45,7 @@ export default class Banner extends Component {
     return (
       <a
         href={fbLoginURL()}
+        onClick={e => localStorage.setItem("loginLink", "FbLink")}
         style={this.state.linkColor} 
         // onClick={e => linkVisit()}
       >
