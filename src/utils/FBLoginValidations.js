@@ -3,7 +3,7 @@ import { logout, handleLogin } from "./auth"
 import { addVisit } from "./railsVisits"
 
 export async function getAccessToken(code) {
-  const params = `client_id=${process.env.GATSBY_FB_APP_CLIENT_ID}&redirect_uri=${process.env.GATSBY_API_URL}&client_secret=8eef4a89221d26750c5309ab244dfe6f&code=${code}`;
+  const params = `client_id=${process.env.GATSBY_FB_APP_CLIENT_ID}&redirect_uri=${process.env.GATSBY_API_URL}&client_secret=c88e4dcb888f1d3fee4c796d7a6e6dcd&code=${code}`;
   const response = await fetch(`https://graph.facebook.com/v7.0/oauth/access_token?${params}`)
   const json = await response.json();
   return json.access_token;
