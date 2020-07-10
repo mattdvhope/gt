@@ -31,10 +31,12 @@ export default class surveyPost extends Component {
         checkValidation(surveyPost, json, person, decodedData)
         persistLineUser(person) // in Rails
       } else { // FB Login validations
-        alert("in FB validations")
         const token = await getAccessToken(code)
+        alert(token)
         const objectFromDebug = await inspectAccessToken(token)
+        alert(objectFromDebug)
         const profile_of_person = await getUserProfile(objectFromDebug.data.user_id, token)
+        alert(profile_of_person)
         handleLogin(profile_of_person)
         persistFbUser(profile_of_person) // in Rails
         this. setState({ profile: profile_of_person })
