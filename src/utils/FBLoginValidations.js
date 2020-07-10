@@ -19,7 +19,7 @@ export async function getWebAccessToken() {
 export async function inspectAccessToken(clientToken, webToken) {
 alert(clientToken)
 alert(webToken)
-  const params = `input_token=${webToken}&access_token=${clientToken}`;
+  const params = `input_token=${clientToken}&access_token=${webToken}`;
   const response = await fetch(`https://graph.facebook.com/v7.0/debug_token?${params}`)
   const json = await response.json();
 alert(JSON.stringify(json))
