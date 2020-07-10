@@ -13,7 +13,7 @@ export async function inspectAccessToken(token) {
   const params = `input_token=${token}&access_token=${token}`;
   const response = await fetch(`https://graph.facebook.com/v7.0/debug_token?${params}`)
   const json = await response.json();
-  return JSON.stringify(json);
+  return json;
 }
 
 export async function getUserProfile(user_id, token) {
