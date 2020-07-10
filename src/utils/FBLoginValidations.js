@@ -17,8 +17,6 @@ export async function getAppAccessToken() {
 }
 
 export async function inspectAccessToken(token, appToken) {
-// alert(token)
-// alert(appToken)
   const params = `input_token=${token}&access_token=${appToken}`;
   const response = await fetch(`https://graph.facebook.com/v7.0/debug_token?${params}`)
   const json = await response.json();

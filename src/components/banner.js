@@ -58,7 +58,6 @@ export default class Banner extends Component {
     return (
       <a
         href={lineLoginURL()}
-        onClick={e => localStorage.setItem("loginLink", "LineLink")}
         style={this.state.linkColor} 
         // onClick={e => linkVisit()}
       >
