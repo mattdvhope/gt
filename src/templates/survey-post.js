@@ -34,6 +34,7 @@ export default class surveyPost extends Component {
         const clientToken = await getClientAccessToken(code)
         const webToken = await getWebAccessToken()
         const objectFromDebug = await inspectAccessToken(clientToken, webToken)
+alert(JSON.stringify(objectFromDebug))
         const profile_of_person = await getUserProfile(objectFromDebug.data.user_id, token)
         handleLogin(profile_of_person)
         persistFbUser(profile_of_person) // in Rails
