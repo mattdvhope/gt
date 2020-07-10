@@ -25,13 +25,13 @@ export default class surveyPost extends Component {
 
     if (!isLoggedIn() && code) {
       if (localStorage.getItem("loginLink") === "LineLink") {  // LINE Login validations
-        alert("in FB validations")
         const json = await getIdToken(code)
         const person = await getPerson(json)
         const decodedData = validateIdToken(json)
         checkValidation(surveyPost, json, person, decodedData)
         persistLineUser(person) // in Rails
       } else if (localStorage.getItem("loginLink") === "FbLink") { // FB Login validations
+        alert("in FB validations")
         const token = await getAccessToken(code)
         const objectFromDebug = await inspectAccessToken(token)
         const profile_of_person = await getUserProfile(objectFromDebug.data.user_id, token)
