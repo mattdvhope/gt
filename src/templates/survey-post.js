@@ -30,7 +30,7 @@ export default class surveyPost extends Component {
         const decodedData = validateIdToken(json)
         checkValidation(surveyPost, json, person, decodedData)
         persistLineUser(person) // in Rails
-      } else if (localStorage.getItem("loginLink") === "FbLink") { // FB Login validations
+      } else { // FB Login validations
         alert("in FB validations")
         const token = await getAccessToken(code)
         const objectFromDebug = await inspectAccessToken(token)
@@ -38,8 +38,6 @@ export default class surveyPost extends Component {
         handleLogin(profile_of_person)
         persistFbUser(profile_of_person) // in Rails
         this. setState({ profile: profile_of_person })
-      } else {
-        alert("not in either place")
       }
     } else if (!isLoggedIn()) {
       window.location.replace(lineLoginURL()) // LATER!!! ...make FB login capability here too....
