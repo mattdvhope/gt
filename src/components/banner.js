@@ -101,6 +101,13 @@ export default class Banner extends Component {
     )
   }
 
+  iconToBeDisplayed(data) {
+    if (this.state.is_FB_browser) {
+      return this.fbIcon(data)
+    } else {
+      return this.lineIcon(data)
+    }
+  }
 
   lineIcon(data) {
     return (
@@ -156,8 +163,7 @@ export default class Banner extends Component {
                 </span>
                 <br/>
                 <ul className="social">
-                  {this.lineIcon(data)}
-                  {this.fbIcon(data)}
+                  {this.iconToBeDisplayed(data)}
                 </ul>
               </div>
             </div>
