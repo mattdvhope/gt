@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "gatsby";
 import Img from "gatsby-image";
 import { isLoggedIn } from "../utils/auth"
 // import { linkVisit } from "../utils/railsVisits"
-import { fbLoginURL } from "../utils/FBplatform"
 import { lineLoginURL } from "../utils/linePlatform"
+import { fbLoginURL } from "../utils/FBplatform"
 import { FacebookBrowser, LineBrowser } from "../utils/BrowserTypes"
 import LineIcon from "../images/LINE_APP.png"
 import FacebookIcon from "../images/FacebookIcon.jpg"
@@ -41,10 +40,11 @@ export default class Banner extends Component {
     } 
   }
 
-  FbLink() {
+  LineLink() {
     return (
       <a
-        href={fbLoginURL()}
+        href={lineLoginURL()}
+        onClick={e => localStorage.setItem("loginLink", "LineLink")}
         style={this.state.linkColor} 
         // onClick={e => linkVisit()}
       >
@@ -53,11 +53,10 @@ export default class Banner extends Component {
     )
   }
 
-  LineLink() {
+  FbLink() {
     return (
       <a
-        href={lineLoginURL()}
-        onClick={e => localStorage.setItem("loginLink", "LineLink")}
+        href={fbLoginURL()}
         style={this.state.linkColor} 
         // onClick={e => linkVisit()}
       >
@@ -102,6 +101,34 @@ export default class Banner extends Component {
     )
   }
 
+
+  lineIcon(data) {
+    return (
+      <li>
+        <a
+          className="fab fa-line"
+          href={lineLoginURL()}
+          onClick={e => localStorage.setItem("loginLink", "LineLink")}
+          style={{ fontSize: `200%` }}
+          rel="line app"
+        ></a>
+      </li>
+    )
+  }
+
+  fbIcon(data) {
+    return (
+      <li>
+        <a
+          className="fab fa-facebook-f"
+          href={fbLoginURL()}
+          style={{ fontSize: `140%` }}
+          rel="noopener noreferrer"
+        ></a>
+      </li>
+    )
+  }
+
   render() {
     const { data } = this.props;
 
@@ -129,23 +156,8 @@ export default class Banner extends Component {
                 </span>
                 <br/>
                 <ul className="social">
-                  <li>
-                    <a
-                      className="fab fa-line"
-                      href={data.line}
-                      target="_blank"
-                      style={{ fontSize: `200%` }}
-                      rel="line app"
-                    ></a>
-                  </li>
-                  <li>
-                    <a
-                      className="fab fa-facebook-f"
-                      href={data.facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    ></a>
-                  </li>
+                  {this.lineIcon(data)}
+                  {this.fbIcon(data)}
                 </ul>
               </div>
             </div>
