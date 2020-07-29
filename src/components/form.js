@@ -3,11 +3,11 @@ import { navigate } from "gatsby";
 import { graphql } from "gatsby";
 import axios from 'axios'
 import FormChoices from "./formChoices";
-import { preventTooManyChoices } from "../utils/handleQuestionChoices"
-import { updatedQuestions, final_selections_of_choices } from "../utils/handleQuestionChoices"
+import { preventTooManyChoices, updatedQuestions, final_selections_of_choices } from "../utils/handleQuestionChoices"
 // import { persistQuestions } from "../utils/railsVisits" 
 import { getUser } from "../utils/auth"
 import YoutubeHolder from "./YoutubeHolder"
+import FormYoutubeSurvey from "./formYoutubeSurvey"
 
 export default class Form extends Component {
 	constructor(props) {
@@ -68,37 +68,37 @@ export default class Form extends Component {
 		const questions =  this.state.questions; // array
     const survey_done = this.state.survey_done;
 
-    if (!survey_done) {
-  		return (
-  			<div className="container-fluid">
-  				<form onSubmit={this.handleSubmit} >
-  					{questions.map((item) => {
-  						return (
-  							<div key={item.id}>
-  							  <h3>
-  							    {item.question}
-  							    <br/>
-  							    <FormChoices
-  							    	choices={item.questionChoices}
-  							    	question={JSON.stringify(item)}
-  							    	handleChange={this.handleChange}
-  							    />
-  							  </h3>
-  							  <br/>
-  							</div>
-  						);
-  					})}
-            <p style={{ fontSize: `125%` }} >{this.props.thankYouNote}</p>
-            <br/>
-  				  <button type="submit" className="btn btn-success">"ส่ง"</button>
-  				</form>
-  			</div>
-  		)
-    } else {
+    // if (!survey_done) {
+  		// return (
+  		// 	<div className="container-fluid">
+  		// 		<form onSubmit={this.handleSubmit} >
+  		// 			{questions.map((item) => {
+  		// 				return (
+  		// 					<div key={item.id}>
+  		// 					  <h3>
+  		// 					    {item.question}
+  		// 					    <br/>
+  		// 					    <FormChoices
+  		// 					    	choices={item.questionChoices}
+  		// 					    	question={JSON.stringify(item)}
+  		// 					    	handleChange={this.handleChange}
+  		// 					    />
+  		// 					  </h3>
+  		// 					  <br/>
+  		// 					</div>
+  		// 				);
+  		// 			})}
+    //         <p style={{ fontSize: `125%` }} >{this.props.thankYouNote}</p>
+    //         <br/>
+  		// 		  <button type="submit" className="btn btn-success">"ส่ง"</button>
+  		// 		</form>
+  		// 	</div>
+  		// )
+    // } else {
       return (
         <YoutubeHolder/>
       )
-    }
+    // }
 	}
 }
 
