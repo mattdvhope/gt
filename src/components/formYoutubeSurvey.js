@@ -31,7 +31,7 @@ const FormYoutubeSurvey = () => {
           setQuestions(questions)
         }
 
-console.log(getUser())
+console.log("user: ", getUser())
 
       	function handleChange(e) {
           let question = JSON.parse(e.target.name)
