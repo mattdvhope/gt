@@ -33,6 +33,7 @@ const FormYoutubeSurvey = () => {
 
 console.log("fb_id: ", getUser().id)
 console.log("line_id: ", getUser().sub)
+console.log("contentful_id: ", data.contentfulSurveysWithinPage.id)
 
       	function handleChange(e) {
           let question = JSON.parse(e.target.name)
