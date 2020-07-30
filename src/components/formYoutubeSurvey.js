@@ -54,8 +54,8 @@ console.log("user: ", getUser())
             contentful_id: data.contentfulSurveysWithinPage.id,
             survey_title: data.title,
             questions: final_choices,
-            fb_id: getUser().id,
-            line_id: getUser().sub
+            fb_id: getUser().id ? getUser().id : null,
+            line_id: getUser().sub ? getUser().sub : null
           })
           .then(response => {
             console.log(response)
