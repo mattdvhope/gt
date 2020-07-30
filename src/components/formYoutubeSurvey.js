@@ -31,6 +31,8 @@ const FormYoutubeSurvey = () => {
           setQuestions(questions)
         }
 
+console.log(data.contentfulSurveysWithinPage.id)
+
       	function handleChange(e) {
           let question = JSON.parse(e.target.name)
           const choice_selected = JSON.parse(e.target.value)
@@ -49,7 +51,7 @@ const FormYoutubeSurvey = () => {
 
           // axios.post(`http://localhost:3000/surveys`, { 
           axios.post(`https://nameless-coast-54274.herokuapp.com/surveys`, {
-            contentful_id: data.id,
+            contentful_id: data.contentfulSurveysWithinPage.id,
             survey_title: data.title,
             questions: final_choices,
             fb_id: getUser().id,
