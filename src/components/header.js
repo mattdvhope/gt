@@ -45,14 +45,14 @@ export default class Header extends Component {
                   }}
                 >
                   <li>
-                    <Link to="/#home">Home</Link>
+                    <Link to="/#home">หน้าแรก</Link>
                   </li>
                   {data.menus
                     .filter(item => item === "About")
                     .map(t => {
                       return (
                         <li key={t} >
-                          <Link to={`/#About`}>About</Link>
+                          <Link to={`/#About`}>เกี่ยวกับเรา</Link>
                         </li>
                       );
                     })}
