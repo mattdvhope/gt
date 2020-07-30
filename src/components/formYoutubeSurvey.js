@@ -31,7 +31,8 @@ const FormYoutubeSurvey = () => {
           setQuestions(questions)
         }
 
-console.log("user: ", getUser())
+console.log("fb_id: ", getUser().id)
+console.log("line_id: ", getUser().sub)
 
       	function handleChange(e) {
           let question = JSON.parse(e.target.name)
@@ -54,8 +55,8 @@ console.log("user: ", getUser())
             contentful_id: data.contentfulSurveysWithinPage.id,
             survey_title: data.title,
             questions: final_choices,
-            fb_id: getUser().id ? getUser().id : null,
-            line_id: getUser().sub ? getUser().sub : null
+            fb_id: getUser().id,
+            line_id: getUser().sub
           })
           .then(response => {
             console.log(response)
