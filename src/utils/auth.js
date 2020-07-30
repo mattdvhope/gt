@@ -11,7 +11,6 @@ const setUser = user =>
   window.localStorage.setItem("user", JSON.stringify(user))
 
 export const handleLogin = person => {
-  console.log(person);
   if (!isBrowser) return false
   return setUser(person)
 }
