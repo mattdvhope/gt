@@ -69,15 +69,6 @@ const SurveyPostPage = ({ data, siteurl, socialConfigss, profile }) => (
         <br/>
         <div className="fb-comments" data-href="https://relationshipsthailand.org/survey-1" data-numposts="2" data-width=""></div>
         <br/>
-        <Share
-          socialConfig={{
-            ...socialConfigss.site.siteMetadata.twiteerhandletitle,
-            config: {
-              url: `${siteurl}${socialConfigss.slug}`,
-              title: `${socialConfigss.title}`
-            }
-          }}
-        />
       </div>
     </div>
   </Layout>

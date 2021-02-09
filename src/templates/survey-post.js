@@ -54,12 +54,10 @@ export default class surveyPost extends Component {
       title: data.title
     };
 
-    const siteurl = this.props.data.contentfulSiteInformation.siteUrl + "/";
-    const twiteerhandle = this.props.data.contentfulSiteInformation
-      .twiteerHandle;
+    const siteurl = this.props.data.contentfulHomePage.siteUrl + "/";
     const socialConfigss = {
       site: {
-        siteMetadata: { siteurl, twiteerhandle }
+        siteMetadata: { siteurl }
       },
       title: data.title,
       slug: data.slug
@@ -116,9 +114,8 @@ export const pageQuery = graphql`
       belowCta
       createdAt
     }
-    contentfulSiteInformation {
+    contentfulHomePage {
       siteUrl
-      twiteerHandle
     }
   }
 `;

@@ -18,7 +18,7 @@ const Layout = ({ children, header }) => {
     <StaticQuery
       query={graphql`
         query SiteTitleQuery {
-          contentfulSiteInformation {
+          contentfulHomePage {
             siteName
             siteDescription
             logo {
@@ -35,14 +35,14 @@ const Layout = ({ children, header }) => {
         <>
           <HelmetLocale/>
           <Header
-            data={data.contentfulSiteInformation}
-            siteTitle={data.contentfulSiteInformation.siteName}
+            data={data.contentfulHomePage}
+            siteTitle={data.contentfulHomePage.siteName}
             header={header}
           />
           <div>
             <main id="home">{children}</main>
           </div>
-          <Footer siteName={data.contentfulSiteInformation.siteName} />
+          <Footer siteName={data.contentfulHomePage.siteName} />
           <script>
             alert("Hello");
           </script>

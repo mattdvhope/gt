@@ -17,12 +17,10 @@ export default class blogPost extends Component {
       title: data.title
     };
 
-    const siteurl = this.props.data.contentfulSiteInformation.siteUrl + "/";
-    const twiteerhandle = this.props.data.contentfulSiteInformation
-      .twiteerHandle;
+    const siteurl = this.props.data.contentfulHomePage.siteUrl + "/";
     const socialConfigss = {
       site: {
-        siteMetadata: { siteurl, twiteerhandle }
+        siteMetadata: { siteurl }
       },
       title: data.title,
       slug: data.slug
@@ -64,15 +62,6 @@ export default class blogPost extends Component {
                 }}
               />
             </div>
-            <Share
-              socialConfig={{
-                ...socialConfigss.site.siteMetadata.twiteerhandletitle,
-                config: {
-                  url: `${siteurl}${socialConfigss.slug}`,
-                  title: `${socialConfigss.title}`
-                }
-              }}
-            />
             <DiscussionEmbed
               shortname={disqusShortname}
               config={disqusConfig}
@@ -108,9 +97,8 @@ export const pageQuery = graphql`
       }
       createdAt
     }
-    contentfulSiteInformation {
+    contentfulHomePage {
       siteUrl
-      twiteerHandle
     }
   }
 `;
