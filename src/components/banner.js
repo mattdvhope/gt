@@ -23,6 +23,7 @@ export default class Banner extends Component {
 
   componentDidMount() {
     this.setState({ is_FB_browser: FacebookBrowser(), is_LINE_browser: LineBrowser(), window: window })
+    console.log(isLoggedIn())
   }
 
   Linkage( ) {
