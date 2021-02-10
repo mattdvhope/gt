@@ -23,6 +23,9 @@ export default class surveyPost extends Component {
     const code = url_with_code ? url_with_code[2] : null
     const surveyPost = this;
 
+    console.log(isLoggedIn())
+
+
     if (!isLoggedIn() && code) {
       if (localStorage.getItem("loginLink") === "LineLink") {  // LINE Login validations
         const json = await getIdToken(code)
