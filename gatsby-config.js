@@ -73,6 +73,6 @@ module.exports = {
       }
     }, // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
     `gatsby-plugin-offline`,
-    `source-plugin`
+    `source-plugin` // in gt/plugins/source-plugin ...for GraphQL from Rails (in my case)
   ]
 };
