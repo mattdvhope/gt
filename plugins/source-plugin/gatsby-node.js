@@ -42,17 +42,17 @@ exports.sourceNodes = async ({
 }) => {
   const { createNode } = actions
 
-	const { data } = await client.query({
-	  query: gql`
-			query {
-			  links {
-			    id
-			    url
-			    description
-			  }
-			}
-	  `,
-	})
+  const { data } = await client.query({
+    query: gql`
+      query {
+        links {
+          id
+          url
+          description
+        }
+      }
+    `,
+  })
 
   // loop through data and create Gatsby nodes
   data.links.forEach(link =>
