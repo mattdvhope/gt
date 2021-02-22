@@ -20,14 +20,14 @@ const client = new ApolloClient({
       )
     },
     new WebSocketLink({
-      uri: `ws://localhost:3000/graphql`, // or `ws://gatsby-source-plugin-api.glitch.me/`,
+      uri: `${process.env.GATSBY_GRAPHQL_RAILS_URL_WS}`, // or `ws://gatsby-source-plugin-api.glitch.me/`,
       options: {
         reconnect: true,
       },
       webSocketImpl: WebSocket,
     }),
     new HttpLink({
-      uri: `http://localhost:3000/graphql`, // or `https://gatsby-source-plugin-api.glitch.me/`,
+      uri: `${process.env.GATSBY_GRAPHQL_RAILS_URL_HTTP}`, // or `https://gatsby-source-plugin-api.glitch.me/`,
       fetch,
     })
   ),
